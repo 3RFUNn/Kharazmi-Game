@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316ae526fb55fa14787f402e764131ad, type: 3}
+  m_Name: DatabaseHolder
+  m_EditorClassIdentifier: 
+  KeyStrings:
+  - a
+  - b
+  - x
+  - y
+  - ax
+  - ab
+  - xy
+  KeyPrefixes:
+  - 
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - '-'
+  - -2
+  - -3
+  - -4
+  - -5
+  - -6
+  - -7
+  - -8
+  - -9
+  - -10
+  - 1/2
+  - 1/3
+  - 1/4
+  - 1/5
+  - 1/6
+  - 1/7
+  - 1/8
+  - 1/9
+  - 0.1
+  - -1/2
+  - -1/3
+  - -1/4
+  - -1/5
+  - -1/6
+  - -1.7
+  - -1/8
+  - -1/9
+  - -0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
+  - -0.2
+  - -0.3
+  - -0.4
+  - -0.5
+  - -0.6
+  - -0.7
+  - -0.8
+  - -0.9
+  - "\u221A2"
+  - "\u221A3"
+  - "\u221A5"
+  - "\u221A6"
+  - "\u221A7"
+  - "-\u221A2"
+  - "-\u221A3"
+  - "-\u221A5"
+  - "-\u221A6"
+  - "-\u221A7"
+  Constants:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - -1
+  - -2
+  - -3
+  - -4
+  - -5
+  - -6
+  - -7
+  - -8
+  - -9
+  - -10
