@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Equation Bank
   m_EditorClassIdentifier: 
   easyEquations:
-  - equationText: 8x = 5
-    correctAnswerText: 5/8
+  - equationText: 5x = 8
+    correctAnswerText:
+    - 5/8
+    - 625.0
     incorrectAnswerTexts:
     - 1
     - 2

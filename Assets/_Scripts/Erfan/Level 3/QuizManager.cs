@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -8,17 +8,17 @@ public class QuizManager : MonoBehaviour
 {
     public EquationBank equationBank;
 
-    public Text equationText;
-    public Text answer1Text;
-    public Text answer2Text;
-    public Text answer3Text;
-    public Text answer4Text;
-    
+    public RTLTextMeshPro equationText;
+    public RTLTextMeshPro answer1Text;
+    public RTLTextMeshPro answer2Text;
+    public RTLTextMeshPro answer3Text;
+    public RTLTextMeshPro answer4Text;
+
 
     public
         Image timerImage;
 
-    public Text timerText;
+    public RTLTextMeshPro timerText;
 
     public GameObject quizPanel;
     public GameObject nextSceneButton;
