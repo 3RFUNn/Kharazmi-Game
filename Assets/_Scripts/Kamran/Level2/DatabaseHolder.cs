@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "DatabaseHolder", menuName = "ScriptableObjects/DatabaseHolder", order = 1)]
+public class DatabaseHolder : SingletonScriptableObject<DatabaseHolder,ICreationMethodLocated>
+{
+    public List<string> KeyStrings;
+    public List<string> KeyPrefixes;
+    public List<string> Constants;
+}
