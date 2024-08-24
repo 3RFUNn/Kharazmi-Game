@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RTLTMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,8 +17,10 @@ public class EquationBank : ScriptableObject
 public struct Equation
 {
     public string equationText;
-    public List<string> correctAnswerText;
-    public List<string> incorrectAnswerTexts;
+    public List<GameObject> correctAnswerText;
+    public List<GameObject> incorrectAnswerTexts;
+    
+   
 }
 
 

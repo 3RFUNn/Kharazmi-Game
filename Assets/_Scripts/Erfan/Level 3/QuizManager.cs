@@ -9,14 +9,13 @@ public class QuizManager : MonoBehaviour
     public EquationBank equationBank;
 
     public RTLTextMeshPro equationText;
-    public RTLTextMeshPro answer1Text;
-    public RTLTextMeshPro answer2Text;
-    public RTLTextMeshPro answer3Text;
-    public RTLTextMeshPro answer4Text;
+    // public RTLTextMeshPro answer1Text;
+    // public RTLTextMeshPro answer2Text;
+    // public RTLTextMeshPro answer3Text;
+    // public RTLTextMeshPro answer4Text;
 
 
-    public
-        Image timerImage;
+    public Image timerImage;
 
     public RTLTextMeshPro timerText;
 
@@ -54,8 +53,7 @@ public class QuizManager : MonoBehaviour
         int n = list.Count;
         while (n > 1)
         {
-            int k = Random.Range(0,
-                n--);
+            int k = Random.Range(0, n--);
             (list[k], list[n]) = (list[n], list[k]);
         }
     }
@@ -89,14 +87,14 @@ public class QuizManager : MonoBehaviour
         
         // Randomly select a correct answer from the list
         int randomCorrectAnswerIndex = Random.Range(0, equation.correctAnswerText.Count);
-        string correctAnswer = equation.correctAnswerText[randomCorrectAnswerIndex];
+        GameObject correctAnswer = equation.correctAnswerText[randomCorrectAnswerIndex];
 
         // Randomly select 3 incorrect answers from the list
-        List<string> incorrectAnswers = new List<string>();
+        List<GameObject> incorrectAnswers = new List<GameObject>();
         while (incorrectAnswers.Count < 3)
         {
             int randomIncorrectAnswerIndex = Random.Range(0, equation.incorrectAnswerTexts.Count);
-            string incorrectAnswer = equation.incorrectAnswerTexts[randomIncorrectAnswerIndex];
+            GameObject incorrectAnswer = equation.incorrectAnswerTexts[randomIncorrectAnswerIndex];
             if (!incorrectAnswers.Contains(incorrectAnswer))
             {
                 incorrectAnswers.Add(incorrectAnswer);
@@ -104,7 +102,7 @@ public class QuizManager : MonoBehaviour
         }
       
         // Create a list of all answers (correct and incorrect)
-        List<string> allAnswers = new List<string>();
+        List<GameObject> allAnswers = new List<GameObject>();
         allAnswers.Add(correctAnswer);
         allAnswers.AddRange(incorrectAnswers);
         
@@ -114,17 +112,17 @@ public class QuizManager : MonoBehaviour
         Shuffle(allAnswers);
 
         // Assign shuffled answers to UI elements
-        answer1Text.text = allAnswers[0];
-        answer2Text.text = allAnswers[1];
-        answer3Text.text = allAnswers[2];
-        answer4Text.text = allAnswers[3];
+    //     answer1Text.text = allAnswers[0];
+    //     answer2Text.text = allAnswers[1];
+    //     answer3Text.text = allAnswers[2];
+    //     answer4Text.text = allAnswers[3];
     }
 
     public void CheckAnswer(string answer)
     {
         if (isQuizActive)
         {
-            if (answer == answer1Text.text)
+            if (true)
             {
                 // Correct answer
                 currentQuestion++;

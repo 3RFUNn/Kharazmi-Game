@@ -15,11 +15,10 @@ MonoBehaviour:
   easyEquations:
   - equationText: 5x = 8
     correctAnswerText:
-    - 5/8
-    - 625.0
+    - {fileID: 6875152694160963506, guid: 055a9428f07f55c4f98194a696f731ba, type: 3}
     incorrectAnswerTexts:
-    - 1
-    - 2
-    - 3
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   mediumEquations: []
   hardEquations: []
