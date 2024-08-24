@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -8,16 +8,16 @@ public class QuizManager : MonoBehaviour
 {
     public EquationBank equationBank;
 
-    public TextMeshProUGUI equationText;
-    public TextMeshProUGUI answer1Text;
-    public TextMeshProUGUI answer2Text;
-    public TextMeshProUGUI answer3Text;
-    public TextMeshProUGUI answer4Text;
+    public RTLTextMeshPro equationText;
+    // public RTLTextMeshPro answer1Text;
+    // public RTLTextMeshPro answer2Text;
+    // public RTLTextMeshPro answer3Text;
+    // public RTLTextMeshPro answer4Text;
 
-    public
-        Image timerImage;
 
-    public TextMeshProUGUI timerText;
+    public Image timerImage;
+
+    public RTLTextMeshPro timerText;
 
     public GameObject quizPanel;
     public GameObject nextSceneButton;
@@ -34,6 +34,7 @@ public class QuizManager : MonoBehaviour
 
     public void StartQuiz()
     {
+        
         currentLevel = 1;
         currentQuestion = 0;
         timeRemaining = 40f;
@@ -52,8 +53,7 @@ public class QuizManager : MonoBehaviour
         int n = list.Count;
         while (n > 1)
         {
-            int k = Random.Range(0,
-                n--);
+            int k = Random.Range(0, n--);
             (list[k], list[n]) = (list[n], list[k]);
         }
     }
@@ -81,22 +81,48 @@ public class QuizManager : MonoBehaviour
         // Randomly select an equation
         int randomIndex = Random.Range(0, equations.Count);
         Equation equation = equations[randomIndex];
-
+        
         // Set the equation and answers
         equationText.text = equation.equationText;
-        answer1Text.text = equation.correctAnswerText;
-        List<string> incorrectAnswers = equation.incorrectAnswerTexts;
-        Shuffle(incorrectAnswers); // Randomize incorrect answers
-        answer2Text.text = incorrectAnswers[0];
-        answer3Text.text = incorrectAnswers[1];
-        answer4Text.text = incorrectAnswers[2];
+        
+        // Randomly select a correct answer from the list
+        int randomCorrectAnswerIndex = Random.Range(0, equation.correctAnswerText.Count);
+        GameObject correctAnswer = equation.correctAnswerText[randomCorrectAnswerIndex];
+
+        // Randomly select 3 incorrect answers from the list
+        List<GameObject> incorrectAnswers = new List<GameObject>();
+        while (incorrectAnswers.Count < 3)
+        {
+            int randomIncorrectAnswerIndex = Random.Range(0, equation.incorrectAnswerTexts.Count);
+            GameObject incorrectAnswer = equation.incorrectAnswerTexts[randomIncorrectAnswerIndex];
+            if (!incorrectAnswers.Contains(incorrectAnswer))
+            {
+                incorrectAnswers.Add(incorrectAnswer);
+            }
+        }
+      
+        // Create a list of all answers (correct and incorrect)
+        List<GameObject> allAnswers = new List<GameObject>();
+        allAnswers.Add(correctAnswer);
+        allAnswers.AddRange(incorrectAnswers);
+        
+        
+
+        // Shuffle the list of all answers
+        Shuffle(allAnswers);
+
+        // Assign shuffled answers to UI elements
+    //     answer1Text.text = allAnswers[0];
+    //     answer2Text.text = allAnswers[1];
+    //     answer3Text.text = allAnswers[2];
+    //     answer4Text.text = allAnswers[3];
     }
 
     public void CheckAnswer(string answer)
     {
         if (isQuizActive)
         {
-            if (answer == answer1Text.text)
+            if (true)
             {
                 // Correct answer
                 currentQuestion++;
