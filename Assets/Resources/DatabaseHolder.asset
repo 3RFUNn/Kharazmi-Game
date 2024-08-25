@@ -107,3 +107,5 @@ MonoBehaviour:
   - -8
   - -9
   - -10
+  DecimalFarsiFormat: 8,0 -
+  DivisionFarsiFormat: '  1 -----  -  2'

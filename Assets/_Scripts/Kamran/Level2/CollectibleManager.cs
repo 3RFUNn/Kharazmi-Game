@@ -1,4 +1,5 @@
-using DG.Tweening;
+﻿using DG.Tweening;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -8,7 +9,9 @@ using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
-    [SerializeField] TextMeshPro text;
+    [SerializeField] RTLTextMeshPro3D preText;
+    [SerializeField] TextMeshPro suText;
+    [SerializeField] Transform bothTexts;
     [HideInInspector]
     public string KeyString;
     [Header("Dotween Properties")]
@@ -24,10 +27,62 @@ public class CollectibleManager : MonoBehaviour
         SetRandomText(_keyString);
         Wiggle();
     }
-    public void SetText(string _text,string _keyString)
+    public void SetText(string _preTxt,string _suTxt, bool isConst=false)
     {
-        text.text= _text;
-        KeyString = _keyString;
+        preText.text = ConvertToFarsiText(_preTxt);
+        if(!isConst)
+            suText.text = _suTxt;
+        KeyString = _suTxt;
+        if ((_preTxt.Length<3 || isConst) && !_preTxt.Contains("√"))
+        {
+            bothTexts.localPosition += new Vector3(-0.05f* (3-_preTxt.Length), 0, 0);
+        }
+    }
+    string ConvertToFarsiText(string _text)
+    {
+        string res = _text;
+        if (_text.Contains("/"))
+        {
+            var newText = DatabaseHolder.Instance.DivisionFarsiFormat;
+            if (_text.Contains("-"))
+            {
+                var replacing = _text[3];
+                newText = newText.Replace('2', replacing);
+            }
+            else
+            {
+                var replacing = _text[2];
+                newText = newText.Replace('2', replacing);
+                newText = newText.Replace(" - ", "   ");
+            }
+            newText = newText.Substring(0, 3)
+                 + "\n"
+                 + newText.Substring(3 + 1);
+            newText = newText.Substring(0, 12)
+                 + "\n"
+                 + newText.Substring(12 + 1);
+            preText.characterSpacing = -14;
+            preText.wordSpacing = 10;
+            preText.lineSpacing = -55;
+            res = newText;
+        }
+        if (_text.Contains("."))
+        {
+            var newText = DatabaseHolder.Instance.DecimalFarsiFormat;
+            if (_text.Contains("-"))
+            {
+                var replacing = _text[3];
+                newText = newText.Replace("8,0", replacing+",0");
+            }
+            else
+            {
+                var replacing = _text[2];
+                newText=newText.Replace("8,0", replacing + ",0");
+                newText = newText.Replace(" - ", "");
+            }
+            res = newText;
+        }
+        return res;
     }
     void SetRandomText(string _keyString="nothing")
     {
@@ -36,7 +91,7 @@ public class CollectibleManager : MonoBehaviour
         {
             rand = Random.Range(0, DatabaseHolder.Instance.Constants.Count);
             var constant=DatabaseHolder.Instance.Constants[rand];
-            SetText(constant, constant);
+            SetText(constant, constant,true);
             return;
         }
         rand = Random.Range(0,DatabaseHolder.Instance.KeyStrings.Count);
@@ -47,11 +102,11 @@ public class CollectibleManager : MonoBehaviour
         }
         rand=Random.Range(0,DatabaseHolder.Instance.KeyPrefixes.Count);
         var prefix=DatabaseHolder.Instance.KeyPrefixes[rand];
-        SetText(prefix+" "+keyString, keyString);
+        SetText(prefix, keyString);
     }
     public string GetText()
     {
-        return text.text;
+        return preText.text;
     }
     async void Wiggle()
     {
