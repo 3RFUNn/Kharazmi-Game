@@ -2,13 +2,290 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/AnswerParent.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/AnswerParent.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer4.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Answers/Answer4.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Equation Bank.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Equation Bank.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 1/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 10/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 11/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 12/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 13/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 14/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 15/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 16/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 17/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 18/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 19/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 2/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 20/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 21/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 22/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 23/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 24/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 25/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 26/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 27/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 28/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 29/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 3/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 4/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 5/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 6/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 7/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 8/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q 9/Incorrect 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Correct.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Correct.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Level 3 Answers/Q/Incorrect 3.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/EquationBank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/EquationBank.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" afterDir="false" />
     </list>
@@ -16,6 +293,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -72,7 +352,9 @@
       <workItem from="1724356241620" duration="645000" />
       <workItem from="1724365800884" duration="595000" />
       <workItem from="1724421265092" duration="6956000" />
-      <workItem from="1724496320847" duration="5362000" />
+      <workItem from="1724496320847" duration="6323000" />
+      <workItem from="1724530576172" duration="11018000" />
+      <workItem from="1724581039984" duration="3321000" />
     </task>
     <servers />
   </component>

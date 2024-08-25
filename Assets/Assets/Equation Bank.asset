@@ -13,12 +13,126 @@ MonoBehaviour:
   m_Name: Equation Bank
   m_EditorClassIdentifier: 
   easyEquations:
-  - equationText: 5x = 8
-    correctAnswerText:
-    - {fileID: 6875152694160963506, guid: 055a9428f07f55c4f98194a696f731ba, type: 3}
-    incorrectAnswerTexts:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  mediumEquations: []
-  hardEquations: []
+  - equationText: 8x + 5 = 3
+    correctAnswer:
+    - _
+    - ' '
+    - 3
+    - 5
+    incorrectAnswer1:
+    - _
+    - ' '
+    - 5
+    - 3
+    incorrectAnswer2:
+    - _
+    - 
+    - 5
+    - 8
+    incorrectAnswer3:
+    - _
+    - ' '
+    - 8
+    - 5
+  mediumEquations:
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  hardEquations:
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []
+  - equationText: 
+    correctAnswer: []
+    incorrectAnswer1: []
+    incorrectAnswer2: []
+    incorrectAnswer3: []

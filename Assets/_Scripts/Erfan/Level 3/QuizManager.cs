@@ -1,18 +1,27 @@
+using System;
 using UnityEngine;
 using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class QuizManager : MonoBehaviour
 {
     public EquationBank equationBank;
 
     public RTLTextMeshPro equationText;
-    // public RTLTextMeshPro answer1Text;
-    // public RTLTextMeshPro answer2Text;
-    // public RTLTextMeshPro answer3Text;
-    // public RTLTextMeshPro answer4Text;
+
+    public GameObject[] Answer;
+
+    public RTLTextMeshPro[] Answer1Text;
+    public RTLTextMeshPro[] Answer2Text;
+    public RTLTextMeshPro[] Answer3Text;
+    public RTLTextMeshPro[] Answer4Text;
+
+    
+    
 
 
     public Image timerImage;
@@ -22,6 +31,9 @@ public class QuizManager : MonoBehaviour
     public GameObject quizPanel;
     public GameObject nextSceneButton;
 
+    
+    
+
     private int currentLevel;
     private int currentQuestion;
     private float timeRemaining;
@@ -30,11 +42,12 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         StartQuiz();
+        
     }
 
     public void StartQuiz()
     {
-        
+
         currentLevel = 1;
         currentQuestion = 0;
         timeRemaining = 40f;
@@ -85,37 +98,49 @@ public class QuizManager : MonoBehaviour
         // Set the equation and answers
         equationText.text = equation.equationText;
         
-        // Randomly select a correct answer from the list
-        int randomCorrectAnswerIndex = Random.Range(0, equation.correctAnswerText.Count);
-        GameObject correctAnswer = equation.correctAnswerText[randomCorrectAnswerIndex];
-
-        // Randomly select 3 incorrect answers from the list
-        List<GameObject> incorrectAnswers = new List<GameObject>();
-        while (incorrectAnswers.Count < 3)
+        List<RTLTextMeshPro[]> Answerlist = new List<RTLTextMeshPro[]>();
+        
+        // adding the answers to a list
+        Answerlist.Add(Answer1Text);
+        Answerlist.Add(Answer2Text);
+        Answerlist.Add(Answer3Text);
+        Answerlist.Add(Answer4Text);
+        
+        // create 4 shuffled numbers from 0 to 3
+        int[] shuffledArray = ShuffleFourNumbers();
+        
+        int[] ShuffleFourNumbers()
         {
-            int randomIncorrectAnswerIndex = Random.Range(0, equation.incorrectAnswerTexts.Count);
-            GameObject incorrectAnswer = equation.incorrectAnswerTexts[randomIncorrectAnswerIndex];
-            if (!incorrectAnswers.Contains(incorrectAnswer))
+            int[] numbers = { 0, 1, 2, 3 };
+            for (int i = 0; i < numbers.Length; i++)
             {
-                incorrectAnswers.Add(incorrectAnswer);
+                int randomIndex = Random.Range(0, numbers.Length);
+                // Swap the numbers
+                (numbers[i], numbers[randomIndex]) = (numbers[randomIndex], numbers[i]);
             }
+            return numbers;
         }
-      
-        // Create a list of all answers (correct and incorrect)
-        List<GameObject> allAnswers = new List<GameObject>();
-        allAnswers.Add(correctAnswer);
-        allAnswers.AddRange(incorrectAnswers);
-        
+
+
+
+
+        int answerIndex = shuffledArray[0];
         
 
-        // Shuffle the list of all answers
-        Shuffle(allAnswers);
+        for (int i = 0; i < 4 ; i++)
+        {
+            Answerlist[answerIndex][i].text = equation.correctAnswer[i];
+            Answerlist[(answerIndex + 1) % 4][i].text = equation.incorrectAnswer1[i];
+            Answerlist[(answerIndex + 2) % 4][i].text = equation.incorrectAnswer2[i];
+            Answerlist[(answerIndex + 3) % 4][i].text = equation.incorrectAnswer3[i];
+            
+            Debug.Log(shuffledArray[i] + 1);
 
-        // Assign shuffled answers to UI elements
-    //     answer1Text.text = allAnswers[0];
-    //     answer2Text.text = allAnswers[1];
-    //     answer3Text.text = allAnswers[2];
-    //     answer4Text.text = allAnswers[3];
+        }
+        
+
+        
+        
     }
 
     public void CheckAnswer(string answer)
