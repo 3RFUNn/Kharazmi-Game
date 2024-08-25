@@ -17,7 +17,7 @@ MonoBehaviour:
     correctAnswer:
     - _
     - ' '
-    - 3
+    - 3 -
     - 5
     incorrectAnswer1:
     - _
