@@ -298,7 +298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u06F0\u06F4"
+  m_text: "\u06F0\u06F6"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
   m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: 40
+  originalText: 60
   fixTags: 1
   forceFix: 1
 --- !u!114 &457744902 stripped
