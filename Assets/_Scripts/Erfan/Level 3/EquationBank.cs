@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RTLTMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "EquationBank", menuName = "Create/Equation Bank")]
 public class EquationBank : ScriptableObject
@@ -17,10 +18,11 @@ public class EquationBank : ScriptableObject
 public struct Equation
 {
     public string equationText;
-    public List<GameObject> correctAnswerText;
-    public List<GameObject> incorrectAnswerTexts;
-    
-   
+    public String[] correctAnswer;
+    public String[] incorrectAnswer1;
+    public String[] incorrectAnswer2;
+    public String[] incorrectAnswer3;
+
 }
 
 
