@@ -50,7 +50,7 @@ public class QuizManager : MonoBehaviour
 
         currentLevel = 1;
         currentQuestion = 0;
-        timeRemaining = 40f;
+        timeRemaining = 60f;
         isQuizActive = true;
 
         // Show the quiz panel
@@ -187,7 +187,7 @@ public class QuizManager : MonoBehaviour
 
             // Update timer UI
             timerText.text = timeRemaining.ToString("F0");
-            timerImage.fillAmount = timeRemaining / 40f;
+            timerImage.fillAmount = timeRemaining / 60f;
 
             if (timeRemaining <= 0)
             {
