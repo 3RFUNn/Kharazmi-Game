@@ -29,16 +29,21 @@ public class CollectibleManager : MonoBehaviour
     }
     public void SetText(string _preTxt,string _suTxt, bool isConst=false)
     {
-        preText.text = ConvertToFarsiText(_preTxt);
-        if(!isConst)
+        preText.text = ConvertToFarsiText(_preTxt,preText);
+        if (!isConst)
             suText.text = _suTxt;
+        else
+        {
+            suText.text = "";
+            bothTexts.localPosition += new Vector3(0.20f, 0, 0);
+        }
         KeyString = _suTxt;
         if ((_preTxt.Length<3 || isConst) && !_preTxt.Contains("√"))
         {
             bothTexts.localPosition += new Vector3(-0.05f* (3-_preTxt.Length), 0, 0);
         }
     }
-    string ConvertToFarsiText(string _text)
+    public static string ConvertToFarsiText(string _text, RTLTextMeshPro3D _preText)
     {
         string res = _text;
         if (_text.Contains("/"))
@@ -61,9 +66,9 @@ public class CollectibleManager : MonoBehaviour
             newText = newText.Substring(0, 12)
                  + "\n"
                  + newText.Substring(12 + 1);
-            preText.characterSpacing = -14;
-            preText.wordSpacing = 10;
-            preText.lineSpacing = -55;
+            _preText.characterSpacing = -14;
+            _preText.wordSpacing = 10;
+            _preText.lineSpacing = -55;
             res = newText;
         }
         if (_text.Contains("."))
@@ -104,9 +109,13 @@ public class CollectibleManager : MonoBehaviour
         var prefix=DatabaseHolder.Instance.KeyPrefixes[rand];
         SetText(prefix, keyString);
     }
-    public string GetText()
+    public string GetPreText()
     {
         return preText.text;
+    }
+    public string GetKeyText()
+    {
+        return suText.text;
     }
     async void Wiggle()
     {

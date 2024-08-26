@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerManager : SingletonBehaviour<PlayerManager>
 {
@@ -68,32 +70,48 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     void FixedUpdate()
     {
         if (!canMove) return;
+        if (!IsMoving) return;
         for (int i = segments.Count - 1; i > 0; i--)
         {
-            if (segments[i-1].positionHistory.Count>0)
-                segments[i].transform.position = segments[i - 1].positionHistory.Peek();
+            if (segments[i - 1].positionHistory.Count > 0)
+            {
+                var targetPos= segments[i - 1].positionHistory.Peek();
+                Vector3 dir = targetPos - segments[i].transform.position;
+                segments[i].transform.position = targetPos;
+                LookToDirection(segments[i].transform, dir);
+            }
         }
+        LookToDirection(transform, direction);
         transform.position = new Vector3(
             transform.position.x + direction.x * MoveSpeed,
             transform.position.y + direction.y * MoveSpeed,
             0.0f
         );
     }
-
-    public void Grow(string text="")
+    void LookToDirection(Transform obj,Vector3 direction)
+    {
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction.normalized);
+        obj.transform.DOKill();
+        obj.transform.DORotateQuaternion(rotation, 0.25f);
+    }
+    public void Grow(string _preText="",string _keyText="")
     {
         var segment = Instantiate(SegmentPrefab);
         segment.Init();
         if (segment.positionHistory.Count > 0)
+        {
             segment.transform.position = segments[segments.Count - 1].positionHistory.Peek();
+        }
         else
+        {
             segment.transform.position = segments[segments.Count - 1].transform.position;
+        }
         segments.Add(segment);
-        segment.SetText(text);
+        segment.SetText(_preText,_keyText);
     }
     void SetString(string s)
     {
-        currentSegment.SetText(s);
+        currentSegment.SetText("",s);
         KeyString = s;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -106,7 +124,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
                 Debug.Log("GAME OVER");
                 return;
             }
-            Grow(collectible.GetText());
+            Grow(collectible.GetPreText(),collectible.GetKeyText());
             Destroy(other.gameObject);
         }
     }
