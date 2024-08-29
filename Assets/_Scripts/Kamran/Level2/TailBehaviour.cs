@@ -1,11 +1,16 @@
+﻿using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
 public class TailBehaviour : MonoBehaviour
 {
-    [SerializeField] TextMeshPro tailText;
+    [SerializeField] TextMeshPro tailKeyText;
+    [SerializeField] RTLTextMeshPro3D tailPreText;
+    [SerializeField] Transform bothTexts;
     public float delayTime = 1.0f;  
     public Queue<Vector3> positionHistory;  
     private float timeStep;
@@ -29,8 +34,21 @@ public class TailBehaviour : MonoBehaviour
             positionHistory.Dequeue();
         }
     }
-    public void SetText(string text)
+    public void SetText(string _preText,string _keyText)
     {
-        tailText.text = text;
+        tailKeyText.text = _keyText;
+        tailPreText.text = _preText;
+
+
+        if (_preText.Contains("----"))
+        {
+            tailPreText.characterSpacing = -14;
+            tailPreText.wordSpacing = 10;
+            tailPreText.lineSpacing = -55;
+        }
+        if (_preText.Length < 3 && !_preText.Contains("√"))
+        {
+            bothTexts.localPosition += new Vector3(-0.05f * (3 - _preText.Length), 0, 0);
+        }
     }
 }

@@ -13,10 +13,10 @@ public class SpawnCollectibles : MonoBehaviour
     public void SpawnCollectible()
     {
         allCollectibles = new();
-        SpawnObjects();
+        SpawnObjects(NumberOfObjects);
     }
 
-    void SpawnObjects()
+    void SpawnObjects(int numberOfObjects)
     {
         Camera cam = Camera.main;
         float camHeight = 2f * cam.orthographicSize;
@@ -28,7 +28,7 @@ public class SpawnCollectibles : MonoBehaviour
         float maxY = camPosition.y + camHeight / 2 - spawnPaddingFromCamera;
         var selectedNumbers=Level2Manager.GetUniqueRandomNumbers(NumberOfDesiredKeys, 0, NumberOfObjects-1);
         var desiredKeyString = PlayerManager.Instance.KeyString;
-        for (int i = 0; i < NumberOfObjects; i++)
+        for (int i = 0; i < numberOfObjects; i++)
         {
             Vector3 spawnPosition = new Vector3(
                 Random.Range(minX, maxX),

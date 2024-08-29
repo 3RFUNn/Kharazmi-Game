@@ -8,4 +8,6 @@ public class DatabaseHolder : SingletonScriptableObject<DatabaseHolder,ICreation
     public List<string> KeyStrings;
     public List<string> KeyPrefixes;
     public List<string> Constants;
+    public string DecimalFarsiFormat;
+    public string DivisionFarsiFormat;
 }
