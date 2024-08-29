@@ -61,16 +61,7 @@ public class QuizManager : MonoBehaviour
         StartCoroutine(Timer());
     }
      
-    public static void Shuffle<T>(IList<T> list)
-    {
-        int n = list.Count;
-        while (n > 1)
-        {
-            int k = Random.Range(0, n--);
-            (list[k], list[n]) = (list[n], list[k]);
-        }
-    }
-
+    
     private void LoadNextQuestion()
     {
         List<Equation> equations;
