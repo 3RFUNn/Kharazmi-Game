@@ -20,6 +20,8 @@ public class QuizManager : MonoBehaviour
     public RTLTextMeshPro[] Answer3Text;
     public RTLTextMeshPro[] Answer4Text;
 
+    [SerializeField] private LevelHandler handler;
+
     
     
 
@@ -41,7 +43,7 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        StartQuiz();
+        //StartQuiz();
         
     }
 
