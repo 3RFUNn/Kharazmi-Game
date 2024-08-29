@@ -60,6 +60,8 @@ public class QuizManager : MonoBehaviour
         nextSceneButton.SetActive(false);
 
         LoadNextQuestion();
+        
+        
         StartCoroutine(Timer());
     }
      
@@ -174,6 +176,9 @@ public class QuizManager : MonoBehaviour
 
     private IEnumerator Timer()
     {
+
+        yield return new WaitForSeconds(1);
+        
         while (isQuizActive)
         {
             timeRemaining -= Time.deltaTime;
