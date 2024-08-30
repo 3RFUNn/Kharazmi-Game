@@ -105,6 +105,14 @@ public class CollectibleManager : MonoBehaviour
         {
             keyString = _keyString;
         }
+        else
+        {
+            while (keyString.Equals(PlayerManager.Instance.KeyString))
+            {
+                rand = Random.Range(0, DatabaseHolder.Instance.KeyStrings.Count);
+                keyString = DatabaseHolder.Instance.KeyStrings[rand];
+            }
+        }
         rand=Random.Range(0,DatabaseHolder.Instance.KeyPrefixes.Count);
         var prefix=DatabaseHolder.Instance.KeyPrefixes[rand];
         SetText(prefix, keyString);

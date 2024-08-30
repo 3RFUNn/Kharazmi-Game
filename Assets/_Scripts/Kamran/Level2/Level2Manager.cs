@@ -11,12 +11,14 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] SpawnCollectibles spawnCollectibles;
     [SerializeField] PlayerManager player;
     [SerializeField] GameObject GameObj;
-    [SerializeField] GameObject Canvas;
+    [SerializeField] GameObject SelectionPanel;
+    [SerializeField] Button EndGameButton;
     [SerializeField] List<Button> Buttons;
     private void Start()
     {
         GameObj.SetActive(false);
-        Canvas.SetActive(true);
+        EndGameButton.gameObject.SetActive(false);
+        SelectionPanel.SetActive(true);
         foreach(var b in Buttons)
         {
             b.onClick.RemoveAllListeners();
@@ -30,26 +32,34 @@ public class Level2Manager : MonoBehaviour
     {
         player.Init(key);
         spawnCollectibles.SpawnCollectible();
-        Canvas.SetActive(false);
+        SelectionPanel.SetActive(false);
         GameObj.SetActive(true);
-    }
-    public static List<int> GetUniqueRandomNumbers(int count, int min, int max)
-    {
-        if (count > (max - min + 1))
+        EndGameButton.gameObject.SetActive(true);
+        EndGameButton.onClick.RemoveAllListeners();
+        EndGameButton.onClick.AddListener(() =>
         {
-            Debug.LogError("Count is greater than the range of numbers available.");
-            return null;
-        }
-
+            Application.Quit();
+        });
+    }
+    public static List<int> GetUniqueRandomNumbers(int count,int initialOveralMax)
+    {
         List<int> numbers = new();
         System.Random rand = new();
-
+        int min = 0;
         while (numbers.Count < count)
         {
-            int num = rand.Next(min, max + 1);
+            int tmp = rand.Next(0, 4);
+            if (tmp != 0)
+            {
+                min = (initialOveralMax + numbers.Count+1) / 2;
+            }
+            int num = rand.Next(min, initialOveralMax + numbers.Count+1);
+            min = 0;
             if (!numbers.Contains(num))
             {
                 numbers.Add(num);
+                Debug.Log("added " + num+" which is between 0 and "+ (initialOveralMax + numbers.Count - 1));
+                numbers.Sort();
             }
         }
 

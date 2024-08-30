@@ -1,22 +1,30 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnCollectibles : MonoBehaviour
+public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
 {
     public CollectibleManager prefab;
     public int NumberOfDesiredKeys;
-    public int NumberOfObjects = 10;
+    public int InitialNumberOfObjects = 10;
+    public int MaxNumberOfObjects = 20;
     [SerializeField] float spawnPaddingFromCamera;
     [SerializeField] float spawnPaddingFromCollectible;
     [SerializeField] Transform collectibleParent;
-    List<CollectibleManager> allCollectibles;
+    public List<CollectibleManager> AllCollectibles;
+    private List<int> selectedNumbers;
+    int numberOfCollectibles;
+
     public void SpawnCollectible()
     {
-        allCollectibles = new();
-        SpawnObjects(NumberOfObjects);
+        numberOfCollectibles = 0;
+        AllCollectibles = new();
+        selectedNumbers = Level2Manager.GetUniqueRandomNumbers(NumberOfDesiredKeys,InitialNumberOfObjects-1);
+        Debug.Log(string.Join(", ", selectedNumbers));
+        SpawnObjects(InitialNumberOfObjects);
     }
 
-    void SpawnObjects(int numberOfObjects)
+    void SpawnObjects(int numberOfObjects=1)
     {
         Camera cam = Camera.main;
         float camHeight = 2f * cam.orthographicSize;
@@ -26,7 +34,6 @@ public class SpawnCollectibles : MonoBehaviour
         float maxX = camPosition.x + camWidth / 2 - spawnPaddingFromCamera;
         float minY = camPosition.y - camHeight / 2 + spawnPaddingFromCamera;
         float maxY = camPosition.y + camHeight / 2 - spawnPaddingFromCamera;
-        var selectedNumbers=Level2Manager.GetUniqueRandomNumbers(NumberOfDesiredKeys, 0, NumberOfObjects-1);
         var desiredKeyString = PlayerManager.Instance.KeyString;
         for (int i = 0; i < numberOfObjects; i++)
         {
@@ -40,32 +47,43 @@ public class SpawnCollectibles : MonoBehaviour
                 i--;
                 continue;
             }
-            var newCollectible=Instantiate(prefab, collectibleParent,collectibleParent);
-            newCollectible.transform.position = spawnPosition;
+
             var selectedKey = "nothing";
-            if (selectedNumbers.Contains(i))
+            if (selectedNumbers.Contains(numberOfCollectibles))
             {
                 selectedKey = desiredKeyString;
             }
+
+            var newCollectible=Instantiate(prefab, collectibleParent,collectibleParent);
+            newCollectible.transform.position = spawnPosition;
             newCollectible.Init(selectedKey);
-            allCollectibles.Add(newCollectible);
+            AllCollectibles.Add(newCollectible);
+            numberOfCollectibles++;
         }
         Debug.Log("Spawned");
     }
     bool CheckForSafety(Vector3 spawnPosition)
     {
         bool isSafe = true;
-        foreach (var collectible in allCollectibles)
+        foreach (var collectible in AllCollectibles)
         {
             if (Vector3.Distance(collectible.transform.position, spawnPosition) < spawnPaddingFromCollectible)
             {
                 isSafe = false; break;
             }
         }
-        if (Vector3.Distance(PlayerManager.Instance.transform.position, spawnPosition) < spawnPaddingFromCollectible)
+        foreach(var seg in PlayerManager.Instance.segments)
         {
-            isSafe = false;
+            if (Vector3.Distance(seg.transform.position, spawnPosition) < spawnPaddingFromCollectible)
+            {
+                isSafe = false;
+            }
         }
         return isSafe;
+    }
+    public void CollectibleEaten(CollectibleManager collectible)
+    {
+        SpawnObjects(1);
+        AllCollectibles.Remove(collectible);
     }
 }
