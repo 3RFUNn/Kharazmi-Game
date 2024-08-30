@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
 
     public RTLTextMeshPro equationText;
 
-    public GameObject[] Answer;
+    
 
     public RTLTextMeshPro[] Answer1Text;
     public RTLTextMeshPro[] Answer2Text;
@@ -22,9 +22,9 @@ public class QuizManager : MonoBehaviour
 
     [SerializeField] private LevelHandler handler;
 
-    
-    
 
+
+    private int answerIndex;
 
     public Image timerImage;
 
@@ -46,6 +46,8 @@ public class QuizManager : MonoBehaviour
         //StartQuiz();
         
     }
+
+    public int AnswerIndex => answerIndex;
 
     public void StartQuiz()
     {
@@ -118,8 +120,7 @@ public class QuizManager : MonoBehaviour
 
 
 
-
-        int answerIndex = shuffledArray[0];
+         answerIndex = shuffledArray[0];
         
 
         for (int i = 0; i < 4 ; i++)

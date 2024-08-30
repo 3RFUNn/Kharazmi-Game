@@ -11,6 +11,8 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private GameObject secondQuestion;
     [SerializeField] private GameObject rightAnswer;
     [SerializeField] private GameObject wrongAnswer;
+    
+    public GameObject[] Answers;
 
     [SerializeField] private QuizManager manager;
     //[SerializeField] private GameObject statistics;
@@ -39,6 +41,19 @@ public class LevelHandler : MonoBehaviour
         
         manager.StartQuiz();
         
+    }
+
+
+    public void AnswerChecker(GameObject checkedAnswer)
+    {
+        if (manager.AnswerIndex.ToString().Equals(checkedAnswer.tag))
+        {
+            Debug.Log("Right");
+        }
+        else
+        {
+            Debug.Log("Wrong");
+        }
     }
     
     
