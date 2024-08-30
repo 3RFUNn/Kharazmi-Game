@@ -17,8 +17,8 @@ MonoBehaviour:
     correctAnswer:
     - _
     - ' '
-    - 3 -
-    - 5
+    - -2
+    - 8
     incorrectAnswer1:
     - _
     - ' '
@@ -35,104 +35,46 @@ MonoBehaviour:
     - 8
     - 5
   mediumEquations:
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
+  - equationText: '5x + 2 = 3 '
+    correctAnswer:
+    - _
+    - ' '
+    - 1
+    - 5
+    incorrectAnswer1:
+    - _
+    - ' '
+    - 4
+    - 5
+    incorrectAnswer2:
+    - _
+    - ' '
+    - 1
+    - 2
+    incorrectAnswer3:
+    - _
+    - ' '
+    - 1
+    - 2
   hardEquations:
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
-  - equationText: 
-    correctAnswer: []
-    incorrectAnswer1: []
-    incorrectAnswer2: []
-    incorrectAnswer3: []
+  - equationText: 10x + 17 = 4
+    correctAnswer:
+    - _
+    - ' '
+    - -13
+    - 10
+    incorrectAnswer1:
+    - _
+    - ' '
+    - 3
+    - 4
+    incorrectAnswer2:
+    - _
+    - ' '
+    - 5
+    - 6
+    incorrectAnswer3:
+    - _
+    - ' '
+    - 7
+    - 10

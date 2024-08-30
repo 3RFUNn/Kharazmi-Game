@@ -22,6 +22,8 @@ public class QuizManager : MonoBehaviour
 
     [SerializeField] private LevelHandler handler;
 
+    [SerializeField] private GameObject secondQuestion;
+
 
 
     private int answerIndex;
@@ -29,10 +31,6 @@ public class QuizManager : MonoBehaviour
     public Image timerImage;
 
     public RTLTextMeshPro timerText;
-
-    public GameObject quizPanel;
-    public GameObject nextSceneButton;
-
     
     
 
@@ -40,6 +38,16 @@ public class QuizManager : MonoBehaviour
     private int currentQuestion;
     private float timeRemaining;
     private bool isQuizActive;
+
+
+    public int CurrentLevel => currentLevel;
+
+
+    public bool IsQuizActive
+    {
+        get => isQuizActive;
+        set => isQuizActive = value;
+    }
 
     private void Start()
     {
@@ -57,10 +65,6 @@ public class QuizManager : MonoBehaviour
         timeRemaining = 60f;
         isQuizActive = true;
 
-        // Show the quiz panel
-        quizPanel.SetActive(true);
-        nextSceneButton.SetActive(false);
-
         LoadNextQuestion();
         
         
@@ -71,6 +75,8 @@ public class QuizManager : MonoBehaviour
     private void LoadNextQuestion()
     {
         List<Equation> equations;
+
+       
 
         switch (currentLevel)
         {
@@ -121,16 +127,16 @@ public class QuizManager : MonoBehaviour
 
 
          answerIndex = shuffledArray[0];
-        
 
-        for (int i = 0; i < 4 ; i++)
+
+         for (int i = 0; i < 4 ; i++)
         {
-            Answerlist[answerIndex][i].text = equation.correctAnswer[i];
+            Answerlist[answerIndex % 4][i].text = equation.correctAnswer[i];
             Answerlist[(answerIndex + 1) % 4][i].text = equation.incorrectAnswer1[i];
             Answerlist[(answerIndex + 2) % 4][i].text = equation.incorrectAnswer2[i];
             Answerlist[(answerIndex + 3) % 4][i].text = equation.incorrectAnswer3[i];
             
-            Debug.Log(shuffledArray[i] + 1);
+            //Debug.Log(shuffledArray[i] + 1);
 
         }
         
@@ -139,46 +145,48 @@ public class QuizManager : MonoBehaviour
         
     }
 
-    public void CheckAnswer(string answer)
+    public void CheckAnswer(bool answer)
     {
-        if (isQuizActive)
-        {
-            if (true)
+        
+            if (answer)
             {
-                // Correct answer
+                currentLevel++;
                 currentQuestion++;
+                
 
-                if (currentQuestion >= 3)
+                if (currentLevel > 3)
                 {
                     // End of quiz
-                    EndQuiz();
+                    handler.EndQuiz();
                 }
                 else
                 {
                     LoadNextQuestion();
+                    StartCoroutine(Timer());
                 }
             }
             else
             {
-                // Incorrect answer
-                // Handle incorrect answer (e.g., show a message, deduct points)
+                currentLevel++;
+
+                if (currentLevel > 3)
+                {
+                    // End of quiz
+                    handler.EndQuiz();
+                }
+                else
+                {
+                    LoadNextQuestion();
+                    StartCoroutine(Timer());
+                }
             }
-        }
     }
 
-    private void EndQuiz()
-    {
-        isQuizActive = false;
-
-        // Show the next scene button
-        quizPanel.SetActive(false);
-        nextSceneButton.SetActive(true);
-    }
-
+    
     private IEnumerator Timer()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         
         while (isQuizActive)
         {
@@ -191,12 +199,13 @@ public class QuizManager : MonoBehaviour
             if (timeRemaining <= 0)
             {
                 // Time's up
-                EndQuiz();
+                handler.EndQuiz();
             }
 
             yield return null;
         }
     }
+    
 }
     
    

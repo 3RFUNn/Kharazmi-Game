@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,7 @@ public class LevelHandler : MonoBehaviour
     //[SerializeField] private GameObject statistics;
 
 
-    private void Awake()
+    private void Start()
     {
         quiz.SetActive(false);
         firstQuestion.SetActive(true);
@@ -40,27 +41,78 @@ public class LevelHandler : MonoBehaviour
         quiz.SetActive(true);
         
         manager.StartQuiz();
+    }
+
+    public void NextQuestion()
+    {
+        secondQuestion.SetActive(false);
+
+
+
+    }
+    
+    
+    public void EndQuiz()
+    {
+        manager.IsQuizActive = false;
+        
+        Debug.Log("Finished");
+
         
     }
 
 
-    public void AnswerChecker(GameObject checkedAnswer)
+
+    public async void AnswerChecker(GameObject checkedAnswer)
     {
+
+        manager.IsQuizActive = false;
+        
         if (manager.AnswerIndex.ToString().Equals(checkedAnswer.tag))
         {
-            Debug.Log("Right");
+            if (manager.CurrentLevel >= 3)
+            {
+                rightAnswer.SetActive(true);
+                await Task.Delay(2000);
+                rightAnswer.SetActive(false);
+            }
+            else
+            {
+                rightAnswer.SetActive(true);
+                await Task.Delay(2000);
+                rightAnswer.SetActive(false);
+                secondQuestion.SetActive(true);
+            }
+
+            manager.CheckAnswer(true);
+            
+
         }
         else
         {
-            Debug.Log("Wrong");
+            if (manager.CurrentLevel >= 3)
+            {
+                wrongAnswer.SetActive(true);
+                await Task.Delay(2000);
+                wrongAnswer.SetActive(false);
+            }
+            else
+            {
+                wrongAnswer.SetActive(true);
+                await Task.Delay(2000);
+                wrongAnswer.SetActive(false);
+                secondQuestion.SetActive(true);
+            }
+
+            manager.CheckAnswer(false);
+
+            
+            
         }
+        
+        manager.IsQuizActive = true;
+        
+
     }
-    
-    
-    
-
-
-    
-
 
 }
