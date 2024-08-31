@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectible
+  - Sound
+  - Music
+  - 1
+  - 2
+  - 3
+  - 0
   layers:
   - Default
   - TransparentFX

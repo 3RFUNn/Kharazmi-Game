@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +72,9 @@
       <workItem from="1724530576172" duration="11018000" />
       <workItem from="1724581039984" duration="4735000" />
       <workItem from="1724616672559" duration="1390000" />
+      <workItem from="1724958202016" duration="3590000" />
+      <workItem from="1725028766947" duration="3385000" />
+      <workItem from="1725040235754" duration="11025000" />
     </task>
     <servers />
   </component>
