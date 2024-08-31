@@ -182,6 +182,9 @@ public class QuizManager : MonoBehaviour
                     StartCoroutine(Timer());
                 }
             }
+
+            
+            
     }
 
     
