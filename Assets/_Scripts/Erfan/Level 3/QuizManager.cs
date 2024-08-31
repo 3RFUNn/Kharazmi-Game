@@ -21,6 +21,8 @@ public class QuizManager : MonoBehaviour
     public RTLTextMeshPro[] Answer4Text;
 
     [SerializeField] private LevelHandler handler;
+    
+   
 
     [SerializeField] private GameObject secondQuestion;
 
