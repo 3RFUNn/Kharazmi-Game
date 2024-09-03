@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -12,14 +13,15 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     public int InitialSize = 4;
     Vector2 direction;
     Vector2 prevDirection;
-    List<TailBehaviour> segments;
+    public List<TailBehaviour> segments;
     bool canMove;
     [HideInInspector]
     public bool IsMoving;
     public string KeyString;
-
+    int score;
     public void Init(string key)
     {
+        score = 0;
         SetString(key);
         canMove = true;
         segments = new List<TailBehaviour>
@@ -31,6 +33,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         {
             Grow();
         }
+        PlayerEdgeMovement.Instance.Init();
     }
 
     void Update()
@@ -83,8 +86,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         }
         LookToDirection(transform, direction);
         transform.position = new Vector3(
-            transform.position.x + direction.x * MoveSpeed,
-            transform.position.y + direction.y * MoveSpeed,
+            transform.position.x + direction.x * MoveSpeed * Time.fixedDeltaTime,
+            transform.position.y + direction.y * MoveSpeed * Time.fixedDeltaTime,
             0.0f
         );
     }
@@ -121,11 +124,23 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             var collectible = other.gameObject.GetComponent<CollectibleManager>();
             if (!collectible.KeyString.Equals(KeyString))
             {
-                Debug.Log("GAME OVER");
+                GameOver();
                 return;
             }
-            Grow(collectible.GetPreText(),collectible.GetKeyText());
+            Grow(collectible.GetPreText(), collectible.GetKeyText());
+            score++;
+            SpawnCollectibles.Instance.CollectibleEaten(collectible);
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("Tail"))
+        {
+            GameOver();
+            return;
+        }
+    }
+    public void GameOver()
+    {
+        Debug.LogError("GAME OVER");
+        Debug.Log("Score is : " + score);
     }
 }
