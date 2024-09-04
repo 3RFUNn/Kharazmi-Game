@@ -3238,7 +3238,7 @@ MonoBehaviour:
   preserveNumbers: 0
   farsi: 1
   originalText: "\u0633\u0648\u0627\u0644"
-  fixTags: 1
+  fixTags: 0
   forceFix: 1
 --- !u!224 &1002313693 stripped
 RectTransform:

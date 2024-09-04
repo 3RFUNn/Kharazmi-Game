@@ -55,8 +55,8 @@ public class LevelHandler : MonoBehaviour
     public void EndQuiz()
     {
         manager.IsQuizActive = false;
+        quiz.SetActive(false);
         
-        Debug.Log("Finished");
 
         
     }
