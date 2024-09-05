@@ -3166,7 +3166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ")\u06F1+n(\u06F5+n-=\u06F5-n\u06F3"
+  m_text: "\u06F1 = a\u06F2"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
   m_sharedMaterial: {fileID: -9174946381324732685, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
@@ -3237,7 +3237,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: 3n-5=-n+5)n+1(
+  originalText: 2a = 1
   fixTags: 0
   forceFix: 1
 --- !u!224 &1002313693 stripped
