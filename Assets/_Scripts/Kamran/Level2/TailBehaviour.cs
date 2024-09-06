@@ -1,8 +1,8 @@
-﻿using RTLTMPro;
+﻿using DG.Tweening;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -36,6 +36,9 @@ public class TailBehaviour : MonoBehaviour
     }
     public void SetText(string _preText,string _keyText)
     {
+        if(!_preText.Contains(","))
+            _preText = new string(_preText.Reverse().ToArray());
+
         tailKeyText.text = _keyText;
         tailPreText.text = _preText;
 
@@ -50,5 +53,7 @@ public class TailBehaviour : MonoBehaviour
         {
             bothTexts.localPosition += new Vector3(-0.05f * (3 - _preText.Length), 0, 0);
         }
+        transform.DOKill(true);
+        transform.DOPunchScale(transform.localScale * .2f, 1f);
     }
 }

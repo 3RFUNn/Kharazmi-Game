@@ -38,7 +38,7 @@ public class Level2Manager : MonoBehaviour
         EndGameButton.onClick.RemoveAllListeners();
         EndGameButton.onClick.AddListener(() =>
         {
-            Application.Quit();
+            PlayerManager.Instance.GameOver(true);
         });
     }
     public static List<int> GetUniqueRandomNumbers(int count,int initialOveralMax)
@@ -58,7 +58,6 @@ public class Level2Manager : MonoBehaviour
             if (!numbers.Contains(num))
             {
                 numbers.Add(num);
-                Debug.Log("added " + num+" which is between 0 and "+ (initialOveralMax + numbers.Count - 1));
                 numbers.Sort();
             }
         }

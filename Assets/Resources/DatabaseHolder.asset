@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316ae526fb55fa14787f402e764131ad, type: 3}
   m_Name: DatabaseHolder
   m_EditorClassIdentifier: 
+  LostHeadSprite: {fileID: 21300000, guid: 106ec726be6e77647b9ed9882ab0638d, type: 3}
   KeyStrings:
   - a
   - b

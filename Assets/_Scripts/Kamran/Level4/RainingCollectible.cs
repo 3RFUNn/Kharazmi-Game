@@ -35,6 +35,10 @@ public class RainingCollectible : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("clicked on : " +keyText.text);
-        RainingCollectibleManager.Instance.ClickedRain(this);
+        transform.DOPunchScale(transform.localScale * 0.1f, 0.1f).OnComplete(() =>
+        {
+            RainingCollectibleManager.Instance.ClickedRain(this);
+
+        });
     }
 }

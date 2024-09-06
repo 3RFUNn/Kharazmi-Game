@@ -25,10 +25,10 @@ public class ClickedThingsManager : SingletonBehaviour<ClickedThingsManager>
         }
     }
 
-    private async void AddRain(RainingCollectible collectible)
+    private async void AddRain(RainingCollectible collectible,int value,bool isKey)
     {
         var thing = Instantiate(prefab, parent);
-        thing.Repaint(collectible.KeyText);
+        thing.Repaint(collectible.KeyText,value,isKey);
         await Task.Delay(100);
         scrollbar.verticalNormalizedPosition = 0f;
     }

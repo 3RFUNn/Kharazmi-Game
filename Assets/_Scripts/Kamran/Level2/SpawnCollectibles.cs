@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
         float minY = camPosition.y - camHeight / 2 + spawnPaddingFromCamera;
         float maxY = camPosition.y + camHeight / 2 - spawnPaddingFromCamera;
         var desiredKeyString = PlayerManager.Instance.KeyString;
+        int cnt = 0;
         for (int i = 0; i < numberOfObjects; i++)
         {
             Vector3 spawnPosition = new Vector3(
@@ -42,9 +44,10 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
                 Random.Range(minY, maxY),
                 0f
             );
-            if (!CheckForSafety(spawnPosition))
+            if (!CheckForSafety(spawnPosition) && cnt<100)
             {
                 i--;
+                cnt++;
                 continue;
             }
 
@@ -59,6 +62,10 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
             newCollectible.Init(selectedKey);
             AllCollectibles.Add(newCollectible);
             numberOfCollectibles++;
+            newCollectible.transform.DOKill(true);
+            newCollectible.transform.DOPunchScale(newCollectible.transform.localScale * .2f, 1f);
+
+            cnt = 0;
         }
         Debug.Log("Spawned");
     }
