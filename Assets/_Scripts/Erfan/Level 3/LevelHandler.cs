@@ -12,6 +12,9 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private GameObject secondQuestion;
     [SerializeField] private GameObject rightAnswer;
     [SerializeField] private GameObject wrongAnswer;
+
+    [SerializeField] private GameObject equationFinished;
+    [SerializeField] private GameObject timeFinished;
     
     public GameObject[] Answers;
 
@@ -26,6 +29,8 @@ public class LevelHandler : MonoBehaviour
         secondQuestion.SetActive(false);
         rightAnswer.SetActive(false);
         wrongAnswer.SetActive(false);
+        equationFinished.SetActive(false);
+        timeFinished.SetActive(false);
         //statistics.SetActive(false);
     }
 
@@ -56,6 +61,17 @@ public class LevelHandler : MonoBehaviour
     {
         manager.IsQuizActive = false;
         quiz.SetActive(false);
+        equationFinished.SetActive(true);
+        
+
+        
+    }
+    
+    public void EndQuiz_Time()
+    {
+        manager.IsQuizActive = false;
+        quiz.SetActive(false);
+        timeFinished.SetActive(true);
         
 
         
