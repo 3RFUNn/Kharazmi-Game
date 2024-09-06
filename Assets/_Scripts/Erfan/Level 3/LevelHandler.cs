@@ -37,7 +37,7 @@ public class LevelHandler : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuizLoader()
