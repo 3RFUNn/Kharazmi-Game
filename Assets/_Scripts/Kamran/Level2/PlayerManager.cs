@@ -10,6 +10,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerManager : SingletonBehaviour<PlayerManager>
 {
+    public FixedJoystick joystick;
+    public float threshold = 0.5f;
     [SerializeField] SpriteRenderer Head;
     [SerializeField] List<TailBehaviour> currentSegments;
     [SerializeField] TailBehaviour SegmentPrefab;
@@ -45,25 +47,32 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     void Update()
     {
         if (!canMove) return;
-        if (Input.GetKey(KeyCode.W) && prevDirection != Vector2.down)
+        float horizontal = joystick.Horizontal;
+        float vertical = joystick.Vertical;
+
+        // Check for upward movement
+        if (vertical > threshold && prevDirection != Vector2.down)
         {
             direction = Vector2.up;
-            prevDirection=direction;
+            prevDirection = direction;
             IsMoving = true;
         }
-        else if (Input.GetKey(KeyCode.S) && prevDirection != Vector2.up)
+        // Check for downward movement
+        else if (vertical < -threshold && prevDirection != Vector2.up)
         {
             direction = Vector2.down;
             prevDirection = direction;
             IsMoving = true;
         }
-        else if (Input.GetKey(KeyCode.A) && prevDirection != Vector2.right)
+        // Check for leftward movement
+        else if (horizontal < -threshold && prevDirection != Vector2.right)
         {
             direction = Vector2.left;
             prevDirection = direction;
             IsMoving = true;
         }
-        else if (Input.GetKey(KeyCode.D) && prevDirection != Vector2.left)
+        // Check for rightward movement
+        else if (horizontal > threshold && prevDirection != Vector2.left)
         {
             direction = Vector2.right;
             prevDirection = direction;
