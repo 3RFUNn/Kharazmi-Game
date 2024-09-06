@@ -49,7 +49,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         if (!canMove) return;
         float horizontal = joystick.Horizontal;
         float vertical = joystick.Vertical;
-
+/*
         // Check for upward movement
         if (vertical > threshold && prevDirection != Vector2.down)
         {
@@ -83,6 +83,17 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             direction = Vector2.zero;
             IsMoving = false;
         }
+*/
+        direction = new Vector3(horizontal, vertical, 0);
+        if (direction.magnitude > threshold)
+        {
+            IsMoving = true;
+        }
+        else
+        {
+            IsMoving = false;
+            direction = Vector3.zero;
+        }
     }
 
     void FixedUpdate()
@@ -109,7 +120,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     void LookToDirection(Transform obj,Vector3 direction)
     {
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction.normalized);
-        rotationTween = obj.transform.DORotateQuaternion(rotation, 1);
+        rotationTween = obj.transform.DORotateQuaternion(rotation, .25f);
     }
     public void Grow(string _preText="",string _keyText="")
     {

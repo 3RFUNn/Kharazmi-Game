@@ -44,7 +44,7 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
                 Random.Range(minY, maxY),
                 0f
             );
-            if (!CheckForSafety(spawnPosition) && cnt<100)
+            if (!CheckForSafety(spawnPosition) && cnt<1000)
             {
                 i--;
                 cnt++;
