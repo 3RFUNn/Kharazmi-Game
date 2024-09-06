@@ -160,7 +160,7 @@ MonoBehaviour:
     - ' '
     - ' '
     - ' '
-  - equationText: 4+2a=0
+  - equationText: 0=4+2a
     correctAnswer:
     - -2
     - ' '
@@ -223,7 +223,7 @@ MonoBehaviour:
     - ' '
     - ' '
     - ' '
-  - equationText: 1-5b=-4
+  - equationText: -5b+1=-4
     correctAnswer:
     - 1
     - ' '
@@ -560,7 +560,7 @@ MonoBehaviour:
     - ' '
     - 8
     - 5
-  - equationText: 1-5b=b+4
+  - equationText: b+4=-5b+1
     correctAnswer:
     - _
     - ' '
@@ -623,7 +623,7 @@ MonoBehaviour:
     - ' '
     - ' '
     - ' '
-  - equationText: 6-14b=4b-2
+  - equationText: 4b-2=-14b+6
     correctAnswer:
     - _
     - ' '

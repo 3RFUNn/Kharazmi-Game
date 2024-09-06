@@ -204,7 +204,7 @@ public class QuizManager : MonoBehaviour
             if (timeRemaining <= 0)
             {
                 // Time's up
-                handler.EndQuiz();
+                handler.EndQuiz_Time();
             }
 
             yield return null;
