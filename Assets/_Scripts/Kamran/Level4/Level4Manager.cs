@@ -1,14 +1,18 @@
-﻿using RTLTMPro;
+﻿using DG.Tweening;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Level4Manager : SingletonBehaviour<Level4Manager>
 {
     public RainingCollectibleManager rainManager;
     public ClickedThingsManager thingsManager;
-    public System.Action<RainingCollectible> ClickedRain;
+    public TimerManager timerManager;
+    public System.Action<RainingCollectible,int,bool> ClickedRain;
     public System.Action FinishedEquation;
+    [SerializeField] Transform EquationSection;
     [SerializeField] RTLTextMeshPro EquationKeyText;
     [SerializeField] RTLTextMeshPro EquationSignText;
     [SerializeField] RTLTextMeshPro EquationSuffixText;
@@ -16,15 +20,35 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     public int EquationSufNumber;
     int totalSumKey;
     int totalSumSuf;
+    int score;
     void Start()
     {
+        score = 0;
         totalSumKey = 0;
         totalSumSuf = 0;
         rainManager.Init();
         thingsManager.Init();
+        SetTime();
         GetRandomEquation();
     }
-
+    void SetTime()
+    {
+        int time = 0;
+        if (PlayerPrefs.HasKey("Level2"))
+        {
+            time += PlayerPrefs.GetInt("Level2") * 5;
+        }
+        if (PlayerPrefs.HasKey("Level3"))
+        {
+            time += PlayerPrefs.GetInt("Level3") * 10;
+        }
+        if (time == 0)
+        {
+            time = 60;
+        }
+        timerManager.Init(time);
+        timerManager.OnTimerUp += GameOver;
+    }
     public void GetRandomEquation()
     {
         var random = DatabaseHolder4.Instance.EquationPrefix[Random.Range(0, DatabaseHolder4.Instance.EquationPrefix.Count - 1)];
@@ -68,6 +92,8 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
 
     public void ClickedOnRain(RainingCollectible rain)
     {
+        var tmpSuf = totalSumSuf;
+        var tmpKey = totalSumKey;
         bool isNegetive = false;
         var txt =string.Copy(rain.KeyText);
         Debug.Log("doing logic for " + txt);
@@ -77,6 +103,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             txt=txt.Replace("-","");
             Debug.Log("removing negetive : " + txt);
         }
+        bool isKey = false;
         if (txt.Contains("x"))
         {
             txt = txt.Replace("x","");
@@ -87,6 +114,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             Debug.Log("converting key " + txt);
             var num = GetEnglishNumber(txt);
             if (isNegetive) num *= -1;
+            isKey= true;
             totalSumKey += num;
         }
         else
@@ -101,7 +129,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             totalSumSuf += num;
         }
         Debug.Log("THE TOTAL SUMS ARE : " + totalSumKey + " & " + totalSumSuf);
-        ClickedRain?.Invoke(rain);
+        ClickedRain?.Invoke(rain,isKey ? totalSumKey-tmpKey : totalSumSuf-tmpSuf,isKey);
         if (totalSumSuf == EquationSufNumber && totalSumKey == EquationKeyNumber)
         {
             EquationSolved();
@@ -109,11 +137,13 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     }
     void EquationSolved()
     {
-
+        score++;
         Debug.Log("YOU WIN THE EQUATION");
         totalSumSuf = 0;
         totalSumKey = 0;
         GetRandomEquation();
+        EquationSection.DOKill(true);
+        EquationSection.DOPunchScale(EquationSection.localScale * 0.2f, 0.25f);
         FinishedEquation?.Invoke();
     }
     int GetEnglishNumber(string text)
@@ -132,5 +162,29 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             case "۰۱": return 10;
             default: return 0;
         }
+    }
+    public void RemoveSelectedRain(ClickedThing thing)
+    {
+
+        if (thing.isKey)
+        {
+            totalSumKey -= thing.value;
+        }
+        else
+        {
+            totalSumSuf -= thing.value;
+        }
+        thing.transform.DOPunchScale(thing.transform.localScale * 0.1f, 0.2f).OnComplete(() =>
+        {
+            Destroy(thing.gameObject);
+        });
+    }
+    public async void GameOver()
+    {
+        Debug.Log("TIME IS UP");
+        Debug.Log("Score is " + score);
+        RainingCollectibleManager.Instance.StartRaining = false;
+        await Task.Delay(5000);
+        Application.Quit();
     }
 }

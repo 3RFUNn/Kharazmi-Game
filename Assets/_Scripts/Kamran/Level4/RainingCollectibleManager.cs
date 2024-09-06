@@ -12,20 +12,28 @@ public class RainingCollectibleManager : SingletonBehaviour<RainingCollectibleMa
     [SerializeField] float spawnPaddingFromBot;
     [SerializeField] float spawnPaddingFromEdge;
     [SerializeField] float spawnPaddingFromOthers;
+    [SerializeField] float delayRange;
     List<RainingCollectible> spawnedXs;
     bool startRaining;
     private float minX;
     private float maxX;
     private float maxY;
     private float minY;
-
+    public bool StartRaining
+    {
+        get { 
+            return startRaining; 
+        } 
+        set { 
+            startRaining = value; 
+        }
+    }
     public void Init()
     {
         startRaining = true;
         spawnedXs = new ();
         StartCoroutine(Rain());
     }
-
     private IEnumerator Rain()
     {
         Camera cam = Camera.main;
@@ -37,7 +45,7 @@ public class RainingCollectibleManager : SingletonBehaviour<RainingCollectibleMa
         maxY = camPosition.y + camHeight / 2 + spawnPaddingFromTop;
         minY = camPosition.y - camHeight / 2 + spawnPaddingFromBot;
         int cnt = 0;
-        while (startRaining)
+        while (StartRaining)
         {
             var pos=new Vector2(Random.Range(minX, maxX), maxY + Random.Range(0,2f));
 
@@ -52,7 +60,7 @@ public class RainingCollectibleManager : SingletonBehaviour<RainingCollectibleMa
             newRain.Init(minY);
             spawnedXs.Add(newRain);
             cnt = 0;
-            yield return new WaitForSeconds(Random.Range(0f,.5f));
+            yield return new WaitForSeconds(Random.Range(0f, delayRange));
         }
     }
 

@@ -1,13 +1,17 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerManager : SingletonBehaviour<PlayerManager>
 {
-    [SerializeField] TailBehaviour currentSegment;
+    [SerializeField] SpriteRenderer Head;
+    [SerializeField] List<TailBehaviour> currentSegments;
     [SerializeField] TailBehaviour SegmentPrefab;
     public float MoveSpeed = 5f;
     public int InitialSize = 4;
@@ -19,16 +23,18 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     public bool IsMoving;
     public string KeyString;
     int score;
+    Tween rotationTween;
     public void Init(string key)
     {
         score = 0;
         SetString(key);
         canMove = true;
-        segments = new List<TailBehaviour>
+        segments = new List<TailBehaviour>();
+        foreach(var tail in currentSegments)
         {
-            currentSegment
-        };
-        currentSegment.Init();
+            segments.Add(tail);
+            tail.Init();
+        }
         for (int i = 1; i < InitialSize; i++)
         {
             Grow();
@@ -94,8 +100,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     void LookToDirection(Transform obj,Vector3 direction)
     {
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction.normalized);
-        obj.transform.DOKill();
-        obj.transform.DORotateQuaternion(rotation, 0.25f);
+        rotationTween = obj.transform.DORotateQuaternion(rotation, 1);
     }
     public void Grow(string _preText="",string _keyText="")
     {
@@ -113,8 +118,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         segment.SetText(_preText,_keyText);
     }
     void SetString(string s)
-    {
-        currentSegment.SetText("",s);
+    {   
+        currentSegments[1].SetText("",s);
         KeyString = s;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -138,9 +143,16 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             return;
         }
     }
-    public void GameOver()
+    public async void GameOver(bool button=false)
     {
         Debug.LogError("GAME OVER");
         Debug.Log("Score is : " + score);
+        PlayerPrefs.SetInt("Level2", score);
+        if(!button)
+            Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
+        Head.transform.DOShakeScale(2f,0.1f);
+        canMove = false;
+        await Task.Delay(4000);
+        SceneManager.LoadScene("Level 3");
     }
 }

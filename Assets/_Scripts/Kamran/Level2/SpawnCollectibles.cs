@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,6 +60,8 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
             newCollectible.Init(selectedKey);
             AllCollectibles.Add(newCollectible);
             numberOfCollectibles++;
+            newCollectible.transform.DOKill(true);
+            newCollectible.transform.DOPunchScale(newCollectible.transform.localScale * .2f, 1f);
         }
         Debug.Log("Spawned");
     }
