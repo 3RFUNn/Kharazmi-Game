@@ -16,6 +16,7 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] List<Button> Buttons;
     private void Start()
     {
+        Application.targetFrameRate = 120;
         GameObj.SetActive(false);
         EndGameButton.gameObject.SetActive(false);
         SelectionPanel.SetActive(true);

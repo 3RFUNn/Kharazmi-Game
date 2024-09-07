@@ -36,7 +36,7 @@ public class TailBehaviour : MonoBehaviour
     }
     public void SetText(string _preText,string _keyText)
     {
-        if(!_preText.Contains(","))
+        if(!_preText.Contains(",") && !_preText.Contains("----"))
             _preText = new string(_preText.Reverse().ToArray());
 
         tailKeyText.text = _keyText;
@@ -51,7 +51,7 @@ public class TailBehaviour : MonoBehaviour
         }
         if (_preText.Length < 3 && !_preText.Contains("√"))
         {
-            bothTexts.localPosition += new Vector3(-0.05f * (3 - _preText.Length), 0, 0);
+            bothTexts.localPosition += new Vector3(-0.01f * (3 - _preText.Length), 0, 0);
         }
         transform.DOKill(true);
         transform.DOPunchScale(transform.localScale * .2f, 1f);

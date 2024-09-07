@@ -221,7 +221,7 @@ MonoBehaviour:
   tailKeyText: {fileID: 5074140248289886346}
   tailPreText: {fileID: 4123558484197654398}
   bothTexts: {fileID: 6260842318633935446}
-  delayTime: 0.5
+  delayTime: 0.4
 --- !u!58 &3470824074688803161
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -282,8 +282,8 @@ Transform:
   m_GameObject: {fileID: 2515501792477269556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalPosition: {x: 0.085, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8915985197764736961}
