@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/LevelHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/LevelHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +80,7 @@
       <workItem from="1725473886654" duration="2230000" />
       <workItem from="1725612474226" duration="851000" />
       <workItem from="1725665773708" duration="201000" />
+      <workItem from="1725733250024" duration="439000" />
     </task>
     <servers />
   </component>
