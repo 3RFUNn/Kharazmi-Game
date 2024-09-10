@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-    </list>
+    <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +78,7 @@
       <workItem from="1725665773708" duration="201000" />
       <workItem from="1725733250024" duration="1270000" />
       <workItem from="1725739961111" duration="105000" />
+      <workItem from="1726001057003" duration="1472000" />
     </task>
     <servers />
   </component>
