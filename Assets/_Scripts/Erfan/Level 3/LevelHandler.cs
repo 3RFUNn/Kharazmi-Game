@@ -62,6 +62,7 @@ public class LevelHandler : MonoBehaviour
         manager.IsQuizActive = false;
         quiz.SetActive(false);
         equationFinished.SetActive(true);
+        PlayerPrefs.SetInt("Level3",manager.CorrectAnswer1);
         
 
         

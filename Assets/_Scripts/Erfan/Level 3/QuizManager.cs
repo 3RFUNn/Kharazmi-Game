@@ -37,12 +37,14 @@ public class QuizManager : MonoBehaviour
     
 
     private int currentLevel;
-    private int currentQuestion;
+    private int CorrectAnswer;
     private float timeRemaining;
     private bool isQuizActive;
 
 
     public int CurrentLevel => currentLevel;
+
+    public int CorrectAnswer1 => CorrectAnswer;
 
 
     public bool IsQuizActive
@@ -63,7 +65,7 @@ public class QuizManager : MonoBehaviour
     {
 
         currentLevel = 1;
-        currentQuestion = 0;
+        CorrectAnswer = 0;
         timeRemaining = 80f;
         isQuizActive = true;
 
@@ -153,7 +155,7 @@ public class QuizManager : MonoBehaviour
             if (answer)
             {
                 currentLevel++;
-                currentQuestion++;
+                CorrectAnswer++;
                 
 
                 if (currentLevel > 3)
