@@ -156,12 +156,12 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             score++;
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
             Destroy(other.gameObject);
-        }/*
+        }
         if (other.CompareTag("Tail"))
         {
             GameOver();
             return;
-        }*/
+        }
     }
     public async void GameOver(bool button=false)
     {
