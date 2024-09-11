@@ -2915,10 +2915,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 803682774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 118.44356, y: -90}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &803682773
 GameObject:
@@ -4763,7 +4763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171114, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_Type
@@ -4879,7 +4879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4435577
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4915,7 +4915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22409726, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 233.44356
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22409726, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5047,7 +5047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22471122, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 215
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 22471124, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5131,9 +5131,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE91\uFEEA \uFE91\uFE8E\uFEAF\uFBFC \uFEE3\uFECC\uFE8E\uFEA9\uFEFB\uFE95
-    \uFEA7\uFEEE\uFEB5 \uFE8D\uFEED\uFEE3\uFEAA\uFBFC!\n\n\uFE81\uFBFE\uFE8E \uFEE3\uFBFF\uFEA8\uFEEE\uFE8D\uFEEB\uFBFD
-    \uFBFE\uFB8F \uFEE3\uFECC\uFE8E\uFEA9\uFEDF\uFEEA \uFEA3\uFEDE \uFB90\uFEE8\uFBFD\u061F"
+  m_text: "\uFEE3\uFEAE\uFEA3\uFEE0\uFEEA \uFEA9\uFEED\uFEE1 :\n\n\uFE91\uFEEA \uFE91\uFE8E\uFEAF\uFBFC
+    \uFEE3\uFECC\uFE8E\uFEA9\uFEFB\uFE95 \uFEA7\uFEEE\uFEB5 \uFE8D\uFEED\uFEE3\uFEAA\uFBFC!\n\n\uFE81\uFBFE\uFE8E
+    \uFEE3\uFBFF\uFEA8\uFEEE\uFE8D\uFEEB\uFBFD \uFBFE\uFB8F \uFEE3\uFECC\uFE8E\uFEA9\uFEDF\uFEEA
+    \uFEA3\uFEDE \uFB90\uFEE8\uFBFD\u061F"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
   m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
@@ -5204,8 +5205,9 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0628\u0647 \u0628\u0627\u0632\u06CC \u0645\u0639\u0627\u062F\u0644\u0627\u062A
-    \u062E\u0648\u0634 \u0627\u0648\u0645\u062F\u06CC!\n\n\u0622\u06CC\u0627 \u0645\u06CC\u062E\u0648\u0627\u0647\u06CC
+  originalText: "\u0645\u0631\u062D\u0644\u0647 \u062F\u0648\u0645 :\n\n\u0628\u0647
+    \u0628\u0627\u0632\u06CC \u0645\u0639\u0627\u062F\u0644\u0627\u062A \u062E\u0648\u0634
+    \u0627\u0648\u0645\u062F\u06CC!\n\n\u0622\u06CC\u0627 \u0645\u06CC\u062E\u0648\u0627\u0647\u06CC
     \u06CC\u06A9 \u0645\u0639\u0627\u062F\u0644\u0647 \u062D\u0644 \u06A9\u0646\u06CC\u061F"
   fixTags: 1
   forceFix: 1
