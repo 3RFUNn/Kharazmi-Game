@@ -962,20 +962,20 @@ MonoBehaviour:
     - ' '
   - equationText: 5x+2=3)x+2(
     correctAnswer:
-    - _
-    - ' '
-    - -1
     - 2
+    - ' '
+    - ' '
+    - ' '
     incorrectAnswer1:
     - -2
     - ' '
     - ' '
     - ' '
     incorrectAnswer2:
+    - _
+    - ' '
+    - -1
     - 2
-    - ' '
-    - ' '
-    - ' '
     incorrectAnswer3:
     - _
     - ' '
