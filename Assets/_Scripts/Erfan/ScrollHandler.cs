@@ -1,3 +1,5 @@
+using System;
+using SFXSystem;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +10,12 @@ public class ScrollHandler : MonoBehaviour
     [SerializeField] private GameObject nextButton; // Assign the Button that will be activated
 
     [SerializeField] private GameObject[] g;
+
+
+    private void Awake()
+    {
+        SoundSystemManager.Instance.Setup();
+    }
 
     private void Update()
     {

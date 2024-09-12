@@ -13,19 +13,16 @@ MonoBehaviour:
   m_Name: SoundManager
   m_EditorClassIdentifier: 
   AudioDatas:
-  - ID: 
-    clip: {fileID: 0}
-    volume: 0
-  - ID: 
-    clip: {fileID: 0}
-    volume: 0
-  - ID: 
-    clip: {fileID: 0}
-    volume: 0
-  - ID: 
-    clip: {fileID: 0}
-    volume: 0
-  - ID: 
-    clip: {fileID: 0}
-    volume: 0
-  audioSourceCount: 0
+  - ID: Lost
+    clip: {fileID: 8300000, guid: 6b7e8e0993fa4e446bb4c1a41ccc47c7, type: 3}
+    volume: 100
+  - ID: Eating
+    clip: {fileID: 8300000, guid: 69bbafeaf393ec04f96cd21b025dbc2d, type: 3}
+    volume: 100
+  - ID: Wrong
+    clip: {fileID: 8300000, guid: 9091e490fa0059044b8fb358d4a7c2b8, type: 3}
+    volume: 100
+  - ID: Music
+    clip: {fileID: 8300000, guid: f7ab9b3001828644ab53d37fff97ba99, type: 3}
+    volume: 100
+  audioSourceCount: 3
