@@ -156,21 +156,23 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             score++;
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
             Destroy(other.gameObject);
-        }
+        }/*
         if (other.CompareTag("Tail"))
         {
             GameOver();
             return;
-        }
+        }*/
     }
     public async void GameOver(bool button=false)
     {
         Debug.LogError("GAME OVER");
         Debug.Log("Score is : " + score);
         PlayerPrefs.SetInt("Level2", score);
-        if(!button)
+        if (!button)
+        {
             Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
-        Head.transform.DOShakeScale(2f,0.1f);
+            Head.transform.DOShakeScale(2f, 0.1f);
+        }
         canMove = false;
         await Task.Delay(4000);
         SceneManager.LoadScene("Level 3");
