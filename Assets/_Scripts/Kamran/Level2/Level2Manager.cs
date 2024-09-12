@@ -17,6 +17,7 @@ public class Level2Manager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 120;
+        player.joystick.gameObject.SetActive(false);
         GameObj.SetActive(false);
         EndGameButton.gameObject.SetActive(false);
         SelectionPanel.SetActive(true);
@@ -31,6 +32,7 @@ public class Level2Manager : MonoBehaviour
     }
     void StartGame(string key)
     {
+        player.joystick.gameObject.SetActive(true);
         player.Init(key);
         spawnCollectibles.SpawnCollectible();
         SelectionPanel.SetActive(false);

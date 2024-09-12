@@ -16,13 +16,17 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     [SerializeField] RTLTextMeshPro EquationKeyText;
     [SerializeField] RTLTextMeshPro EquationSignText;
     [SerializeField] RTLTextMeshPro EquationSuffixText;
+    [SerializeField] SolvedEquationManager solvedEquationPrefab;
+    [SerializeField] Transform solvedEquationParent;
     public int EquationKeyNumber;
     public int EquationSufNumber;
     int totalSumKey;
     int totalSumSuf;
     int score;
+    bool isFirstEq;
     void Start()
     {
+        isFirstEq = true;
         score = 0;
         totalSumKey = 0;
         totalSumSuf = 0;
@@ -48,6 +52,13 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
         }
         timerManager.Init(time);
         timerManager.OnTimerUp += GameOver;
+    }
+    public static string ReverseString(string input)
+    {
+        // Convert the string to a character array, reverse it, and return as a new string
+        char[] charArray = input.ToCharArray();
+        System.Array.Reverse(charArray);
+        return new string(charArray);
     }
     public void GetRandomEquation()
     {
@@ -88,6 +99,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             EquationSufNumber *= -1;
         }
         Debug.Log("random equation is " + EquationKeyNumber + " x "+ EquationSignText.text + " "+ EquationSufNumber);
+        isFirstEq = false;
     }
 
     public void ClickedOnRain(RainingCollectible rain)
@@ -137,6 +149,8 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     }
     void EquationSolved()
     {
+        var newSolvedEquation = Instantiate(solvedEquationPrefab, solvedEquationParent);
+        newSolvedEquation.Repaint(EquationKeyText.text, EquationSignText.text, EquationSuffixText.text);
         score++;
         Debug.Log("YOU WIN THE EQUATION");
         totalSumSuf = 0;
@@ -173,6 +187,10 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
         else
         {
             totalSumSuf -= thing.value;
+        }
+        if (totalSumSuf == EquationSufNumber && totalSumKey == EquationKeyNumber)
+        {
+            EquationSolved();
         }
         thing.transform.DOPunchScale(thing.transform.localScale * 0.1f, 0.2f).OnComplete(() =>
         {
