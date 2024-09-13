@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RTLTMPro;
@@ -11,12 +12,23 @@ public class TextHandler : MonoBehaviour
 {
     // Reference to RTLTextMeshPro components
     public RTLTextMeshPro[] rtlText;
-    
+
+    [SerializeField] private RTLTextMeshPro text;
+
 
     // String fields to manually input text
     [TextArea(3, 10)]
     public string[] text1;
     
+
+
+    private void Update()
+    {
+        
+        
+        text.text = (PlayerPrefs.GetInt("Level2") * 5 + PlayerPrefs.GetInt("Level3") * 10 ).ToString();
+    }
+
 
     // This function will be called whenever the script is updated in the editor
     void OnValidate()
