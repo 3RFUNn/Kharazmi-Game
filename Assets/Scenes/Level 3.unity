@@ -668,7 +668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE91\uFEAE\uFEED \uFEE3\uFEAE\uFEA3\uFEE0\uFEEA \uFE91\uFECC\uFEAA\uFBFC"
+  m_text: "\uFE8D\uFEA9\uFE8D\uFEE3\uFEEA \uFE91\uFE8E\uFEAF\uFBFC"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
   m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0628\u0631\u0648 \u0645\u0631\u062D\u0644\u0647 \u0628\u0639\u062F\u06CC"
+  originalText: "\u0627\u062F\u0627\u0645\u0647 \u0628\u0627\u0632\u06CC"
   fixTags: 1
   forceFix: 1
 --- !u!114 &129611181
@@ -899,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171114, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_Type
@@ -1035,7 +1035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 141.61618
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22409724, guid: 26938f1c9cd2512478f1a13677ab00d1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3022,55 +3022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803682773}
   m_CullTransparentMesh: 0
---- !u!1001 &848870013
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229640, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dbd2ae0899b5a784d89ec35efebcff9b, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ba8ebda74f364b4b8a7cddb1b9c21f2, type: 3}
 --- !u!1 &854776967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,7 +6993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE91\uFEAE\uFEED \uFEE3\uFEAE\uFEA3\uFEE0\uFEEA \uFE91\uFECC\uFEAA\uFBFC"
+  m_text: "\uFE8D\uFEA9\uFE8D\uFEE3\uFEEA \uFE91\uFE8E\uFEAF\uFBFC"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
   m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
@@ -7113,7 +7064,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0628\u0631\u0648 \u0645\u0631\u062D\u0644\u0647 \u0628\u0639\u062F\u06CC"
+  originalText: "\u0627\u062F\u0627\u0645\u0647 \u0628\u0627\u0632\u06CC"
   fixTags: 1
   forceFix: 1
 --- !u!114 &2001725590
@@ -7360,5 +7311,4 @@ SceneRoots:
   - {fileID: 1295649187}
   - {fileID: 120547293}
   - {fileID: 234409577}
-  - {fileID: 848870013}
   - {fileID: 1663719397}
