@@ -3,6 +3,7 @@ using UnityEngine;
 using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
+using SFXSystem;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -37,14 +38,14 @@ public class QuizManager : MonoBehaviour
     
 
     private int currentLevel;
-    private int CorrectAnswer;
+    private int correctAnswer = 0;
     private float timeRemaining;
     private bool isQuizActive;
 
 
     public int CurrentLevel => currentLevel;
 
-    public int CorrectAnswer1 => CorrectAnswer;
+    public int CorrectAnswer => correctAnswer;
 
 
     public bool IsQuizActive
@@ -59,13 +60,19 @@ public class QuizManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        PlayerPrefs.SetInt("Level3",CorrectAnswer);
+        Debug.Log(PlayerPrefs.GetInt("Level3"));
+    }
+
     public int AnswerIndex => answerIndex;
 
     public void StartQuiz()
     {
 
         currentLevel = 1;
-        CorrectAnswer = 0;
+        correctAnswer = 0;
         timeRemaining = 80f;
         isQuizActive = true;
 
@@ -155,7 +162,7 @@ public class QuizManager : MonoBehaviour
             if (answer)
             {
                 currentLevel++;
-                CorrectAnswer++;
+                correctAnswer++;
                 
 
                 if (currentLevel > 3)

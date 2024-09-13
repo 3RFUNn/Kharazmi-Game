@@ -29,6 +29,9 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     Tween rotationTween;
     [HideInInspector]
     public bool HasLost;
+
+    
+    
     public void Init(string key)
     {
         score = 0;
@@ -175,6 +178,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         Debug.LogError("GAME OVER");
         Debug.Log("Score is : " + score);
         PlayerPrefs.SetInt("Level2", score);
+        PlayerPrefs.SetInt("Level3",0);
         if (!button)
         {
             Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
@@ -183,6 +187,6 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         canMove = false;
         SoundSystemManager.Instance.PlaySFX("Lost");
         await Task.Delay(4000);
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Score 2");
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using SFXSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +32,8 @@ public class LevelHandler : MonoBehaviour
         wrongAnswer.SetActive(false);
         equationFinished.SetActive(false);
         timeFinished.SetActive(false);
+        SoundSystemManager.Instance.ChangeBGM("Music2");
+        SoundSystemManager.Instance.PlayBGM();
         //statistics.SetActive(false);
     }
 
@@ -42,6 +45,7 @@ public class LevelHandler : MonoBehaviour
 
     public void QuizLoader()
     {
+        
         firstQuestion.SetActive(false);
         quiz.SetActive(true);
         
@@ -62,7 +66,7 @@ public class LevelHandler : MonoBehaviour
         manager.IsQuizActive = false;
         quiz.SetActive(false);
         equationFinished.SetActive(true);
-        PlayerPrefs.SetInt("Level3",manager.CorrectAnswer1);
+        
         
 
         
