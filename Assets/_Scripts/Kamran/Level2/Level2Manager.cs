@@ -1,4 +1,5 @@
 using RTLTMPro;
+using SFXSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ public class Level2Manager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 120;
+        SoundSystemManager.Instance.ChangeBGM("Music");
+        SoundSystemManager.Instance.PlayBGM();
         player.joystick.gameObject.SetActive(false);
         GameObj.SetActive(false);
         EndGameButton.gameObject.SetActive(false);

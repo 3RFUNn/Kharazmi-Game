@@ -1,4 +1,5 @@
 using DG.Tweening;
+using SFXSystem;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     public string KeyString;
     int score;
     Tween rotationTween;
+    [HideInInspector]
+    public bool HasLost;
     public void Init(string key)
     {
         score = 0;
@@ -149,9 +152,11 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             var collectible = other.gameObject.GetComponent<CollectibleManager>();
             if (!collectible.KeyString.Equals(KeyString))
             {
+                SoundSystemManager.Instance.PlaySFX("Wrong");
                 GameOver();
                 return;
             }
+            SoundSystemManager.Instance.PlaySFX("Eating");
             Grow(collectible.GetPreText(), collectible.GetKeyText());
             score++;
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
@@ -165,6 +170,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
     }
     public async void GameOver(bool button=false)
     {
+        if (HasLost) return;
+        HasLost = true;
         Debug.LogError("GAME OVER");
         Debug.Log("Score is : " + score);
         PlayerPrefs.SetInt("Level2", score);
@@ -174,6 +181,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             Head.transform.DOShakeScale(2f, 0.1f);
         }
         canMove = false;
+        SoundSystemManager.Instance.PlaySFX("Lost");
         await Task.Delay(4000);
         SceneManager.LoadScene("Level 3");
     }
