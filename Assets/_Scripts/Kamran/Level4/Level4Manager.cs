@@ -22,7 +22,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     public int EquationSufNumber;
     int totalSumKey;
     int totalSumSuf;
-    int score;
+    public int score;
     bool isFirstEq;
     void Start()
     {

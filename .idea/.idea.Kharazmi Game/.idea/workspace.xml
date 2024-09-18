@@ -2,25 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Score 2.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Score 2.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Score 3.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Score 3.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Designs_1_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Designs_1_03.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/SoundEffects/Win sound.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/SoundEffects/Win sound.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Statistics.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Statistics.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Statistics.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Statistics.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Victory.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Victory.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/NextLevel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/NextLevel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SoundManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SoundManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/LevelHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/LevelHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/QuizManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Erfan/ScrollHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Erfan/ScrollHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Kamran/Level2/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Kamran/Level2/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Kamran/Level4/Level4Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Kamran/Level4/Level4Manager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +104,7 @@
       <workItem from="1726140229444" duration="1229000" />
       <workItem from="1726157193225" duration="679000" />
       <workItem from="1726243278261" duration="6209000" />
+      <workItem from="1726689566488" duration="2802000" />
     </task>
     <servers />
   </component>
