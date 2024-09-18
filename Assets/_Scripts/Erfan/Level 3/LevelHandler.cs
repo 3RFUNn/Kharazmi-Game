@@ -43,6 +43,11 @@ public class LevelHandler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void FirstLevel()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void QuizLoader()
     {
         

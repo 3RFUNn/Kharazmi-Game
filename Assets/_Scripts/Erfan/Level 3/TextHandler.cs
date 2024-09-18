@@ -13,7 +13,9 @@ public class TextHandler : MonoBehaviour
     // Reference to RTLTextMeshPro components
     public RTLTextMeshPro[] rtlText;
 
-    [SerializeField] private RTLTextMeshPro text;
+    [SerializeField] private RTLTextMeshPro[] text;
+
+    private Level4Manager manager;
 
 
     // String fields to manually input text
@@ -26,7 +28,15 @@ public class TextHandler : MonoBehaviour
     {
         
         
-        text.text = (PlayerPrefs.GetInt("Level2") * 5 + PlayerPrefs.GetInt("Level3") * 10 ).ToString();
+        text[0].text = (PlayerPrefs.GetInt("Level2") * 5 + PlayerPrefs.GetInt("Level3") * 10 ).ToString();
+    }
+
+    public void Statistics()
+    {
+        text[1].text = PlayerPrefs.GetInt("Level2").ToString();
+        text[2].text = PlayerPrefs.GetInt("Level3").ToString();
+        text[3].text = manager.score.ToString();
+
     }
 
 
