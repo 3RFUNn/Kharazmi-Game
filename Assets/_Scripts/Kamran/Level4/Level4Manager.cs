@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level4Manager : SingletonBehaviour<Level4Manager>
 {
@@ -202,7 +203,16 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
         Debug.Log("TIME IS UP");
         Debug.Log("Score is " + score);
         RainingCollectibleManager.Instance.StartRaining = false;
-        await Task.Delay(5000);
-        Application.Quit();
+        var kharazmi = score;
+        kharazmi += PlayerPrefs.GetInt("Level2") >= 10 ? 1 : 0;
+        kharazmi += PlayerPrefs.GetInt("Level3") >= 3 ? 1 : 0;
+        Debug.Log("KHARAZMI SCORE IS : " + kharazmi);
+        var sceneName = "Statistics";
+        if (kharazmi >= 5)
+        {
+            sceneName = "Victory";
+        }
+        PlayerPrefs.SetInt("Level4", kharazmi);
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
