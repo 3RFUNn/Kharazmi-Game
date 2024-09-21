@@ -162,6 +162,10 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             SoundSystemManager.Instance.PlaySFX("Eating");
             Grow(collectible.GetPreText(), collectible.GetKeyText());
             score++;
+            if (score >= 10)
+            {
+                GameOver(true);
+            }
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
             Destroy(other.gameObject);
         }/*
