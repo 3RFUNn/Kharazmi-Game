@@ -275,7 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rtlText: []
-  text: {fileID: 14921366}
+  text:
+  - {fileID: 14921366}
   text1: []
 --- !u!1 &474016205
 GameObject:
