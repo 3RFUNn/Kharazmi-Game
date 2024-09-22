@@ -36,7 +36,7 @@ public class TextHandler : MonoBehaviour
     {
         text[1].text = PlayerPrefs.GetInt("Level2").ToString();
         text[2].text = PlayerPrefs.GetInt("Level3").ToString();
-        text[3].text = manager.score.ToString();
+        text[3].text = PlayerPrefs.GetInt("Level4").ToString();
 
 
     }
