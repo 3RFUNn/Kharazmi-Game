@@ -167,6 +167,7 @@ public class QuizManager : MonoBehaviour
 
                 if (currentLevel > 3)
                 {
+                    
                     // End of quiz
                     handler.EndQuiz();
                 }
@@ -182,6 +183,7 @@ public class QuizManager : MonoBehaviour
 
                 if (currentLevel > 3)
                 {
+                   
                     // End of quiz
                     handler.EndQuiz();
                 }
