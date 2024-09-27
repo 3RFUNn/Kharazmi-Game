@@ -394,7 +394,7 @@ MonoBehaviour:
     - ' '
   - equationText: 3x-3=9
     correctAnswer:
-    - 6
+    - 4
     - ' '
     - ' '
     - ' '
@@ -404,7 +404,7 @@ MonoBehaviour:
     - ' '
     - ' '
     incorrectAnswer2:
-    - 4
+    - 6
     - ' '
     - ' '
     - ' '
