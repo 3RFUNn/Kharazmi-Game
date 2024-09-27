@@ -71,17 +71,21 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             sign = "-";
         }
         EquationKeyNumber = int.Parse(random);
+        if (EquationKeyNumber == 10)
+        {
+            random = "01";
+        }
         if (sign.Equals("-"))
         {
             EquationKeyNumber *= -1;
         }
         if (random.Equals("1"))
         {
-            EquationKeyText.transform.position += new Vector3(0, 0.05f, 0);
+            EquationKeyText.transform.position += new Vector3(0, 0.025f, 0);
             random = "";
         }
         EquationKeyText.text = random+ sign;
-        EquationKeyText.text += " x";
+        EquationKeyText.text += "x";
 
 
         var newText = "+";
