@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickedThingsManager : SingletonBehaviour<ClickedThingsManager>
+public class ClickedThingsManager : MonoBehaviour
 {
     [SerializeField] ClickedThing prefab;
     [SerializeField] ScrollRect scrollbar;
