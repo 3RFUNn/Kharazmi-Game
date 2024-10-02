@@ -191,7 +191,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             Head.transform.DOShakeScale(2f, 0.1f);
         }
         canMove = false;
-        
+        SoundSystemManager.Instance.StopBGM();
+        SoundSystemManager.Instance.ChangeBGMVolumn(0);
         await Task.Delay(4000);
         SceneManager.LoadScene("Score 2");
     }
