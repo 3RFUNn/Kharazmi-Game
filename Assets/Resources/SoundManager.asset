@@ -28,4 +28,7 @@ MonoBehaviour:
   - ID: Music2
     clip: {fileID: 8300000, guid: dbd2ae0899b5a784d89ec35efebcff9b, type: 3}
     volume: 100
+  - ID: Win
+    clip: {fileID: 8300000, guid: 5a497519068c300469f882a95efaa8ff, type: 3}
+    volume: 100
   audioSourceCount: 3

@@ -156,6 +156,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             if (!collectible.KeyString.Equals(KeyString))
             {
                 SoundSystemManager.Instance.PlaySFX("Wrong");
+                SoundSystemManager.Instance.PlaySFX("Lost");
                 GameOver();
                 return;
             }
@@ -165,6 +166,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             if (score >= 10)
             {
                 GameOver(true);
+                SoundSystemManager.Instance.PlaySFX("Win");
             }
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
             Destroy(other.gameObject);
@@ -189,7 +191,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             Head.transform.DOShakeScale(2f, 0.1f);
         }
         canMove = false;
-        SoundSystemManager.Instance.PlaySFX("Lost");
+        
         await Task.Delay(4000);
         SceneManager.LoadScene("Score 2");
     }
