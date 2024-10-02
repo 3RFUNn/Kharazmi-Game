@@ -1752,8 +1752,8 @@ MonoBehaviour:
   NumberOfDesiredKeys: 10
   InitialNumberOfObjects: 10
   MaxNumberOfObjects: 20
-  spawnPaddingFromCamera: 2
-  spawnPaddingFromCollectible: 5
+  spawnPaddingFromCamera: 1
+  spawnPaddingFromCollectible: 3
   collectibleParent: {fileID: 207388716}
   AllCollectibles: []
 --- !u!114 &1067099399
@@ -2357,7 +2357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110.95532}
+  m_AnchoredPosition: {x: 0, y: -110.95508}
   m_SizeDelta: {x: 1820, y: 1568.584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1481455999
