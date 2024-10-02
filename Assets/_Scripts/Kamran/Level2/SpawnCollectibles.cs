@@ -44,13 +44,16 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
                 Random.Range(minY, maxY),
                 0f
             );
-            if (!CheckForSafety(spawnPosition) && cnt<1000)
+            if (!CheckForSafety(spawnPosition) && cnt<10000)
             {
                 i--;
                 cnt++;
                 continue;
             }
-
+            if (cnt >= 10000)
+            {
+                Debug.LogError("Problemn");
+            }
             var selectedKey = "nothing";
             if (selectedNumbers.Contains(numberOfCollectibles))
             {
@@ -83,7 +86,7 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
         {
             if (Vector3.Distance(seg.transform.position, spawnPosition) < spawnPaddingFromCollectible)
             {
-                isSafe = false;
+                isSafe = false;break;
             }
         }
         return isSafe;
