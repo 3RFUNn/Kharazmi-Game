@@ -24,7 +24,7 @@ MonoBehaviour:
     volume: 50
   - ID: Music
     clip: {fileID: 8300000, guid: f7ab9b3001828644ab53d37fff97ba99, type: 3}
-    volume: 50
+    volume: 30
   - ID: Music2
     clip: {fileID: 8300000, guid: dbd2ae0899b5a784d89ec35efebcff9b, type: 3}
     volume: 100
