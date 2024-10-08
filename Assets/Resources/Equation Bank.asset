@@ -647,7 +647,7 @@ MonoBehaviour:
   hardEquations:
   - equationText: -5n-22 = n+2)n+1(
     correctAnswer:
-    - -3
+    - -4
     - ' '
     - ' '
     - ' '
