@@ -1,5 +1,3 @@
-Here's a cool GitHub README based on your description:
-
 ---
 
 # Kharazmi - The Math Adventure Game
