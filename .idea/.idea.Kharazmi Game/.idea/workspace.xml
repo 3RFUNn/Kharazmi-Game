@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="317bae22-ab2a-4169-9df2-63af48ffcfe1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Login.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Login.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/APIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/APIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/LoginManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/LoginSystem/LoginManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kharazmi Game/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +39,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Erfan/Level 3/TextHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/LoginSystem/APIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/LoginSystem/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/LoginSystem/LoginManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -134,6 +145,7 @@
       <workItem from="1728229684915" duration="333000" />
       <workItem from="1731969949513" duration="243000" />
       <workItem from="1732403429541" duration="1906000" />
+      <workItem from="1732834316175" duration="456000" />
     </task>
     <servers />
   </component>
