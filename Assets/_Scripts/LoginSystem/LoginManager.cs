@@ -9,7 +9,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private TMP_InputField nameInput;
     [SerializeField] private Button loginButton;
     [SerializeField] private TextMeshProUGUI errorText;
-    [SerializeField] private string firstGameScene = "Level1"; // Set this in Inspector
+    [SerializeField] private string firstGameScene; // Set this in Inspector
     
     public static string CurrentPlayerName { get; private set; }
     
