@@ -1,5 +1,3 @@
-// APIManager.cs
-// This class handles all REST API communications
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Text;
@@ -7,7 +5,7 @@ using System.Threading.Tasks;
 
 public class APIManager : MonoBehaviour
 {
-    private const string API_BASE_URL = "YOUR_API_ENDPOINT"; // Replace with your actual API endpoint
+    private const string API_BASE_URL = "http://localhost:8080"; 
     
     public static APIManager Instance { get; private set; }
     
@@ -39,12 +37,12 @@ public class APIManager : MonoBehaviour
             
             if (request.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log("Data sent successfully");
+                Debug.Log("Player data sent successfully");
                 return true;
             }
             else
             {
-                Debug.LogError($"Error sending data: {request.error}");
+                Debug.LogError($"Error sending player data: {request.error}");
                 return false;
             }
         }
@@ -63,7 +61,7 @@ public class APIManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError($"Error getting data: {request.error}");
+                Debug.LogError($"Error getting player data: {request.error}");
                 return null;
             }
         }
