@@ -1,4 +1,3 @@
-// LoginManager.cs (Updated version)
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,7 +5,7 @@ using TMPro;
 
 public class LoginManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField nameInput;
+    [SerializeField] private TMP_InputField playerNameInput;
     [SerializeField] private Button loginButton;
     [SerializeField] private TextMeshProUGUI errorText;
     [SerializeField] private string firstGameScene; // Set this in Inspector
@@ -21,7 +20,7 @@ public class LoginManager : MonoBehaviour
     
     private async void HandleLogin()
     {
-        string playerName = nameInput.text.Trim();
+        string playerName = playerNameInput.text.Trim();
         
         if (string.IsNullOrEmpty(playerName))
         {
@@ -49,4 +48,3 @@ public class LoginManager : MonoBehaviour
         errorText.gameObject.SetActive(true);
     }
 }
-

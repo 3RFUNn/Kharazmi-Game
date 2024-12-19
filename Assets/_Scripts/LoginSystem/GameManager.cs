@@ -1,4 +1,3 @@
-// GameManager.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -6,6 +5,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
     private PlayerData currentPlayerData;
     private float saveInterval = 60f; // Save every minute
     private float playTimeCounter = 0f;
@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
         if (scene.name == "LoginScene") return;
 
         Debug.Log($"Scene loaded: {scene.name}");
+        
+        if (currentPlayerData != null)
+        {
+            currentPlayerData.currentScene = scene.name;
+        }
+        
         InitializePlayerData();
     }
 
@@ -81,12 +87,6 @@ public class GameManager : MonoBehaviour
         {
             currentPlayerData.score = newScore;
         }
-    }
-
-    public void UpdateSpecificSceneData(string sceneName, object sceneSpecificData)
-    {
-        // You can implement scene-specific data storage here
-        // For example, storing level completion status, achievements, etc.
     }
     
     private IEnumerator AutoSaveRoutine()

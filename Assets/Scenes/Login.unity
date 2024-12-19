@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaf504ff8418fa42a5957df0f3998f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameInput: {fileID: 6964714}
+  playerNameInput: {fileID: 6964714}
   loginButton: {fileID: 1621185299}
   errorText: {fileID: 12975904}
   firstGameScene: Menu
