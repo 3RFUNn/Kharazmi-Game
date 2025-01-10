@@ -394,7 +394,7 @@ MonoBehaviour:
     - ' '
   - equationText: 3x-3=9
     correctAnswer:
-    - 4
+    - 6
     - ' '
     - ' '
     - ' '
@@ -404,7 +404,7 @@ MonoBehaviour:
     - ' '
     - ' '
     incorrectAnswer2:
-    - 6
+    - 4
     - ' '
     - ' '
     - ' '
@@ -564,12 +564,12 @@ MonoBehaviour:
     correctAnswer:
     - _
     - ' '
-    - -1
+    - 1
     - 2
     incorrectAnswer1:
     - _
     - ' '
-    - 1
+    - -1
     - 2
     incorrectAnswer2:
     - -2
@@ -647,7 +647,7 @@ MonoBehaviour:
   hardEquations:
   - equationText: -5n-22 = n+2)n+1(
     correctAnswer:
-    - -4
+    - -3
     - ' '
     - ' '
     - ' '

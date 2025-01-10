@@ -13,6 +13,8 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] PlayerManager player;
     [SerializeField] GameObject GameObj;
     [SerializeField] GameObject SelectionPanel;
+    [SerializeField] GameObject CharacterSelection;
+    [SerializeField] GameObject WordSelection;
     [SerializeField] Button EndGameButton;
     [SerializeField] List<Button> Buttons;
     private void Start()
@@ -24,7 +26,9 @@ public class Level2Manager : MonoBehaviour
         GameObj.SetActive(false);
         EndGameButton.gameObject.SetActive(false);
         SelectionPanel.SetActive(true);
-        foreach(var b in Buttons)
+        CharacterSelection.SetActive(true);
+        WordSelection.SetActive(false);
+        foreach (var b in Buttons)
         {
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(() =>
@@ -32,6 +36,11 @@ public class Level2Manager : MonoBehaviour
                 StartGame(b.transform.GetChild(0).GetComponent<RTLTextMeshPro>().text);
             });
         }
+    }
+    public void CharacterSelected(int index)
+    {
+        CharacterSelection.SetActive(false);
+        WordSelection.SetActive(true);
     }
     void StartGame(string key)
     {

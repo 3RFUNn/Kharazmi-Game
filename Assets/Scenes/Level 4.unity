@@ -2347,8 +2347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 542, y: 127}
-  m_SizeDelta: {x: 522.84, y: 82.8}
+  m_AnchoredPosition: {x: 607, y: 127}
+  m_SizeDelta: {x: 368.3, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1407742520
 MonoBehaviour:
@@ -2370,8 +2370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEE7\uFEB8\uFE8E\uFEE5 \uFEEB\uFE8E\uFBFC \uFEA7\uFEEE\uFE8D\uFEAD\uFEAF\uFEE3\uFBFD
-    \uFE97\uFEEE"
+  m_text: "\uFECB\uFE92\uFE8E\uFEAD\uFE95 \uFEEB\uFE8E\uFBFC \uFEA3\uFEDE \uFEB7\uFEAA\uFEE9"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
   m_sharedMaterial: {fileID: -9174946381324732685, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
@@ -2398,7 +2397,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.9
+  m_fontSize: 50.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2442,8 +2441,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0646\u0634\u0627\u0646 \u0647\u0627\u06CC \u062E\u0648\u0627\u0631\u0632\u0645\u06CC
-    \u062A\u0648"
+  originalText: "\u0639\u0628\u0627\u0631\u062A \u0647\u0627\u06CC \u062D\u0644 \u0634\u062F\u0647"
   fixTags: 1
   forceFix: 1
 --- !u!222 &1407742521
@@ -2514,7 +2512,6 @@ MonoBehaviour:
   solvedEquationParent: {fileID: 725009620}
   EquationKeyNumber: 0
   EquationSufNumber: 0
-  score: 0
 --- !u!4 &1461510204
 Transform:
   m_ObjectHideFlags: 0

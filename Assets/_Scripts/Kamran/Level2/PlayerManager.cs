@@ -187,7 +187,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
         PlayerPrefs.SetInt("Level3",0);
         if (!button)
         {
-            Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
+            //Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
             Head.transform.DOShakeScale(2f, 0.1f);
         }
         canMove = false;

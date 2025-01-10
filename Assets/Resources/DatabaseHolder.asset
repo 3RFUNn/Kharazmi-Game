@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: DatabaseHolder
   m_EditorClassIdentifier: 
   LostHeadSprite: {fileID: 21300000, guid: 106ec726be6e77647b9ed9882ab0638d, type: 3}
+  RedTail: {fileID: 1049212356884191295, guid: 210dd8398b29bba4491673d7d434e41c, type: 3}
+  BlueTail: {fileID: -4746319366763729807, guid: 8d15f73fca394134c8b06c711688693d, type: 3}
+  collectibleRandomSprites:
+  - {fileID: -3289020868813362532, guid: 1f32995060cc54047a3e09625de44629, type: 3}
+  - {fileID: 8591141901481381195, guid: 0e2dea84991dc244fbce24d4b07e565f, type: 3}
+  - {fileID: 6448808092783013682, guid: 5aa4e9a6117976242a8693f78918373d, type: 3}
+  - {fileID: 1669685773626562821, guid: e938b19d089272c40bf265bf271bf32d, type: 3}
+  - {fileID: 269533619020893227, guid: 4e487a40d7a5d354886b1ca3d1c4db7d, type: 3}
+  - {fileID: -157247174256461896, guid: 516d2efc680198f43878e7c4cd32f7af, type: 3}
   KeyStrings:
   - a
   - b

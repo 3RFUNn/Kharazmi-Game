@@ -21,7 +21,7 @@ public class CollectibleManager : MonoBehaviour
     [SerializeField] float rotationAmount = 90;
     [SerializeField] int elasticity = 1;
     [SerializeField] int delayMiliseconds = 1;
-
+    [SerializeField] SpriteRenderer spriteRenderer;
     public void Init(string _keyString = "nothing")
     {
         SetRandomText(_keyString);
@@ -42,6 +42,13 @@ public class CollectibleManager : MonoBehaviour
         {
             bothTexts.localPosition += new Vector3(-0.05f* (3-_preTxt.Length), 0, 0);
         }
+
+        MakeRandomShape();
+    }
+    void MakeRandomShape()
+    {
+        var rand = Random.Range(0, DatabaseHolder.Instance.collectibleRandomSprites.Count);
+        spriteRenderer.sprite = DatabaseHolder.Instance.collectibleRandomSprites[rand];
     }
     public static string ConvertToFarsiText(string _text, RTLTextMeshPro3D _preText)
     {

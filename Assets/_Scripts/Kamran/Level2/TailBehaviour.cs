@@ -11,19 +11,34 @@ public class TailBehaviour : MonoBehaviour
     [SerializeField] TextMeshPro tailKeyText;
     [SerializeField] RTLTextMeshPro3D tailPreText;
     [SerializeField] Transform bothTexts;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] bool isHead;
     public float delayTime = 1.0f;  
     public Queue<Vector3> positionHistory;  
     private float timeStep;
     bool isInit;
-
+    public static bool isOdd;
     public void Init()
     {
         positionHistory = new Queue<Vector3>();
         positionHistory.Enqueue(transform.position);
         timeStep = Time.fixedDeltaTime;
         isInit = true;
+        SetSprite(isOdd);
+        isOdd = !isOdd;
     }
-
+    void SetSprite(bool isRed)
+    {
+        if (isHead) return;
+        if (isRed)
+        {
+            sprite.sprite = DatabaseHolder.Instance.RedTail;
+        }
+        else
+        {
+            sprite.sprite = DatabaseHolder.Instance.BlueTail;
+        }
+    }
     void FixedUpdate()
     {
         if (!isInit) return;
