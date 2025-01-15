@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Collectible
   - Sound
@@ -12,6 +12,7 @@ TagManager:
   - 3
   - 0
   - Tail
+  - Rain
   layers:
   - Default
   - TransparentFX
@@ -55,3 +56,5 @@ TagManager:
   - name: Hi
     uniqueID: 628126591
     locked: 0
+  m_RenderingLayers:
+  - Default

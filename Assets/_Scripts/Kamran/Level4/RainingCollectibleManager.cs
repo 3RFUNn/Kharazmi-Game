@@ -12,7 +12,8 @@ public class RainingCollectibleManager : SingletonBehaviour<RainingCollectibleMa
     [SerializeField] float spawnPaddingFromBot;
     [SerializeField] float spawnPaddingFromEdge;
     [SerializeField] float spawnPaddingFromOthers;
-    [SerializeField] float delayRange;
+    [SerializeField] float minDelay;
+    [SerializeField] float maxDelay;
     List<RainingCollectible> spawnedXs;
     bool startRaining;
     private float minX;
@@ -60,7 +61,7 @@ public class RainingCollectibleManager : SingletonBehaviour<RainingCollectibleMa
             newRain.Init(minY);
             spawnedXs.Add(newRain);
             cnt = 0;
-            yield return new WaitForSeconds(Random.Range(0f, delayRange));
+            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         }
     }
 

@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b86aeab8de0cc479be9975ec87dfde, type: 3}
   m_Name: DatabaseHolder4
   m_EditorClassIdentifier: 
+  RainSprites:
+  - {fileID: 21300000, guid: 7080864190e0bd44eaaae0ce562ef46e, type: 3}
+  - {fileID: 21300000, guid: 5c530b2dfe684d346ac0159a68652f0e, type: 3}
+  - {fileID: 21300000, guid: fae47d8cdabdbc84db89b7f92da31661, type: 3}
+  - {fileID: 21300000, guid: ed74d2e2b18f9164aafc884b4e061a30, type: 3}
+  - {fileID: 21300000, guid: b528c646d50f5d34a8422fc3259d7838, type: 3}
   Constants:
   - 0
   - 1

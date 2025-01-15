@@ -2040,6 +2040,7 @@ MonoBehaviour:
   segments: []
   IsMoving: 0
   KeyString: 
+  HasLost: 0
 --- !u!4 &892865649
 Transform:
   m_ObjectHideFlags: 0
@@ -2373,6 +2374,7 @@ RectTransform:
   - {fileID: 652200518}
   - {fileID: 192882474}
   - {fileID: 1369040200}
+  - {fileID: 1349039825}
   m_Father: {fileID: 1262317362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3616,7 +3618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 128.20001
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
