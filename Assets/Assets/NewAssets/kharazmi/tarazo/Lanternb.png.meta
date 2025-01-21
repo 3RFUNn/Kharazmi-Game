@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3fc15dd775b4b4549a13f1569075e31f
+guid: 863bcafa24ad68b468df70e5c5a679a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -41760102130141323
-    second: JCGB-blue_M_rounded_btn_0
+      213: 1421627477305020009
+    second: Lanternb_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JCGB-blue_M_rounded_btn_0
+      name: Lanternb_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 128
+        width: 61
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 35, y: 35, z: 35, w: 35}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 577bfba8863ab6ff0800000000000000
-      internalID: -41760102130141323
+      spriteID: 96e43b398a2aab310800000000000000
+      internalID: 1421627477305020009
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8f7b0e6aef9719541b08d1cca0acd490
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      JCGB-blue_M_rounded_btn_0: -41760102130141323
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

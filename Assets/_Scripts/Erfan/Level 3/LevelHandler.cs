@@ -13,6 +13,7 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private GameObject secondQuestion;
     [SerializeField] private GameObject rightAnswer;
     [SerializeField] private GameObject wrongAnswer;
+    [SerializeField] private GameObject EquationsParent;
 
     [SerializeField] private GameObject equationFinished;
     [SerializeField] private GameObject timeFinished;
@@ -28,6 +29,7 @@ public class LevelHandler : MonoBehaviour
         quiz.SetActive(false);
         firstQuestion.SetActive(true);
         secondQuestion.SetActive(false);
+        EquationsParent.SetActive(true);
         rightAnswer.SetActive(false);
         wrongAnswer.SetActive(false);
         equationFinished.SetActive(false);
@@ -60,6 +62,7 @@ public class LevelHandler : MonoBehaviour
     public void NextQuestion()
     {
         secondQuestion.SetActive(false);
+        EquationsParent.SetActive(true);
 
 
 
@@ -108,6 +111,7 @@ public class LevelHandler : MonoBehaviour
                 await Task.Delay(2000);
                 rightAnswer.SetActive(false);
                 secondQuestion.SetActive(true);
+                EquationsParent.SetActive(false);
             }
 
             manager.CheckAnswer(true);
@@ -128,6 +132,7 @@ public class LevelHandler : MonoBehaviour
                 await Task.Delay(2000);
                 wrongAnswer.SetActive(false);
                 secondQuestion.SetActive(true);
+                EquationsParent.SetActive(false);
             }
 
             manager.CheckAnswer(false);

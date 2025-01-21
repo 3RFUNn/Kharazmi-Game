@@ -1,3 +1,4 @@
+using DG.Tweening;
 using RTLTMPro;
 using SFXSystem;
 using System;
@@ -17,9 +18,13 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject WordSelection;
     [SerializeField] Button EndGameButton;
     [SerializeField] List<Button> Buttons;
+    [SerializeField] Button StartGameButton;
+    [SerializeField] GameObject Grid;
+
+    string key;
     private void Start()
     {
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 60;
         SoundSystemManager.Instance.ChangeBGM("Music");
         SoundSystemManager.Instance.PlayBGM();
         player.joystick.gameObject.SetActive(false);
@@ -33,17 +38,29 @@ public class Level2Manager : MonoBehaviour
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(() =>
             {
-                StartGame(b.transform.GetChild(0).GetComponent<RTLTextMeshPro>().text);
+                SetKey(b.transform.GetChild(0).GetComponent<RTLTextMeshPro>().text);
             });
         }
+        StartGameButton.onClick.RemoveAllListeners();
+        StartGameButton.onClick.AddListener(()=>StartGame(key));
     }
     public void CharacterSelected(int index)
     {
         CharacterSelection.SetActive(false);
         WordSelection.SetActive(true);
     }
+    void SetKey(string key)
+    {
+        this.key = key;
+    }
     void StartGame(string key)
     {
+        if (string.IsNullOrEmpty(key))
+        {
+            Grid.transform.DOKill(true);
+            Grid.transform.DOPunchScale(0.1f * Vector3.one, 0.25f);
+            return;
+        }
         player.joystick.gameObject.SetActive(true);
         player.Init(key);
         spawnCollectibles.SpawnCollectible();

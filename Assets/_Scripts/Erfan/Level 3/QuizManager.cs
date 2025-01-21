@@ -63,7 +63,6 @@ public class QuizManager : MonoBehaviour
     private void Update()
     {
         PlayerPrefs.SetInt("Level3",CorrectAnswer);
-        Debug.Log(PlayerPrefs.GetInt("Level3"));
     }
 
     public int AnswerIndex => answerIndex;
@@ -158,7 +157,9 @@ public class QuizManager : MonoBehaviour
 
     public void CheckAnswer(bool answer)
     {
-        
+        StreakHandler.Instance.Answered(answer);
+
+
             if (answer)
             {
                 currentLevel++;

@@ -55,6 +55,27 @@ MonoBehaviour:
     - ' '
     - ' '
     - ' '
+  - equationText: 4a=1
+    correctAnswer:
+    - _
+    - ' '
+    - 1
+    - 4
+    incorrectAnswer1:
+    - 4
+    - ' '
+    - ' '
+    - ' '
+    incorrectAnswer2:
+    - -4
+    - ' '
+    - ' '
+    - ' '
+    incorrectAnswer3:
+    - _
+    - ' '
+    - -1
+    - 4
   - equationText: -7x=-21
     correctAnswer:
     - 3
@@ -307,27 +328,6 @@ MonoBehaviour:
     - ' '
     - ' '
     - ' '
-  - equationText: 4a=1
-    correctAnswer:
-    - _
-    - ' '
-    - 1
-    - 4
-    incorrectAnswer1:
-    - 4
-    - ' '
-    - ' '
-    - ' '
-    incorrectAnswer2:
-    - -4
-    - ' '
-    - ' '
-    - ' '
-    incorrectAnswer3:
-    - _
-    - ' '
-    - -1
-    - 4
   - equationText: -10a=-2
     correctAnswer:
     - _
