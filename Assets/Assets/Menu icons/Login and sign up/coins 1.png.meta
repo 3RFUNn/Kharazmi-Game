@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2a9fba660a1007144a2ed92f6736a6b5
+guid: aee9c794ee08d4b46a9ab19cc1e17e05
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3193397599343178579
-    second: "\u0648\u0631\u0648\u062F_0"
+      213: -6162977740586109416
+    second: coins 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0648\u0631\u0648\u062F_0"
+      name: coins 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 156
-        height: 37
+        x: 6
+        y: 4
+        width: 113
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3537f6f723a315c20800000000000000
-      internalID: 3193397599343178579
+      spriteID: 816b9b5d564b87aa0800000000000000
+      internalID: -6162977740586109416
       vertices: []
       indices: 
       edges: []
