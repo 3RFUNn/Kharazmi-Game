@@ -7,6 +7,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
 {
     [SerializeField] GameObject MenuPanel;
     [SerializeField] GameObject TutorialPanel;
+    [SerializeField] GameObject SettingsPanel;
     [SerializeField] GameObject TutorialArea;
     [SerializeField] GameObject TutorialButtonParent;
 
@@ -22,6 +23,8 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
 
     [SerializeField] Button TutorialBackButton;
     [SerializeField] RTLTextMeshPro TutorialText;
+
+    [SerializeField] Button SettingsBackButton;
     void Start()
     {
         MenuPanel.SetActive(true);
@@ -32,10 +35,25 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         Level2TutorialButton.onClick.AddListener(Level2TutorialButtonClicked);
         Level3TutorialButton.onClick.AddListener(Level3TutorialButtonClicked);
         Level4TutorialButton.onClick.AddListener(Level4TutorialButtonClicked);
+        SettingsButton.onClick.AddListener(SettingsButtonClicked);
+        SettingsBackButton.onClick.AddListener(SettingsBackButtonClicked);
         //TODO Other Button Interactions
 
 
     }
+
+    private void SettingsBackButtonClicked()
+    {
+        SettingsPanel.SetActive(false);
+        MenuPanel.SetActive(true);
+    }
+
+    private void SettingsButtonClicked()
+    {
+        SettingsPanel.SetActive(true);
+        MenuPanel.SetActive(false);
+    }
+
     //TODO set Tutorial Texts
     private void Level4TutorialButtonClicked()
     {
