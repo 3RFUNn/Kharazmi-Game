@@ -7,10 +7,14 @@ using SFXSystem;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class QuizManager : MonoBehaviour
 {
     public EquationBank equationBank;
+    public WeightsManager weightsManagerR;
+    public WeightsManager weightsManagerL;
+    public RectTransform scaleTop;
 
     public RTLTextMeshPro equationText;
 
@@ -80,13 +84,13 @@ public class QuizManager : MonoBehaviour
         
         StartCoroutine(Timer());
     }
-     
-    
+
+    Equation equation;
     private void LoadNextQuestion()
     {
         List<Equation> equations;
 
-       
+
 
         switch (currentLevel)
         {
@@ -106,22 +110,24 @@ public class QuizManager : MonoBehaviour
 
         // Randomly select an equation
         int randomIndex = Random.Range(0, equations.Count);
-        Equation equation = equations[randomIndex];
-        
+        equation = equations[randomIndex];
+        weightsManagerR.PutWeights(equation);
+        weightsManagerL.PutWeights(equation);
+        scaleTop.localEulerAngles = new Vector3(0, 0, 0);
         // Set the equation and answers
         equationText.text = equation.equationText;
-        
+
         List<RTLTextMeshPro[]> Answerlist = new List<RTLTextMeshPro[]>();
-        
+
         // adding the answers to a list
         Answerlist.Add(Answer1Text);
         Answerlist.Add(Answer2Text);
         Answerlist.Add(Answer3Text);
         Answerlist.Add(Answer4Text);
-        
+
         // create 4 shuffled numbers from 0 to 3
         int[] shuffledArray = ShuffleFourNumbers();
-        
+
         int[] ShuffleFourNumbers()
         {
             int[] numbers = { 0, 1, 2, 3 };
@@ -133,70 +139,115 @@ public class QuizManager : MonoBehaviour
             }
             return numbers;
         }
-
-
-
-         answerIndex = shuffledArray[0];
-
-
-         for (int i = 0; i < 4 ; i++)
+        answerIndex = shuffledArray[0];
+        for (int i = 0; i < 4; i++)
         {
+            var cnt = i;
             Answerlist[answerIndex % 4][i].text = equation.correctAnswer[i];
+            var btn = Answerlist[answerIndex % 4][i].transform.parent.transform.parent.GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => {
+                PressedAnswer(cnt);
+            }
+            );
+            btn.onClick.AddListener(() => handler.AnswerChecker(btn.gameObject));
             Answerlist[(answerIndex + 1) % 4][i].text = equation.incorrectAnswer1[i];
+            var btn2 = Answerlist[(answerIndex + 1) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
+            btn2.onClick.RemoveAllListeners();
+            btn2.onClick.AddListener(() => {
+                PressedAnswer(cnt);
+            }
+            );
+            btn2.onClick.AddListener(() => handler.AnswerChecker(btn2.gameObject));
             Answerlist[(answerIndex + 2) % 4][i].text = equation.incorrectAnswer2[i];
+            var btn3 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
+            btn3.onClick.RemoveAllListeners();
+            btn3.onClick.AddListener(() => {
+                PressedAnswer(cnt);
+            }
+            );
+            btn3.onClick.AddListener(() => handler.AnswerChecker(btn3.gameObject));
             Answerlist[(answerIndex + 3) % 4][i].text = equation.incorrectAnswer3[i];
-            
+            var btn4 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
+            btn4.onClick.RemoveAllListeners();
+            btn4.onClick.AddListener(() => {
+                PressedAnswer(cnt);
+                }
+            );
+            btn4.onClick.AddListener(() => handler.AnswerChecker(btn4.gameObject));
+
             //Debug.Log(shuffledArray[i] + 1);
 
         }
-        
-
-        
-        
+    }
+    void PressedAnswer(int val)
+    {
+        var x = equation.incorrectAnswerLeftOrRight[val];
+        if (x == 0) return;
+        if (x > 0)
+        {
+            MoveScaleRight();
+        }
+        else
+        {
+            MoveScaleLeft();
+        }
     }
 
+    private void MoveScaleLeft()
+    {
+        scaleTop.DORotate(new Vector3(0, 0, 10), 1f);
+        float targetY = weightsManagerL.Obj.anchoredPosition.y - 13;
+        weightsManagerL.Obj.DOAnchorPosY(targetY, 1f);
+        float targetY2 = weightsManagerR.Obj.anchoredPosition.y + 13;
+        weightsManagerR.Obj.DOAnchorPosY(targetY2, 1f);
+    }
+
+    void MoveScaleRight()
+    {
+        scaleTop.DORotate(new Vector3(0, 0, -10), 1f);
+        float targetY = weightsManagerL.Obj.anchoredPosition.y + 13;
+        weightsManagerL.Obj.DOAnchorPosY(targetY, 1f);
+        float targetY2 = weightsManagerR.Obj.anchoredPosition.y - 13;
+        weightsManagerR.Obj.DOAnchorPosY(targetY2, 1f);
+    }
     public void CheckAnswer(bool answer)
     {
         StreakHandler.Instance.Answered(answer);
+        if (answer)
+        {
+            currentLevel++;
+            correctAnswer++;
 
 
-            if (answer)
+            if (currentLevel > 3)
             {
-                currentLevel++;
-                correctAnswer++;
-                
 
-                if (currentLevel > 3)
-                {
-                    
-                    // End of quiz
-                    handler.EndQuiz();
-                }
-                else
-                {
-                    LoadNextQuestion();
-                    StartCoroutine(Timer());
-                }
+                // End of quiz
+                handler.EndQuiz();
             }
             else
             {
-                currentLevel++;
-
-                if (currentLevel > 3)
-                {
-                   
-                    // End of quiz
-                    handler.EndQuiz();
-                }
-                else
-                {
-                    LoadNextQuestion();
-                    StartCoroutine(Timer());
-                }
+                LoadNextQuestion();
+                StartCoroutine(Timer());
             }
+        }
+        else
+        {
+            currentLevel++;
 
-            
-            
+            if (currentLevel > 3)
+            {
+
+                // End of quiz
+                handler.EndQuiz();
+            }
+            else
+            {
+                LoadNextQuestion();
+                StartCoroutine(Timer());
+            }
+        }
     }
 
     

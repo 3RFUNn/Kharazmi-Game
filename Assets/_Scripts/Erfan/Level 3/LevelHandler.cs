@@ -17,9 +17,6 @@ public class LevelHandler : MonoBehaviour
 
     [SerializeField] private GameObject equationFinished;
     [SerializeField] private GameObject timeFinished;
-    
-    public GameObject[] Answers;
-
     [SerializeField] private QuizManager manager;
     //[SerializeField] private GameObject statistics;
 
@@ -101,15 +98,15 @@ public class LevelHandler : MonoBehaviour
         {
             if (manager.CurrentLevel >= 3)
             {
-                rightAnswer.SetActive(true);
+                //rightAnswer.SetActive(true);
                 await Task.Delay(2000);
-                rightAnswer.SetActive(false);
+               // rightAnswer.SetActive(false);
             }
             else
             {
-                rightAnswer.SetActive(true);
+                //rightAnswer.SetActive(true);
                 await Task.Delay(2000);
-                rightAnswer.SetActive(false);
+                //rightAnswer.SetActive(false);
                 secondQuestion.SetActive(true);
                 EquationsParent.SetActive(false);
             }
@@ -122,15 +119,15 @@ public class LevelHandler : MonoBehaviour
         {
             if (manager.CurrentLevel >= 3)
             {
-                wrongAnswer.SetActive(true);
+                //wrongAnswer.SetActive(true);
                 await Task.Delay(2000);
-                wrongAnswer.SetActive(false);
+                //wrongAnswer.SetActive(false);
             }
             else
             {
-                wrongAnswer.SetActive(true);
+                ///wrongAnswer.SetActive(true);
                 await Task.Delay(2000);
-                wrongAnswer.SetActive(false);
+                //wrongAnswer.SetActive(false);
                 secondQuestion.SetActive(true);
                 EquationsParent.SetActive(false);
             }

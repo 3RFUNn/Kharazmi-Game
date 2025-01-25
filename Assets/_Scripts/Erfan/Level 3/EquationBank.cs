@@ -22,7 +22,14 @@ public struct Equation
     public String[] incorrectAnswer1;
     public String[] incorrectAnswer2;
     public String[] incorrectAnswer3;
+    public String[] encapsulatingXR;
+    public int numberXR;
+    public int numberR;
+    public String[] encapsulatingXL;
+    public int numberXL;
+    public int numberL;
 
+    public int[] incorrectAnswerLeftOrRight;
 }
 
 
