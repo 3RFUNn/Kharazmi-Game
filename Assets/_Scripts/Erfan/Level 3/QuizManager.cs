@@ -8,6 +8,7 @@ using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class QuizManager : MonoBehaviour
 {
@@ -86,8 +87,9 @@ public class QuizManager : MonoBehaviour
     }
 
     Equation equation;
-    private void LoadNextQuestion()
+    private async void LoadNextQuestion()
     {
+        await Task.Delay(100);
         List<Equation> equations;
 
 
@@ -147,7 +149,7 @@ public class QuizManager : MonoBehaviour
             var btn = Answerlist[answerIndex % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(() => {
-                PressedAnswer(cnt);
+                PressedAnswer(0);
             }
             );
             btn.onClick.AddListener(() => handler.AnswerChecker(btn.gameObject));
@@ -155,7 +157,7 @@ public class QuizManager : MonoBehaviour
             var btn2 = Answerlist[(answerIndex + 1) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn2.onClick.RemoveAllListeners();
             btn2.onClick.AddListener(() => {
-                PressedAnswer(cnt);
+                PressedAnswer(1);
             }
             );
             btn2.onClick.AddListener(() => handler.AnswerChecker(btn2.gameObject));
@@ -163,7 +165,7 @@ public class QuizManager : MonoBehaviour
             var btn3 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn3.onClick.RemoveAllListeners();
             btn3.onClick.AddListener(() => {
-                PressedAnswer(cnt);
+                PressedAnswer(2);
             }
             );
             btn3.onClick.AddListener(() => handler.AnswerChecker(btn3.gameObject));
@@ -171,7 +173,7 @@ public class QuizManager : MonoBehaviour
             var btn4 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn4.onClick.RemoveAllListeners();
             btn4.onClick.AddListener(() => {
-                PressedAnswer(cnt);
+                PressedAnswer(3);
                 }
             );
             btn4.onClick.AddListener(() => handler.AnswerChecker(btn4.gameObject));
@@ -182,6 +184,7 @@ public class QuizManager : MonoBehaviour
     }
     void PressedAnswer(int val)
     {
+        Debug.Log("val = " + val);
         var x = equation.incorrectAnswerLeftOrRight[val];
         if (x == 0) return;
         if (x > 0)

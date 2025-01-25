@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DG.Tweening;
 using SFXSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -91,24 +92,37 @@ public class LevelHandler : MonoBehaviour
 
     public async void AnswerChecker(GameObject checkedAnswer)
     {
-
         manager.IsQuizActive = false;
         
         if (manager.AnswerIndex.ToString().Equals(checkedAnswer.tag))
         {
             if (manager.CurrentLevel >= 3)
             {
-                //rightAnswer.SetActive(true);
+                rightAnswer.SetActive(true);
+                var tmp = rightAnswer.GetComponent<CanvasGroup>();
+                tmp.alpha = 0;
+                tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
                 await Task.Delay(2000);
-               // rightAnswer.SetActive(false);
+                var tmp2 = rightAnswer.GetComponent<CanvasGroup>();
+                tmp2.DOFade(0f, 1f).OnComplete(() =>
+                {
+                    rightAnswer.SetActive(false);
+                }); // Lower alpha to 0.5 over 1 second
             }
             else
             {
-                //rightAnswer.SetActive(true);
+                rightAnswer.SetActive(true);
+                var tmp = rightAnswer.GetComponent<CanvasGroup>();
+                tmp.alpha = 0;
+                tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
                 await Task.Delay(2000);
-                //rightAnswer.SetActive(false);
-                secondQuestion.SetActive(true);
-                EquationsParent.SetActive(false);
+                var tmp2 = rightAnswer.GetComponent<CanvasGroup>();
+                tmp2.DOFade(0f, 1f).OnComplete(() =>
+                {
+                    rightAnswer.SetActive(false);
+                }); // Lower alpha to 0.5 over 1 second
+                //secondQuestion.SetActive(true);
+                //EquationsParent.SetActive(false);
             }
 
             manager.CheckAnswer(true);
@@ -119,17 +133,31 @@ public class LevelHandler : MonoBehaviour
         {
             if (manager.CurrentLevel >= 3)
             {
-                //wrongAnswer.SetActive(true);
+                wrongAnswer.SetActive(true);
+                var tmp = wrongAnswer.GetComponent<CanvasGroup>();
+                tmp.alpha = 0;
+                tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
                 await Task.Delay(2000);
-                //wrongAnswer.SetActive(false);
+                var tmp2 = wrongAnswer.GetComponent<CanvasGroup>();
+                tmp2.DOFade(0f, 1f).OnComplete(() =>
+                {
+                    wrongAnswer.SetActive(false);
+                }); // Lower alpha to 0.5 over 1 second
             }
             else
             {
-                ///wrongAnswer.SetActive(true);
+                wrongAnswer.SetActive(true);
+                var tmp = wrongAnswer.GetComponent<CanvasGroup>();
+                tmp.alpha = 0;
+                tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
                 await Task.Delay(2000);
-                //wrongAnswer.SetActive(false);
-                secondQuestion.SetActive(true);
-                EquationsParent.SetActive(false);
+                var tmp2 = wrongAnswer.GetComponent<CanvasGroup>();
+                tmp2.DOFade(0f, 1f).OnComplete(() =>
+                {
+                    wrongAnswer.SetActive(false);
+                }); // Lower alpha to 0.5 over 1 second
+                //secondQuestion.SetActive(true);
+                //EquationsParent.SetActive(false);
             }
 
             manager.CheckAnswer(false);

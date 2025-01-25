@@ -1,6 +1,7 @@
 using System;
 using RTLTMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : SingletonBehaviour<MainMenuManager>
@@ -38,8 +39,13 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         SettingsButton.onClick.AddListener(SettingsButtonClicked);
         SettingsBackButton.onClick.AddListener(SettingsBackButtonClicked);
         //TODO Other Button Interactions
+        StartButton.onClick.AddListener(StartGameClicked);
 
+    }
 
+    private void StartGameClicked()
+    {
+        SceneManager.LoadScene("Level 2");
     }
 
     private void SettingsBackButtonClicked()
