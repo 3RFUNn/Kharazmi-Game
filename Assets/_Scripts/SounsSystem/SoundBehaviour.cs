@@ -41,9 +41,8 @@ namespace SFXSystem.core
             SFXSource.PlayOneShot(clip);
         }
 
-        public async void PlaySFX(AudioData data, int delayMs = 0) 
+        public void PlaySFX(AudioData data, int delayMs = 0) 
         {
-            await Task.Delay(delayMs);
             if (availableSources.Count <= 0)
             {
                 Debug.LogError("SoundManager: not enough sources");
@@ -107,12 +106,8 @@ namespace SFXSystem.core
             if(repeat)
                 RepeatBGM(CurrentBGM);
         }
-        public async void RepeatBGM(AudioSource audio)
+        public void RepeatBGM(AudioSource audio)
         {
-            while (audio.isPlaying)
-            {
-                await Task.Delay(1000);//new WaitForSeconds(1000);
-            }
             if(CurrentBGM==audio)
                 audio.Play();
         }

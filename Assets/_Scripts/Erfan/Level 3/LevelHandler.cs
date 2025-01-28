@@ -15,9 +15,6 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private GameObject rightAnswer;
     [SerializeField] private GameObject wrongAnswer;
     [SerializeField] private GameObject EquationsParent;
-
-    [SerializeField] private GameObject equationFinished;
-    [SerializeField] private GameObject timeFinished;
     [SerializeField] private QuizManager manager;
     //[SerializeField] private GameObject statistics;
 
@@ -30,8 +27,6 @@ public class LevelHandler : MonoBehaviour
         EquationsParent.SetActive(true);
         rightAnswer.SetActive(false);
         wrongAnswer.SetActive(false);
-        equationFinished.SetActive(false);
-        timeFinished.SetActive(false);
         SoundSystemManager.Instance.ChangeBGM("Music2");
         SoundSystemManager.Instance.PlayBGM();
         //statistics.SetActive(false);
@@ -40,7 +35,7 @@ public class LevelHandler : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Score 3");
     }
 
     public void FirstLevel()
@@ -61,9 +56,6 @@ public class LevelHandler : MonoBehaviour
     {
         secondQuestion.SetActive(false);
         EquationsParent.SetActive(true);
-
-
-
     }
     
     
@@ -71,29 +63,22 @@ public class LevelHandler : MonoBehaviour
     {
         manager.IsQuizActive = false;
         quiz.SetActive(false);
-        equationFinished.SetActive(true);
-        
-        
-
-        
+        NextLevel();
     }
     
     public void EndQuiz_Time()
     {
         manager.IsQuizActive = false;
         quiz.SetActive(false);
-        timeFinished.SetActive(true);
-        
-
-        
+        NextLevel();
     }
 
 
 
-    public async void AnswerChecker(GameObject checkedAnswer)
+    public IEnumerator AnswerChecker(GameObject checkedAnswer)
     {
         manager.IsQuizActive = false;
-        
+        RoadMapManager.Instance.onPauseGame?.Invoke();
         if (manager.AnswerIndex.ToString().Equals(checkedAnswer.tag))
         {
             if (manager.CurrentLevel >= 3)
@@ -102,7 +87,7 @@ public class LevelHandler : MonoBehaviour
                 var tmp = rightAnswer.GetComponent<CanvasGroup>();
                 tmp.alpha = 0;
                 tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
-                await Task.Delay(2000);
+                yield return new WaitForSeconds(2);
                 var tmp2 = rightAnswer.GetComponent<CanvasGroup>();
                 tmp2.DOFade(0f, 1f).OnComplete(() =>
                 {
@@ -115,7 +100,7 @@ public class LevelHandler : MonoBehaviour
                 var tmp = rightAnswer.GetComponent<CanvasGroup>();
                 tmp.alpha = 0;
                 tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
-                await Task.Delay(2000);
+                yield return new WaitForSeconds(2);
                 var tmp2 = rightAnswer.GetComponent<CanvasGroup>();
                 tmp2.DOFade(0f, 1f).OnComplete(() =>
                 {
@@ -137,7 +122,7 @@ public class LevelHandler : MonoBehaviour
                 var tmp = wrongAnswer.GetComponent<CanvasGroup>();
                 tmp.alpha = 0;
                 tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
-                await Task.Delay(2000);
+                yield return new WaitForSeconds(2);
                 var tmp2 = wrongAnswer.GetComponent<CanvasGroup>();
                 tmp2.DOFade(0f, 1f).OnComplete(() =>
                 {
@@ -150,7 +135,7 @@ public class LevelHandler : MonoBehaviour
                 var tmp = wrongAnswer.GetComponent<CanvasGroup>();
                 tmp.alpha = 0;
                 tmp.DOFade(0.5f, 1f); // Lower alpha to 0.5 over 1 second
-                await Task.Delay(2000);
+                yield return new WaitForSeconds(2);
                 var tmp2 = wrongAnswer.GetComponent<CanvasGroup>();
                 tmp2.DOFade(0f, 1f).OnComplete(() =>
                 {
@@ -167,7 +152,7 @@ public class LevelHandler : MonoBehaviour
         }
         
         manager.IsQuizActive = true;
-        
+
 
     }
 

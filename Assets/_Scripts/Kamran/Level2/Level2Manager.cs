@@ -16,20 +16,19 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject SelectionPanel;
     [SerializeField] GameObject CharacterSelection;
     [SerializeField] GameObject WordSelection;
-    [SerializeField] Button EndGameButton;
     [SerializeField] List<Button> Buttons;
     [SerializeField] Button StartGameButton;
     [SerializeField] GameObject Grid;
+    [SerializeField] HeaderHandler Header;
 
     string key;
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Header.SetTimeObjectEnable(false);
         SoundSystemManager.Instance.ChangeBGM("Music");
         SoundSystemManager.Instance.PlayBGM();
         player.joystick.gameObject.SetActive(false);
         GameObj.SetActive(false);
-        EndGameButton.gameObject.SetActive(false);
         SelectionPanel.SetActive(true);
         CharacterSelection.SetActive(true);
         WordSelection.SetActive(false);
@@ -66,12 +65,6 @@ public class Level2Manager : MonoBehaviour
         spawnCollectibles.SpawnCollectible();
         SelectionPanel.SetActive(false);
         GameObj.SetActive(true);
-        EndGameButton.gameObject.SetActive(true);
-        EndGameButton.onClick.RemoveAllListeners();
-        EndGameButton.onClick.AddListener(() =>
-        {
-            PlayerManager.Instance.GameOver(true);
-        });
     }
     public static List<int> GetUniqueRandomNumbers(int count,int initialOveralMax)
     {

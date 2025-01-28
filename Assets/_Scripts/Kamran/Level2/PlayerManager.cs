@@ -1,5 +1,6 @@
 using DG.Tweening;
 using SFXSystem;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Threading.Tasks;
@@ -157,7 +158,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             {
                 SoundSystemManager.Instance.PlaySFX("Wrong");
                 SoundSystemManager.Instance.PlaySFX("Lost");
-                GameOver();
+                StartCoroutine(GameOver());
                 return;
             }
             SoundSystemManager.Instance.PlaySFX("Eating");
@@ -165,7 +166,7 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             score++;
             if (score >= 10)
             {
-                GameOver(true);
+                StartCoroutine(GameOver(true));
                 SoundSystemManager.Instance.PlaySFX("Win");
             }
             SpawnCollectibles.Instance.CollectibleEaten(collectible);
@@ -177,23 +178,25 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             return;
         }*/
     }
-    public async void GameOver(bool button=false)
+    public IEnumerator GameOver(bool button=false)
     {
-        if (HasLost) return;
-        HasLost = true;
-        Debug.LogError("GAME OVER");
-        Debug.Log("Score is : " + score);
-        PlayerPrefs.SetInt("Level2", score);
-        PlayerPrefs.SetInt("Level3",0);
-        if (!button)
+        if (!HasLost)
         {
-            //Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
-            Head.transform.DOShakeScale(2f, 0.1f);
+            HasLost = true;
+            Debug.LogError("GAME OVER");
+            Debug.Log("Score is : " + score);
+            PlayerPrefs.SetInt("Level2", score);
+            PlayerPrefs.SetInt("Level3", 0);
+            if (!button)
+            {
+                //Head.sprite = DatabaseHolder.Instance.LostHeadSprite;
+                Head.transform.DOShakeScale(2f, 0.1f);
+            }
+            canMove = false;
+            SoundSystemManager.Instance.StopBGM();
+            SoundSystemManager.Instance.ChangeBGMVolumn(0);
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene("Score 2");
         }
-        canMove = false;
-        SoundSystemManager.Instance.StopBGM();
-        SoundSystemManager.Instance.ChangeBGMVolumn(0);
-        await Task.Delay(4000);
-        SceneManager.LoadScene("Score 2");
     }
 }

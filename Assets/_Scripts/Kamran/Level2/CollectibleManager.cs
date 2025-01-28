@@ -25,7 +25,7 @@ public class CollectibleManager : MonoBehaviour
     public void Init(string _keyString = "nothing")
     {
         SetRandomText(_keyString);
-        Wiggle();
+        StartCoroutine(Wiggle());
     }
     public void SetText(string _preTxt,string _suTxt, bool isConst=false)
     {
@@ -132,10 +132,10 @@ public class CollectibleManager : MonoBehaviour
     {
         return suText.text;
     }
-    async void Wiggle()
+    IEnumerator Wiggle()
     {
         var delayAmountRand = Random.Range(0, delayMiliseconds);
-        await Task.Delay(delayAmountRand);
+        yield return new WaitForSeconds((float)delayAmountRand/1000);
         var positionAmountRand = Random.Range(1f, positionAmount);
         var rotationAmountRand = Random.Range(5f, rotationAmount);
 

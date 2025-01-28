@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class RoadMapManager : SingletonBehaviour<RoadMapManager>
 {
+    public Action onPauseGame;
+    public Action onResumeGame;
     [SerializeField] GameObject MapPanel;
     [SerializeField] GameObject RoadMapPanel;
     [SerializeField] GameObject DescriptionPanel;
@@ -14,14 +16,33 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
     [SerializeField] Button DescriptionBackButton;
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         MapPanel.SetActive(false);
-        RoadMapPanel.SetActive(true);
+        RoadMapPanel.SetActive(false);
         MapBackButton.onClick.AddListener(MapBackButtonClicked);
         MapButton.onClick.AddListener(MapButtonClicked);
+        PanelBackButton.onClick.AddListener(CloseRoadMap);
         DescrptionButton.onClick.AddListener(DescriptionButtonClicked);
         DescriptionBackButton.onClick.AddListener(DescriptionBackButtonClicked);
     }
-
+    public void OpenRoadMap(int openType=0)
+    {
+        onPauseGame?.Invoke();
+        RoadMapPanel.SetActive(true);
+        if (openType == 1)
+        {
+            MapButtonClicked();
+        }
+        if (openType == 2)
+        {
+            DescriptionButtonClicked();
+        }
+    }
+    public void CloseRoadMap()
+    {
+        onResumeGame?.Invoke();
+        RoadMapPanel.SetActive(false);
+    }
     private void DescriptionBackButtonClicked()
     {
         DescriptionPanel.SetActive(false);

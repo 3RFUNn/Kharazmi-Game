@@ -36,8 +36,6 @@ public class QuizManager : MonoBehaviour
 
     private int answerIndex;
 
-    public Image timerImage;
-
     public RTLTextMeshPro timerText;
     
     
@@ -79,17 +77,14 @@ public class QuizManager : MonoBehaviour
         correctAnswer = 0;
         timeRemaining = 80f;
         isQuizActive = true;
-
-        LoadNextQuestion();
-        
-        
+        StartCoroutine(LoadNextQuestion());
         StartCoroutine(Timer());
     }
 
     Equation equation;
-    private async void LoadNextQuestion()
+    private IEnumerator LoadNextQuestion()
     {
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.2f);
         List<Equation> equations;
 
 
@@ -152,7 +147,7 @@ public class QuizManager : MonoBehaviour
                 PressedAnswer(0);
             }
             );
-            btn.onClick.AddListener(() => handler.AnswerChecker(btn.gameObject));
+            btn.onClick.AddListener(() => StartCoroutine(handler.AnswerChecker(btn.gameObject)));
             Answerlist[(answerIndex + 1) % 4][i].text = equation.incorrectAnswer1[i];
             var btn2 = Answerlist[(answerIndex + 1) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn2.onClick.RemoveAllListeners();
@@ -160,7 +155,7 @@ public class QuizManager : MonoBehaviour
                 PressedAnswer(1);
             }
             );
-            btn2.onClick.AddListener(() => handler.AnswerChecker(btn2.gameObject));
+            btn2.onClick.AddListener(() => StartCoroutine(handler.AnswerChecker(btn2.gameObject)));
             Answerlist[(answerIndex + 2) % 4][i].text = equation.incorrectAnswer2[i];
             var btn3 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn3.onClick.RemoveAllListeners();
@@ -168,7 +163,7 @@ public class QuizManager : MonoBehaviour
                 PressedAnswer(2);
             }
             );
-            btn3.onClick.AddListener(() => handler.AnswerChecker(btn3.gameObject));
+            btn3.onClick.AddListener(() => StartCoroutine(handler.AnswerChecker(btn3.gameObject)));
             Answerlist[(answerIndex + 3) % 4][i].text = equation.incorrectAnswer3[i];
             var btn4 = Answerlist[(answerIndex + 2) % 4][i].transform.parent.transform.parent.GetComponent<Button>();
             btn4.onClick.RemoveAllListeners();
@@ -176,7 +171,7 @@ public class QuizManager : MonoBehaviour
                 PressedAnswer(3);
                 }
             );
-            btn4.onClick.AddListener(() => handler.AnswerChecker(btn4.gameObject));
+            btn4.onClick.AddListener(() => StartCoroutine(handler.AnswerChecker(btn4.gameObject)));
 
             //Debug.Log(shuffledArray[i] + 1);
 
@@ -219,37 +214,20 @@ public class QuizManager : MonoBehaviour
         StreakHandler.Instance.Answered(answer);
         if (answer)
         {
-            currentLevel++;
             correctAnswer++;
+        }
+        currentLevel++;
 
+        if (currentLevel > 3)
+        {
 
-            if (currentLevel > 3)
-            {
-
-                // End of quiz
-                handler.EndQuiz();
-            }
-            else
-            {
-                LoadNextQuestion();
-                StartCoroutine(Timer());
-            }
+            // End of quiz
+            handler.EndQuiz();
         }
         else
         {
-            currentLevel++;
-
-            if (currentLevel > 3)
-            {
-
-                // End of quiz
-                handler.EndQuiz();
-            }
-            else
-            {
-                LoadNextQuestion();
-                StartCoroutine(Timer());
-            }
+            StartCoroutine(LoadNextQuestion());
+            StartCoroutine(Timer());
         }
     }
 
@@ -265,8 +243,6 @@ public class QuizManager : MonoBehaviour
 
             // Update timer UI
             timerText.text = timeRemaining.ToString("F0");
-            timerImage.fillAmount = timeRemaining / 80f;
-
             if (timeRemaining <= 0)
             {
                 // Time's up

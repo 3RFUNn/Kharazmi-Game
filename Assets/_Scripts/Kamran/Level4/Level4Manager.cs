@@ -202,7 +202,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
             Destroy(thing.gameObject);
         });
     }
-    public async void GameOver()
+    public void GameOver()
     {
         Debug.Log("TIME IS UP");
         Debug.Log("Score is " + score);
@@ -211,12 +211,12 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
         kharazmi += PlayerPrefs.GetInt("Level2") >= 10 ? 1 : 0;
         kharazmi += PlayerPrefs.GetInt("Level3") >= 3 ? 1 : 0;
         Debug.Log("KHARAZMI SCORE IS : " + kharazmi);
-        var sceneName = "Statistics";
-        if (kharazmi >= 5)
+        var sceneName = "Leaderboard";
+        /*if (kharazmi >= 5)
         {
             sceneName = "Victory";
-        }
+        }*/
         PlayerPrefs.SetInt("Level4", kharazmi);
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -13,7 +13,7 @@ public class ClickedThingsManager : MonoBehaviour
     public void Init()
     {
         ResetRains();
-        Level4Manager.Instance.ClickedRain += AddRain;
+        Level4Manager.Instance.ClickedRain += AddRainCaller;
         Level4Manager.Instance.FinishedEquation += ResetRains;
     }
 
@@ -24,12 +24,15 @@ public class ClickedThingsManager : MonoBehaviour
             Destroy(t.gameObject);
         }
     }
-
-    private async void AddRain(RainingCollectible collectible,int value,bool isKey)
+    void AddRainCaller(RainingCollectible collectible, int value, bool isKey)
+    {
+        StartCoroutine(AddRain(collectible,value,isKey));
+    }
+    private IEnumerator AddRain(RainingCollectible collectible,int value,bool isKey)
     {
         var thing = Instantiate(prefab, parent);
         thing.Repaint(collectible.KeyText,value,isKey);
-        await Task.Delay(100);
+        yield return new WaitForSeconds(.1f);
         scrollbar.verticalNormalizedPosition = 0f;
     }
 }

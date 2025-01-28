@@ -9,13 +9,12 @@ public class NextLevel : MonoBehaviour
     [SerializeField] private int seconds;
     void Start()
     {
-        Next();
+        StartCoroutine(Next());
     }
 
-    private async void Next()
+    private IEnumerator Next()
     {
-        
-        await Task.Delay(seconds * 1000);
+        yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }

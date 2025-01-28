@@ -17,7 +17,12 @@ public class Scoreboard : MonoBehaviour
     {
         var score= PlayerPrefs.GetInt("Level"+level);
         scoreText.text = score.ToString();
-        fillSprite.fillAmount = (float)score / 10f;
+        float maxScore = level switch
+        {
+            3 => 3,
+            _ => 10,
+        };
+        fillSprite.fillAmount = (float)score / maxScore;
         percentage.text = ((float)score * 10f).ToString() + "%";
     }
 }
