@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 863bcafa24ad68b468df70e5c5a679a3
+guid: c9df628dc0c902c46b2cba5d56daf552
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1421627477305020009
-    second: Lanternb_0
+      213: -2246650992860625620
+    second: Vector_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanternb_0
+      name: Vector_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 61
-        height: 61
+        width: 24
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96e43b398a2aab310800000000000000
-      internalID: 1421627477305020009
+      spriteID: c25834443da42d0e0800000000000000
+      internalID: -2246650992860625620
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lanternb_0: 1421627477305020009
+      Vector_0: -2246650992860625620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 863bcafa24ad68b468df70e5c5a679a3
+guid: 3abb873f4b5c7bd45a7ca0914919ecce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1421627477305020009
-    second: Lanternb_0
+      213: -726362700069439263
+    second: Rounded Rectangle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanternb_0
+      name: Rounded Rectangle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 61
-        height: 61
+        width: 148
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96e43b398a2aab310800000000000000
-      internalID: 1421627477305020009
+      spriteID: 1e8744409f07be5f0800000000000000
+      internalID: -726362700069439263
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Lanternb_0: 1421627477305020009
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
