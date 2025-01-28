@@ -11,6 +11,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [SerializeField] GameObject SettingsPanel;
     [SerializeField] GameObject TutorialArea;
     [SerializeField] GameObject TutorialButtonParent;
+    [SerializeField] GameObject ProfilePanel;
 
     [SerializeField] Button StartButton;
     [SerializeField] Button TutorialButton;
@@ -26,8 +27,11 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [SerializeField] RTLTextMeshPro TutorialText;
 
     [SerializeField] Button SettingsBackButton;
+    [SerializeField] Button ProfileBackButton;
+    [SerializeField] ScrollRect ProfileScroll;
     void Start()
     {
+        ProfilePanel.SetActive(false);
         MenuPanel.SetActive(true);
         TutorialPanel.SetActive(false);
         TutorialButton.onClick.AddListener(TutorialButtonClicked);
@@ -38,9 +42,25 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         Level4TutorialButton.onClick.AddListener(Level4TutorialButtonClicked);
         SettingsButton.onClick.AddListener(SettingsButtonClicked);
         SettingsBackButton.onClick.AddListener(SettingsBackButtonClicked);
+        ProfileButton.onClick.AddListener(ProfileButtonClicked);
+        ProfileBackButton.onClick.AddListener(ProfileBackButtonClicked);
         //TODO Other Button Interactions
         StartButton.onClick.AddListener(StartGameClicked);
 
+    }
+
+    private void ProfileBackButtonClicked()
+    {
+        ProfilePanel.SetActive(false);
+        ProfileScroll.verticalNormalizedPosition = 1;
+        MenuPanel.SetActive(true);
+    }
+
+    private void ProfileButtonClicked()
+    {
+        MenuPanel.SetActive(false);
+        ProfileScroll.verticalNormalizedPosition = 1;
+        ProfilePanel.SetActive(true);
     }
 
     private void StartGameClicked()
@@ -59,6 +79,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         SettingsPanel.SetActive(true);
         MenuPanel.SetActive(false);
     }
+
 
     //TODO set Tutorial Texts
     private void Level4TutorialButtonClicked()
