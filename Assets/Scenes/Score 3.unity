@@ -1143,6 +1143,7 @@ MonoBehaviour:
   percentage: {fileID: 686313984}
   fillSprite: {fileID: 1982256836}
   level: 3
+  nextLevelName: Level 4
 --- !u!114 &1618209998
 MonoBehaviour:
   m_ObjectHideFlags: 0

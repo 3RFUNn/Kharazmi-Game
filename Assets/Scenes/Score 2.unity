@@ -1138,6 +1138,7 @@ MonoBehaviour:
   percentage: {fileID: 1343082629}
   fillSprite: {fileID: 1156892103}
   level: 2
+  nextLevelName: Level 3
 --- !u!1 &1655715379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 145578, guid: 7da2018adf451104ebcbe65abcab1cba, type: 3}

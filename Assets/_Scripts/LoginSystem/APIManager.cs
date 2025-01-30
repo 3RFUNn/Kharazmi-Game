@@ -1,69 +1,80 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections;
 using System.Text;
-using System.Threading.Tasks;
+using System;
 
-public class APIManager : MonoBehaviour
+[Serializable]
+public class RequestData
 {
-    private const string API_BASE_URL = "http://localhost:8080"; 
-    
-    public static APIManager Instance { get; private set; }
-    
-    private void Awake()
+    public string username;
+    public string password;
+
+    public RequestData(string username, string password)
     {
-        if (Instance == null)
+        this.username = username;
+        this.password = password;
+    }
+}
+
+[Serializable]
+public class ResponseData
+{
+    public string message;
+    public int status;
+}
+
+public class APIManager : SingletonBehaviour<APIManager>
+{
+    private const string baseUrl = "localhost:8080"; // Change to your actual API URL
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    public void SendRequest(string endpoint, string method, RequestData requestData = null)
+    {
+        string url = $"{baseUrl}/{endpoint}";
+
+        if (method.ToUpper() == "GET" && requestData != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            url += $"?username={UnityWebRequest.EscapeURL(requestData.username)}&password={UnityWebRequest.EscapeURL(requestData.password)}";
+            StartCoroutine(SendWebRequest(url, "GET", null));
         }
         else
         {
-            Destroy(gameObject);
+            StartCoroutine(SendWebRequest(url, method, requestData));
         }
     }
-    
-    public async Task<bool> SendPlayerData(PlayerData playerData)
+
+    private IEnumerator SendWebRequest(string url, string method, RequestData requestData)
     {
-        string jsonData = JsonUtility.ToJson(playerData);
-        
-        using (UnityWebRequest request = new UnityWebRequest(API_BASE_URL + "/players", "POST"))
+        UnityWebRequest request;
+        if (method.ToUpper() == "POST")
         {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
+            string jsonData = requestData != null ? JsonUtility.ToJson(requestData) : "{}";
+            byte[] jsonToSend = Encoding.UTF8.GetBytes(jsonData);
+            request = new UnityWebRequest(url, "POST");
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
             request.SetRequestHeader("Content-Type", "application/json");
-            
-            await request.SendWebRequest();
-            
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Player data sent successfully");
-                return true;
-            }
-            else
-            {
-                Debug.LogError($"Error sending player data: {request.error}");
-                return false;
-            }
         }
-    }
-    
-    public async Task<PlayerData> GetPlayerData(string playerName)
-    {
-        using (UnityWebRequest request = UnityWebRequest.Get(API_BASE_URL + "/players/" + playerName))
+        else // GET Request
         {
-            await request.SendWebRequest();
-            
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string jsonResponse = request.downloadHandler.text;
-                return JsonUtility.FromJson<PlayerData>(jsonResponse);
-            }
-            else
-            {
-                Debug.LogError($"Error getting player data: {request.error}");
-                return null;
-            }
+            request = UnityWebRequest.Get(url);
+        }
+
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            string responseText = request.downloadHandler.text;
+            ResponseData response = JsonUtility.FromJson<ResponseData>(responseText);
+            Debug.Log($"Success: {response.message}, Status: {response.status}");
+        }
+        else
+        {
+            Debug.LogError($"Error: {request.error}, Response: {request.downloadHandler.text}");
         }
     }
 }

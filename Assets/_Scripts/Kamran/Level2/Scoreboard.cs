@@ -9,9 +9,10 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] RTLTextMeshPro percentage;
     [SerializeField] Image fillSprite;
     [SerializeField] int level;
+    [SerializeField] string nextLevelName;
     public void GoNext()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene(nextLevelName);
     }
     private void Start()
     {
@@ -23,6 +24,6 @@ public class Scoreboard : MonoBehaviour
             _ => 10,
         };
         fillSprite.fillAmount = (float)score / maxScore;
-        percentage.text = ((float)score * 10f).ToString() + "%";
+        percentage.text = (((float)score * 100f)/(float)maxScore).ToString() + "%";
     }
 }
