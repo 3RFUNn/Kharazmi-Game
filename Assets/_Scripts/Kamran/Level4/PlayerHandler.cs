@@ -29,7 +29,8 @@ public class PlayerHandler : MonoBehaviour
             eventData.position = Input.mousePosition;
             foreach (GraphicRaycaster r in raycasters)
             {
-                if (RaycastUI(eventData, r)) return true;
+                if (RaycastUI(eventData, r)) 
+                    return true;
             };
         }
 

@@ -11,6 +11,7 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
     public int MaxNumberOfObjects = 20;
     [SerializeField] float spawnPaddingFromCamera;
     [SerializeField] float spawnPaddingFromCollectible;
+    [SerializeField] float spawnPaddingFromHeader;
     [SerializeField] Transform collectibleParent;
     public List<CollectibleManager> AllCollectibles;
     private List<int> selectedNumbers;
@@ -34,7 +35,7 @@ public class SpawnCollectibles : SingletonBehaviour<SpawnCollectibles>
         float minX = camPosition.x - camWidth / 2 + spawnPaddingFromCamera;
         float maxX = camPosition.x + camWidth / 2 - spawnPaddingFromCamera;
         float minY = camPosition.y - camHeight / 2 + spawnPaddingFromCamera;
-        float maxY = camPosition.y + camHeight / 2 - spawnPaddingFromCamera;
+        float maxY = camPosition.y + camHeight / 2 - spawnPaddingFromCamera - spawnPaddingFromHeader;
         var desiredKeyString = PlayerManager.Instance.KeyString;
         int cnt = 0;
         for (int i = 0; i < numberOfObjects; i++)

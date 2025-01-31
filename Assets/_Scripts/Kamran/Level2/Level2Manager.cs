@@ -60,11 +60,11 @@ public class Level2Manager : MonoBehaviour
             Grid.transform.DOPunchScale(0.1f * Vector3.one, 0.25f);
             return;
         }
+        SelectionPanel.SetActive(false);
+        GameObj.SetActive(true);
         player.joystick.gameObject.SetActive(true);
         player.Init(key);
         spawnCollectibles.SpawnCollectible();
-        SelectionPanel.SetActive(false);
-        GameObj.SetActive(true);
     }
     public static List<int> GetUniqueRandomNumbers(int count,int initialOveralMax)
     {

@@ -2375,7 +2375,8 @@ MonoBehaviour:
   InitialNumberOfObjects: 10
   MaxNumberOfObjects: 20
   spawnPaddingFromCamera: 2
-  spawnPaddingFromCollectible: 5
+  spawnPaddingFromCollectible: 4
+  spawnPaddingFromHeader: 2
   collectibleParent: {fileID: 207388716}
   AllCollectibles: []
 --- !u!114 &1067099399

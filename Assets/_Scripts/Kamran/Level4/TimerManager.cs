@@ -12,7 +12,7 @@ public class TimerManager : MonoBehaviour
     public bool isPaused;
     private void OnEnable()
     {
-        RoadMapManager.Instance.onPauseGame += PauseTimer;
+        RoadMapManager.Instance.onPauseGame += PauseTimer;  
         RoadMapManager.Instance.onResumeGame += ResumeTimer;
     }
     private void OnDisable()
