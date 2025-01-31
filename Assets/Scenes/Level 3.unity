@@ -5692,8 +5692,8 @@ MonoBehaviour:
   m_text: "\uFE91\uFEEA \uFE91\uFE8E\uFEAF\uFBFC \uFE97\uFEAE\uFE8D\uFEAF\uFEED \uFEA7\uFEEE\uFEB5
     \uFE8D\uFEED\uFEE3\uFEAA\uFBFC"
   m_isRightToLeft: 1
-  m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
-  m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
+  m_sharedMaterial: {fileID: -9174946381324732685, guid: ced243ac77d68eb4f90225f89bf97772, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6472,7 +6472,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
