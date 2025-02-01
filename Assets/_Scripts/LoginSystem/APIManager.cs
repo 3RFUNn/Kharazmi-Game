@@ -1,80 +1,192 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
-using System.Text;
-using System;
 
-[Serializable]
-public class RequestData
+public class APIManager : MonoBehaviour
 {
-    public string username;
-    public string password;
-
-    public RequestData(string username, string password)
+    [Serializable]
+    public class SignUpRequest
     {
-        this.username = username;
-        this.password = password;
+        public string username;
+        public string password;
+        public string email;
+        public string class_name;
     }
-}
 
-[Serializable]
-public class ResponseData
-{
-    public string message;
-    public int status;
-}
+    [Serializable]
+    public class LoginRequest
+    {
+        public string username;
+        public string password;
+    }
 
-public class APIManager : SingletonBehaviour<APIManager>
-{
-    private const string baseUrl = "localhost:8080"; // Change to your actual API URL
+    [Serializable]
+    public class GameRequest
+    {
+        public int game_level;
+        public int level1_score;
+        public int level2_score;
+        public int level3_score;
+        public int level4_score;
+    }
+    private readonly string baseUrl = "http://127.0.0.1:5000"; // Replace with your actual server URL
+    public static string JwtToken { get; private set; }
     private void Start()
     {
+        JwtToken = PlayerPrefs.GetString("jwt_token", "nothing");
         DontDestroyOnLoad(gameObject);
     }
-    public void SendRequest(string endpoint, string method, RequestData requestData = null)
+#if UNITY_EDITOR
+    [ContextMenu("Test")]
+    public async void CallTestFunction()
     {
-        string url = $"{baseUrl}/{endpoint}";
+        if (!JwtToken.Equals("nothing"))
+        {
+            var res=await LoginJwt();
+            Debug.Log(res);
+            return;
+        }
+        string loginResponse = await Login("arman", "123456");
+        Debug.Log(loginResponse);
+    }
+#endif
+    public Task<string> SignUp(string username, string password, string email, string className)
+    {
+        string url = baseUrl + "/signup";
+        var data = new SignUpRequest
+        {
+            username = username,
+            password = password,
+            email = email,
+            class_name = className
+        };
+        var json = JsonUtility.ToJson(data);
+        return SendPostRequest(url, json);
+    }
+    [Serializable]
+    private class LoginResponse
+    {
+        public string token;
+        public string msg;
+    }
+    public async Task<string> LoginJwt()
+    {
+        if (JwtToken.Equals("nothing")) return "Login failed - no jwt token";
+        string url = baseUrl + "/login";
+        Debug.Log("using jwt_token");
+        Dictionary<string, string> dic = new()
+        {
+            { "Authorization", "Bearer " + JwtToken }
+        };
+        string responseJson2 = await SendPostRequest(url, null, dic);
+        if (!string.IsNullOrEmpty(responseJson2))
+        {
+            try
+            {
+                LoginResponse response = JsonUtility.FromJson<LoginResponse>(responseJson2);
+                if (!string.IsNullOrEmpty(response.token))
+                {
+                    JwtToken = response.token;
+                    PlayerPrefs.SetString("jwt_token", JwtToken);
+                    PlayerPrefs.Save();
+                }
+                return response.msg;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Failed to parse login response: " + ex.Message);
+            }
+        }
+        return "Login failed!";
+    }
+    public async Task<string> Login(string username, string password)
+    {
+        string url = baseUrl + "/login";
+        var data = new LoginRequest { username = username, password = password };
+        string responseJson = await SendPostRequest(url, JsonUtility.ToJson(data));
 
-        if (method.ToUpper() == "GET" && requestData != null)
+        if (!string.IsNullOrEmpty(responseJson))
         {
-            url += $"?username={UnityWebRequest.EscapeURL(requestData.username)}&password={UnityWebRequest.EscapeURL(requestData.password)}";
-            StartCoroutine(SendWebRequest(url, "GET", null));
+            try
+            {
+                LoginResponse response = JsonUtility.FromJson<LoginResponse>(responseJson);
+                if (!string.IsNullOrEmpty(response.token))
+                {
+                    JwtToken = response.token;
+                    PlayerPrefs.SetString("jwt_token", JwtToken);
+                    PlayerPrefs.Save();
+                }
+                return response.msg;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Failed to parse login response: " + ex.Message);
+            }
         }
-        else
-        {
-            StartCoroutine(SendWebRequest(url, method, requestData));
-        }
+        return "Login failed!";
     }
 
-    private IEnumerator SendWebRequest(string url, string method, RequestData requestData)
+    public Task<string> SendGameData(int gameLevel, int level1, int level2, int level3, int level4)
     {
-        UnityWebRequest request;
-        if (method.ToUpper() == "POST")
+        string url = baseUrl + "/game";
+        var data = new GameRequest
         {
-            string jsonData = requestData != null ? JsonUtility.ToJson(requestData) : "{}";
-            byte[] jsonToSend = Encoding.UTF8.GetBytes(jsonData);
-            request = new UnityWebRequest(url, "POST");
-            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            game_level = gameLevel,
+            level1_score = level1,
+            level2_score = level2,
+            level3_score = level3,
+            level4_score = level4
+        };
+        var json = JsonUtility.ToJson(data);
+        return SendPostRequest(url, json);
+    }
+
+    private Task<string> SendPostRequest(string url, string jsonData, Dictionary<string, string> header = null)
+    {
+        var tcs = new TaskCompletionSource<string>();
+        Debug.Log(jsonData);
+        StartCoroutine(SendPostRequestCoroutine(url, jsonData, tcs, header));
+        return tcs.Task;
+    }
+    private IEnumerator SendPostRequestCoroutine(string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
+    {
+        using UnityWebRequest request = new UnityWebRequest(url, "POST");
+        // Only attach a body if jsonData is provided
+        if (!string.IsNullOrEmpty(jsonData))
+        {
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
             request.SetRequestHeader("Content-Type", "application/json");
         }
-        else // GET Request
+
+        // Add custom headers if provided
+        if (headers != null)
         {
-            request = UnityWebRequest.Get(url);
+            foreach (var header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value);
+            }
         }
-
-        request.downloadHandler = new DownloadHandlerBuffer();
-
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            string responseText = request.downloadHandler.text;
-            ResponseData response = JsonUtility.FromJson<ResponseData>(responseText);
-            Debug.Log($"Success: {response.message}, Status: {response.status}");
+            tcs.SetResult(request.downloadHandler.text);
         }
         else
         {
-            Debug.LogError($"Error: {request.error}, Response: {request.downloadHandler.text}");
+            string tmp = "-";
+            if (request.downloadHandler!=null)
+            {
+                tmp = request.downloadHandler.text;
+            }
+            var response = $"Error: {request.responseCode} - {tmp}";
+            Debug.Log(response);
+            tcs.SetResult(null);
         }
     }
 }
