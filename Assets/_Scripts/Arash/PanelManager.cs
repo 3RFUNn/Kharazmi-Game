@@ -4,6 +4,7 @@ using NUnit.Framework;
 using RTLTMPro;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PanelManager : SingletonBehaviour<PanelManager>
@@ -44,6 +45,53 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         SignUpBackButton.onClick.AddListener(SignUpBackButtonClicked);
         ShowPasswordButtonLogin.onClick.AddListener(ShowPasswordLogin);
         ShowPasswordButtonSignup.onClick.AddListener(ShowPasswordSignup);
+        SignUpConfirmButton.onClick.AddListener(ConfirmSignUp);
+        LoginConfirmButton.onClick.AddListener(ConfirmLogin);
+        CheckLogin();
+    }
+
+    private async void CheckLogin()
+    {
+        var username = PlayerPrefs.GetString("username", string.Empty);
+        var password = PlayerPrefs.GetString("password", string.Empty);
+        if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
+        var result = await APIManager.Instance.Login(() => {
+            SceneManager.LoadScene("Menu");
+        }, () =>
+        {
+            Debug.LogError("Failed To Use Previous Login");
+        }, username, password);
+    }
+
+    private async void ConfirmSignUp()
+    {
+        var username = SignUpUsernameText.text;
+        var password = SignUpPasswordText.text;
+        var email = SignUpEmailText.text;
+        if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
+        SignUpConfirmButton.interactable = false;
+        var result = await APIManager.Instance.SignUp(()=> {
+            PlayerPrefs.SetString("username", username);
+            PlayerPrefs.SetString("password", password);
+            SceneManager.LoadScene("Menu");
+        }, () =>
+        {
+            SignUpConfirmButton.interactable = true;
+            Debug.LogError("Failed To Login");
+        },username, password, email, "A");
+    }
+
+    private async void ConfirmLogin()
+    {
+        var username = LoginUsernameText.text;
+        var password = LoginPasswordText.text;
+        if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
+        var result = await APIManager.Instance.Login(() => {
+            SceneManager.LoadScene("Menu");
+        }, () =>
+        {
+            Debug.LogError("Failed To Login");
+        },username, password);
     }
 
     private void ShowPasswordLogin()

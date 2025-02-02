@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
-public class APIManager : MonoBehaviour
+public class APIManager : SingletonBehaviour<APIManager>
 {
     [Serializable]
     public class SignUpRequest
@@ -44,17 +45,11 @@ public class APIManager : MonoBehaviour
     [ContextMenu("Test")]
     public async void CallTestFunction()
     {
-        if (!JwtToken.Equals("nothing"))
-        {
-            var res=await LoginJwt();
-            Debug.Log(res);
-            return;
-        }
-        string loginResponse = await Login("arman", "123456");
+        string loginResponse = await Login(null,null,"arman", "123456");
         Debug.Log(loginResponse);
     }
 #endif
-    public Task<string> SignUp(string username, string password, string email, string className)
+    public Task<string> SignUp(Action OnSuccess, Action OnFail, string username, string password, string email, string className)
     {
         string url = baseUrl + "/signup";
         var data = new SignUpRequest
@@ -65,7 +60,7 @@ public class APIManager : MonoBehaviour
             class_name = className
         };
         var json = JsonUtility.ToJson(data);
-        return SendPostRequest(url, json);
+        return SendPostRequest(OnSuccess, OnFail, url, json);
     }
     [Serializable]
     private class LoginResponse
@@ -73,41 +68,11 @@ public class APIManager : MonoBehaviour
         public string token;
         public string msg;
     }
-    public async Task<string> LoginJwt()
-    {
-        if (JwtToken.Equals("nothing")) return "Login failed - no jwt token";
-        string url = baseUrl + "/login";
-        Debug.Log("using jwt_token");
-        Dictionary<string, string> dic = new()
-        {
-            { "Authorization", "Bearer " + JwtToken }
-        };
-        string responseJson2 = await SendPostRequest(url, null, dic);
-        if (!string.IsNullOrEmpty(responseJson2))
-        {
-            try
-            {
-                LoginResponse response = JsonUtility.FromJson<LoginResponse>(responseJson2);
-                if (!string.IsNullOrEmpty(response.token))
-                {
-                    JwtToken = response.token;
-                    PlayerPrefs.SetString("jwt_token", JwtToken);
-                    PlayerPrefs.Save();
-                }
-                return response.msg;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("Failed to parse login response: " + ex.Message);
-            }
-        }
-        return "Login failed!";
-    }
-    public async Task<string> Login(string username, string password)
+    public async Task<string> Login(Action OnSuccess, Action OnFail, string username, string password)
     {
         string url = baseUrl + "/login";
         var data = new LoginRequest { username = username, password = password };
-        string responseJson = await SendPostRequest(url, JsonUtility.ToJson(data));
+        string responseJson = await SendPostRequest(OnSuccess,OnFail,url, JsonUtility.ToJson(data));
 
         if (!string.IsNullOrEmpty(responseJson))
         {
@@ -130,7 +95,7 @@ public class APIManager : MonoBehaviour
         return "Login failed!";
     }
 
-    public Task<string> SendGameData(int gameLevel, int level1, int level2, int level3, int level4)
+    public Task<string> SendGameData(Action OnSuccess, Action OnFail, int gameLevel, int level1, int level2, int level3, int level4)
     {
         string url = baseUrl + "/game";
         var data = new GameRequest
@@ -142,17 +107,17 @@ public class APIManager : MonoBehaviour
             level4_score = level4
         };
         var json = JsonUtility.ToJson(data);
-        return SendPostRequest(url, json);
+        return SendPostRequest(OnSuccess, OnFail, url, json);
     }
 
-    private Task<string> SendPostRequest(string url, string jsonData, Dictionary<string, string> header = null)
+    private Task<string> SendPostRequest(Action OnSuccess, Action OnFail, string url, string jsonData, Dictionary<string, string> header = null)
     {
         var tcs = new TaskCompletionSource<string>();
         Debug.Log(jsonData);
-        StartCoroutine(SendPostRequestCoroutine(url, jsonData, tcs, header));
+        StartCoroutine(SendPostRequestCoroutine(OnSuccess, OnFail, url, jsonData, tcs, header));
         return tcs.Task;
     }
-    private IEnumerator SendPostRequestCoroutine(string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
+    private IEnumerator SendPostRequestCoroutine(Action OnSuccess, Action OnFail,string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
     {
         using UnityWebRequest request = new UnityWebRequest(url, "POST");
         // Only attach a body if jsonData is provided
@@ -175,10 +140,15 @@ public class APIManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            tcs.SetResult(request.downloadHandler.text);
+            OnSuccess?.Invoke();
+            if (request.downloadHandler != null)
+            {
+                tcs.SetResult(request.downloadHandler.text);
+            }
         }
         else
         {
+            OnFail?.Invoke();
             string tmp = "-";
             if (request.downloadHandler!=null)
             {
