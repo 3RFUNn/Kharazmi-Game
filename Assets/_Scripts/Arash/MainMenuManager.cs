@@ -29,6 +29,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [SerializeField] Button SettingsBackButton;
     [SerializeField] Button ProfileBackButton;
     [SerializeField] ScrollRect ProfileScroll;
+    [SerializeField] Image tutorialImage;
     void Start()
     {
         ProfilePanel.SetActive(false);
@@ -85,6 +86,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     private void Level4TutorialButtonClicked()
     {
         TutorialButtonParent.SetActive(false);
+        tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
         TutorialText.text = "";
     }
@@ -92,6 +94,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     private void Level3TutorialButtonClicked()
     {
         TutorialButtonParent.SetActive(false);
+        tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
         TutorialText.text = "";
     }
@@ -99,6 +102,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     private void Level2TutorialButtonClicked()
     {
         TutorialButtonParent.SetActive(false);
+        tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
         TutorialText.text = "";
     }
@@ -106,6 +110,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     private void Level1TutorialButtonClicked()
     {
         TutorialButtonParent.SetActive(false);
+        tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
         TutorialText.text = "";
     }
@@ -117,6 +122,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
             TutorialPanel.SetActive(true);
             TutorialArea.SetActive(false);
             TutorialButtonParent.SetActive(true);
+            tutorialImage.gameObject.SetActive(true);
             TutorialText.text= string.Empty;
 
         }
@@ -132,6 +138,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         MenuPanel.SetActive(false);
         TutorialPanel.SetActive(true);
         TutorialButtonParent.SetActive(true);
+        tutorialImage.gameObject.SetActive(true);
         TutorialArea.SetActive(false);
     }
 
