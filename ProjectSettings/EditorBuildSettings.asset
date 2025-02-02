@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 4468a3e0ec6d18340bdc376d0ce350f3
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 053a1323bda59fc46aa340eef4366d34
   - enabled: 1
@@ -21,19 +24,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Score 2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Statistics.unity
-    guid: 09d7c44ebbc2e3f408f5d81a2a0553cc
-  - enabled: 1
-    path: Assets/Scenes/Victory.unity
-    guid: e3eb707c1cb33a64a80555239d8c3144
-  - enabled: 1
     path: Assets/Scenes/Score 3.unity
     guid: 6c642ebf904c0514eb604e6f7c67798e
   - enabled: 1
-    path: Assets/Scenes/RoadMap.unity
-    guid: 29b95859343e13147a0f0cd84d4e1be6
-  - enabled: 1
-    path: Assets/Scenes/Login.unity
-    guid: 4468a3e0ec6d18340bdc376d0ce350f3
+    path: Assets/Scenes/Leaderboard.unity
+    guid: f8c4250eb41c380499a4598a1f25422e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
