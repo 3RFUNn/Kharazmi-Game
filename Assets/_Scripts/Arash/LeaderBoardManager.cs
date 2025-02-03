@@ -11,6 +11,7 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
     [SerializeField] Button backBtn;
     [SerializeField] Button globalButton;
     [SerializeField] Button classButton;
+    [SerializeField] Button profileButton;
     LeaderBoards leaderboards;
     bool isGlobal;
     private async void Start()
@@ -21,8 +22,15 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
         });
         globalButton.onClick.AddListener(GlobalButtonClickedAsync);
         classButton.onClick.AddListener(ClassButtonClickedAsync);
+        profileButton.onClick.AddListener(ProfileButtonClicked);
         await GetGloabalLeaderboard();
         isGlobal = true;
+    }
+
+    private void ProfileButtonClicked()
+    {
+        PlayerPrefs.SetString("PreviousScene", "Leaderboard");
+        SceneManager.LoadScene("Menu");
     }
 
     private async void ClassButtonClickedAsync()

@@ -32,9 +32,15 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [SerializeField] Image tutorialImage;
     void Start()
     {
+        
         ProfilePanel.SetActive(false);
         MenuPanel.SetActive(true);
         TutorialPanel.SetActive(false);
+        if (PlayerPrefs.GetString("PreviousScene") == "Leaderboard")
+        {
+            MenuPanel.SetActive(false);
+            ProfilePanel.SetActive(true);
+        }
         TutorialButton.onClick.AddListener(TutorialButtonClicked);
         TutorialBackButton.onClick.AddListener(TutorialBackButtonClicked);
         Level1TutorialButton.onClick.AddListener(Level1TutorialButtonClicked);

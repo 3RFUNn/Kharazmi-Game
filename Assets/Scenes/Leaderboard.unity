@@ -978,6 +978,7 @@ MonoBehaviour:
   backBtn: {fileID: 661430899}
   globalButton: {fileID: 1074589979}
   classButton: {fileID: 242693709}
+  profileButton: {fileID: 2014019668}
 --- !u!4 &1369621767
 Transform:
   m_ObjectHideFlags: 0
