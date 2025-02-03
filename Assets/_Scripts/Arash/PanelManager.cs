@@ -23,6 +23,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     [SerializeField] RTLTextMeshPro SignUpPasswordText;
     [SerializeField] RTLTextMeshPro SignUpEmailText;
     [SerializeField] TMP_InputField SignUpPasswordField;
+    [SerializeField] TMP_InputField SignUpUsernameField;
     [SerializeField] Button LoginBackButton;
     [SerializeField] Button SignUpBackButton;
     [SerializeField] Button LoginConfirmButton;
@@ -30,6 +31,9 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     [SerializeField] Button ShowPasswordButtonLogin;
     [SerializeField] Button ShowPasswordButtonSignup;
     [SerializeField] RTLTextMeshPro Label;
+    [SerializeField] TMP_Dropdown dropdown;
+    [SerializeField] Image usernameCheckImage;
+    [SerializeField] Image passwordCheckImage;
 
 
     void Start()
@@ -47,7 +51,23 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         ShowPasswordButtonSignup.onClick.AddListener(ShowPasswordSignup);
         SignUpConfirmButton.onClick.AddListener(ConfirmSignUp);
         LoginConfirmButton.onClick.AddListener(ConfirmLogin);
+        SignUpPasswordField.onValueChanged.AddListener(CheckPassword);
+        SignUpUsernameField.onValueChanged.AddListener(CheckUsername);
         CheckLogin();
+    }
+
+    private void CheckUsername(string arg0)
+    {
+        //check whether username is formatted correctly
+        usernameCheckImage.gameObject.SetActive(true);
+    }
+
+    private void CheckPassword(string arg0)
+    {
+        if (SignUpPasswordField.text.Length >= 6)
+            passwordCheckImage.gameObject.SetActive(true);
+        else
+            passwordCheckImage.gameObject.SetActive(false);
     }
 
     private async void CheckLogin()
@@ -97,15 +117,17 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     private void ShowPasswordLogin()
     {
         if(LoginPasswordField.contentType==TMP_InputField.ContentType.Password)
-            LoginPasswordField.contentType=TMP_InputField.ContentType.Password;
-        else
             LoginPasswordField.contentType=TMP_InputField.ContentType.Standard;
+        else
+            LoginPasswordField.contentType=TMP_InputField.ContentType.Password;
+        LoginPasswordField.ForceLabelUpdate();
     }
     private void ShowPasswordSignup(){
         if(SignUpPasswordField.contentType==TMP_InputField.ContentType.Password)
-            SignUpPasswordField.contentType=TMP_InputField.ContentType.Password;
-        else
             SignUpPasswordField.contentType=TMP_InputField.ContentType.Standard;
+        else
+            SignUpPasswordField.contentType=TMP_InputField.ContentType.Password;
+        SignUpPasswordField.ForceLabelUpdate();
     }
 
     private void SignUpBackButtonClicked()
@@ -114,6 +136,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         SignUpPasswordText.text = String.Empty;
         SignUpEmailText.text = String.Empty;
         SignUpPasswordField.contentType=TMP_InputField.ContentType.Password;
+        SignUpPasswordField.ForceLabelUpdate();
         SignUpPanel.SetActive(false);
         LoginAndSignUpPanel.SetActive(true);
     }
@@ -124,6 +147,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         LoginPasswordText.text = String.Empty;
         LoginPanel.SetActive(false);
         LoginPasswordField.contentType=TMP_InputField.ContentType.Password;
+        LoginPasswordField.ForceLabelUpdate();
         LoginAndSignUpPanel.SetActive(true);
     }
 
@@ -131,15 +155,18 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     {
         LoginAndSignUpPanel.SetActive(false);
         SignUpPasswordField.contentType=TMP_InputField.ContentType.Password;
-        SignUpPanel.SetActive(true) ;
-        Label.text="نام کلاس";
+        SignUpPasswordField.ForceLabelUpdate();
+        SignUpPanel.SetActive(true);
+        dropdown.captionText.text = "نام کلاس";
+        //label.text="نام کلاس";
     }
 
     private void LoginButtonClicked()
     {
         LoginAndSignUpPanel.SetActive(false);
         LoginPasswordField.contentType=TMP_InputField.ContentType.Password;
-        LoginPanel.SetActive(true) ;
+        LoginPasswordField.ForceLabelUpdate();
+        LoginPanel.SetActive(true);
     }
 
     private void StartButtonClicked()

@@ -269,8 +269,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 242693708}
   - {fileID: 1074589978}
+  - {fileID: 242693708}
   m_Father: {fileID: 960150504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFEAD\uFE97\uFE92\uFEEA \uFEEB\uFE8E\uFBFC \uFE91\uFEAE\uFE97\uFEAE \uFB90\uFEE0\uFBFD"
+  m_text: "\uFEAD\uFE97\uFE92\uFEEA \uFEEB\uFE8E\uFBFC \uFB90\uFEE0\uFBFD"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
   m_sharedMaterial: {fileID: -6949820610600499109, guid: 3fbde2e562e333d488bc46986fc6f4f1, type: 2}
@@ -812,8 +812,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: "\u0631\u062A\u0628\u0647 \u0647\u0627\u06CC \u0628\u0631\u062A\u0631
-    \u06A9\u0644\u06CC"
+  originalText: "\u0631\u062A\u0628\u0647 \u0647\u0627\u06CC \u06A9\u0644\u06CC"
   fixTags: 1
   forceFix: 0
 --- !u!222 &990123776

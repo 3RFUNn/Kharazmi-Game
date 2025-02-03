@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kharazmi_0: -8375759793912377867
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

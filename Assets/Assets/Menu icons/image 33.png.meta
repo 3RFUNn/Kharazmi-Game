@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 516b0e1dfdd6574468df25499d47f9e1
+guid: 8dfa88eaa8f978d4ca9010ee8664b98b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -331415748729833342
-    second: android-chrome-192x192_0
+      213: -8862641696791446209
+    second: image 33_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: android-chrome-192x192_0
+      name: image 33_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 192
-        height: 192
+        x: 9
+        y: 9
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 288fcf7e123966bf0800000000000000
-      internalID: -331415748729833342
+      spriteID: f3d3e234552910580800000000000000
+      internalID: -8862641696791446209
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      android-chrome-192x192_0: -331415748729833342
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
