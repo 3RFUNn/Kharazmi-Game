@@ -14,6 +14,14 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
     [SerializeField] Button MapBackButton;
     [SerializeField] Button PanelBackButton;
     [SerializeField] Button DescriptionBackButton;
+
+    [SerializeField] Sprite level0sprite;
+    [SerializeField] Sprite level1sprite;
+    [SerializeField] Sprite level2sprite;
+    [SerializeField] Sprite level3sprite;
+    [SerializeField] Sprite level4sprite;
+    [SerializeField] Image mapImage;
+    int mapLevel;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -25,8 +33,9 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
         DescrptionButton.onClick.AddListener(DescriptionButtonClicked);
         DescriptionBackButton.onClick.AddListener(DescriptionBackButtonClicked);
     }
-    public void OpenRoadMap(int openType=0)
+    public void OpenRoadMap(int openType=0,int level=0)
     {
+        mapLevel = level;
         onPauseGame?.Invoke();
         RoadMapPanel.SetActive(true);
         if (openType == 1)
@@ -58,6 +67,24 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
     private void MapButtonClicked()
     {
         MapPanel.SetActive(true);
+        switch (mapLevel)
+        {
+            case 0:
+                mapImage.sprite = level0sprite;
+                break;
+            case 1:
+                mapImage.sprite = level1sprite;
+                break;
+            case 2:
+                mapImage.sprite = level2sprite;
+                break;
+            case 3:
+                mapImage.sprite = level3sprite;
+                break;
+            case 4:
+                mapImage.sprite = level4sprite;
+                break;
+        }
         RoadMapPanel.SetActive(false);
     }
 
