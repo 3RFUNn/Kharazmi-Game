@@ -9,10 +9,10 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [System.Serializable]
     public class HighScores
     {
-        public int max_level1;
-        public int max_level2;
-        public int max_level3;
-        public int max_level4;
+        public int max_level1_score;
+        public int max_level2_score;
+        public int max_level3_score;
+        public int max_level4_score;
         public string msg;
     }
     [System.Serializable]
@@ -70,6 +70,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         TutorialPanel.SetActive(false);
         if (PlayerPrefs.GetString("PreviousScene") == "Leaderboard")
         {
+            PlayerPrefs.DeleteKey("PreviousScene");
             MenuPanel.SetActive(false);
             ProfilePanel.SetActive(true);
         }
@@ -91,11 +92,12 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     private async void GetHighScores()
     {
         var res=await APIManager.Instance.GetHighScores(null,null);
+        Debug.Log(res);
         var hs = JsonUtility.FromJson<HighScores>(res);
-        profileManager.SetSize(1, hs.max_level1 * 10);
-        profileManager.SetSize(2, hs.max_level2 * 100 / 3);
-        profileManager.SetSize(3, hs.max_level3 * 10);
-        profileManager.SetSize(4, hs.max_level4 * 50);
+        profileManager.SetSize(1, hs.max_level1_score * 10);
+        profileManager.SetSize(2, hs.max_level2_score * 100 / 3);
+        profileManager.SetSize(3, hs.max_level3_score * 10);
+        profileManager.SetSize(4, hs.max_level4_score * 50);
         var res2= await APIManager.Instance.GetGameCount(null,null);
         var res4 = await APIManager.Instance.GetMaxDifficulityScores(null, null);
         var res3 = await APIManager.Instance.GetRanks(null, null);

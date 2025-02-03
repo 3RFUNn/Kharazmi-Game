@@ -7,6 +7,7 @@ public class ProfileManager : SingletonBehaviour<ProfileManager>
     [SerializeField] public RTLTextMeshPro globalRank;
     [SerializeField] public RTLTextMeshPro points;
     [SerializeField] public RTLTextMeshPro difficultyPointsText;
+    [SerializeField] public RTLTextMeshPro nameText;
     [SerializeField] public StatObject easyStat;
     [SerializeField] public StatObject mediumStat;
     [SerializeField] public StatObject hardStat;
@@ -15,7 +16,10 @@ public class ProfileManager : SingletonBehaviour<ProfileManager>
     [SerializeField] public RectTransform level3Rect;
     [SerializeField] public RectTransform level4Rect;
     [SerializeField] RectTransform recordRectTransform;
-    
+    private void Start()
+    {
+        nameText.text=PlayerPrefs.GetString("username", "username");
+    }
     public void SetSize(int level,int percent)
     {
         float maxHeight = recordRectTransform.sizeDelta.y;

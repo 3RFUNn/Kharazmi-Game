@@ -33,7 +33,7 @@ public class Scoreboard : MonoBehaviour
         var score= PlayerPrefs.GetInt("Level"+level);
         scoreText.text = (scoreMult*score).ToString();
         var percent = (float)score / maxScore;
-        scorePercent.text = percent.ToString();
+        scorePercent.text = ((int)(percent*100)).ToString() + " %";
         fillSprite.fillAmount = percent;
         //percentage.text = ((score*100)/maxScore).ToString() + " %";
     }

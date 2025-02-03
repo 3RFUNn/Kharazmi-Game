@@ -208,16 +208,13 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
         Debug.Log("TIME IS UP");
         Debug.Log("Score is " + score);
         RainingCollectibleManager.Instance.StartRaining = false;
-        var kharazmi = score;
-        kharazmi += PlayerPrefs.GetInt("Level2") >= 10 ? 1 : 0;
-        kharazmi += PlayerPrefs.GetInt("Level3") >= 3 ? 1 : 0;
-        Debug.Log("KHARAZMI SCORE IS : " + kharazmi);
         var sceneName = "Score 4";
         /*if (kharazmi >= 5)
         {
             sceneName = "Victory";
         }*/
-        PlayerPrefs.SetInt("Level4", kharazmi);
+        PlayerPrefs.SetInt("Level4", score);
+        PlayerPrefs.SetInt("Level4KH", score);
         SceneManager.LoadScene(sceneName);
     }
 }

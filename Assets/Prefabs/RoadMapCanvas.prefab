@@ -487,6 +487,7 @@ MonoBehaviour:
   level3sprite: {fileID: -6355394339530708967, guid: 0ec970552f16a094793654aafdf8204c, type: 3}
   level4sprite: {fileID: -3133093825555450498, guid: 006b6f1957404c4409fed58de4b9002c, type: 3}
   mapImage: {fileID: 6515357741621890915}
+  descriptionText: {fileID: 5700404154580436381}
 --- !u!1 &1895923256480567217
 GameObject:
   m_ObjectHideFlags: 0

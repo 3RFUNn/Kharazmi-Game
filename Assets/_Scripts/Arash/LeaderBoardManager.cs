@@ -20,12 +20,11 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
         {
             SceneManager.LoadScene("Menu");
         });
-        globalButton.onClick.AddListener(GlobalButtonClickedAsync);
+        globalButton.onClick.AddListener(()=>GlobalButtonClickedAsync(false));
         classButton.onClick.AddListener(ClassButtonClickedAsync);
         profileButton.onClick.AddListener(ProfileButtonClicked);
         isGlobal = true;
-        await SendScores();
-        GlobalButtonClickedAsync();
+        GlobalButtonClickedAsync(true);
     }
 
     private void ProfileButtonClicked()
@@ -38,32 +37,22 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
     {
         if (isGlobal)
         {
+            Debug.Log("getting class leaderboard");
+            isGlobal = false;
             ClearLeaderBoard();
             await GetLocalLeaderboard();
         }
     }
 
-    private async void GlobalButtonClickedAsync()
+    private async void GlobalButtonClickedAsync(bool isForce)
     {
-        if (!isGlobal)
+        if (!isGlobal || isForce)
         {
+            Debug.Log("getting global leaderboard");
+            isGlobal=true;
             ClearLeaderBoard();
             await GetGloabalLeaderboard();
         }
-    }
-
-    async Task SendScores()
-    {
-        var difficulty = PlayerPrefs.GetInt(SettingsManager.DIFFICULTY_KEY, 1);
-        var res = await APIManager.Instance.SendGameData(null, (error) =>
-        {
-            //PopupController.Instance.ShowPopup("Connection Error","Error","Ok");
-        }
-        , difficulty
-        , PlayerPrefs.GetInt("Level1",0)
-        , PlayerPrefs.GetInt("Level2", 0)
-        , PlayerPrefs.GetInt("Level3", 0)
-        , PlayerPrefs.GetInt("Level4", 0));
     }
     async Task GetGloabalLeaderboard()
     {

@@ -35,12 +35,14 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
         PanelBackButton.onClick.AddListener(CloseRoadMap);
         DescrptionButton.onClick.AddListener(DescriptionButtonClicked);
         DescriptionBackButton.onClick.AddListener(DescriptionBackButtonClicked);
+        gameObject.SetActive(false);
     }
     public void OpenRoadMap(int openType=0,int level=0)
     {
         mapLevel = level;
         onPauseGame?.Invoke();
         RoadMapPanel.SetActive(true);
+        gameObject.SetActive(true);
         if (openType == 1)
         {
             MapButtonClicked();
@@ -54,6 +56,7 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
     {
         onResumeGame?.Invoke();
         RoadMapPanel.SetActive(false);
+        gameObject.SetActive(false);
     }
     private void DescriptionBackButtonClicked()
     {

@@ -14,7 +14,6 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] PlayerManager player;
     [SerializeField] GameObject GameObj;
     [SerializeField] GameObject SelectionPanel;
-    [SerializeField] GameObject CharacterSelection;
     [SerializeField] GameObject WordSelection;
     [SerializeField] List<Button> Buttons;
     [SerializeField] Button StartGameButton;
@@ -30,8 +29,7 @@ public class Level2Manager : MonoBehaviour
         player.joystick.gameObject.SetActive(false);
         GameObj.SetActive(false);
         SelectionPanel.SetActive(true);
-        CharacterSelection.SetActive(true);
-        WordSelection.SetActive(false);
+        WordSelection.SetActive(true);
         foreach (var b in Buttons)
         {
             b.onClick.RemoveAllListeners();
@@ -42,11 +40,6 @@ public class Level2Manager : MonoBehaviour
         }
         StartGameButton.onClick.RemoveAllListeners();
         StartGameButton.onClick.AddListener(()=>StartGame(key));
-    }
-    public void CharacterSelected(int index)
-    {
-        CharacterSelection.SetActive(false);
-        WordSelection.SetActive(true);
     }
     void SetKey(string key)
     {

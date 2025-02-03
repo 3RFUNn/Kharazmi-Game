@@ -186,7 +186,8 @@ public class PlayerManager : SingletonBehaviour<PlayerManager>
             Debug.LogError("GAME OVER");
             Debug.Log("Score is : " + score);
             PlayerPrefs.SetInt("Level2", score);
-            PlayerPrefs.SetInt("Level3", 0);
+            var kharazmi = score >= 10 ? 1 : 0;
+            PlayerPrefs.SetInt("Level2KH", kharazmi);
             if (!button)
             {
                 //Head.sprite = DatabaseHolder.Instance.LostHeadSprite;

@@ -33,8 +33,10 @@ public class LevelHandler : MonoBehaviour
     }
 
 
-    public void NextLevel()
+    public void NextLevel(int correct)
     {
+        PlayerPrefs.SetInt("Level3", correct);
+        PlayerPrefs.SetInt("Level3KH", correct);
         SceneManager.LoadScene("Score 3");
     }
 
@@ -59,18 +61,18 @@ public class LevelHandler : MonoBehaviour
     }
     
     
-    public void EndQuiz()
+    public void EndQuiz(int correct)
     {
         manager.IsQuizActive = false;
         quiz.SetActive(false);
-        NextLevel();
+        NextLevel(correct);
     }
     
-    public void EndQuiz_Time()
+    public void EndQuiz_Time(int correct)
     {
         manager.IsQuizActive = false;
         quiz.SetActive(false);
-        NextLevel();
+        NextLevel(correct);
     }
 
 

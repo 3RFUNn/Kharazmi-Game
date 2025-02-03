@@ -62,12 +62,6 @@ public class QuizManager : MonoBehaviour
         //StartQuiz();
         
     }
-
-    private void Update()
-    {
-        PlayerPrefs.SetInt("Level3",CorrectAnswer);
-    }
-
     public int AnswerIndex => answerIndex;
 
     public void StartQuiz()
@@ -75,7 +69,7 @@ public class QuizManager : MonoBehaviour
 
         currentLevel = 1;
         correctAnswer = 0;
-        timeRemaining = 120+PlayerPrefs.GetInt("Level1",0);
+        timeRemaining = 120+PlayerPrefs.GetInt("Level2",0)*10;
         isQuizActive = true;
         StartCoroutine(LoadNextQuestion());
         StartCoroutine(Timer());
@@ -222,7 +216,7 @@ public class QuizManager : MonoBehaviour
         {
 
             // End of quiz
-            handler.EndQuiz();
+            handler.EndQuiz(correctAnswer);
         }
         else
         {
@@ -246,7 +240,7 @@ public class QuizManager : MonoBehaviour
             if (timeRemaining <= 0)
             {
                 // Time's up
-                handler.EndQuiz_Time();
+                handler.EndQuiz_Time(CorrectAnswer);
             }
 
             yield return null;

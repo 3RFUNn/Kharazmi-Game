@@ -37,9 +37,10 @@ public class Level5Manager : SingletonBehaviour<Level5Manager>
         }
         if (cnt == Dataholder5.Instance.Levels.Length - 1)
         {
-            score += timerManager.currentTime / 50;
-            PlayerPrefs.SetInt("Level4", score);
-            SceneManager.LoadScene("Leaderboard");
+            PlayerPrefs.SetInt("Level5", score);
+            var kharazmi = score + (score>=2 ? timerManager.currentTime > 50 ? 1:0 : 0);
+            PlayerPrefs.SetInt("Level5KH", kharazmi);
+            SceneManager.LoadScene("Score 5");
             return;
         }
         else

@@ -62,6 +62,10 @@ public class APIManager : SingletonBehaviour<APIManager>
             class_name = className
         };
         var json = JsonUtility.ToJson(data);
+        OnSuccess += () =>
+        {
+            Login(null, null, username, password);
+        };
         return SendPostRequest(OnSuccess, OnFail, url, json);
     }
     [Serializable]
