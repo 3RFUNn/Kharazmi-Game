@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using RTLTMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -102,8 +102,15 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         var gameCount = JsonUtility.FromJson<GameCount>(res2);
         var ranks = JsonUtility.FromJson<Ranks>(res3);
         var difficulityScores = JsonUtility.FromJson<DifficulityScores>(res4);
+        profileManager.globalRank.text = ranks.global_rank.ToString();
+        profileManager.classRank.text = ranks.class_rank.ToString();
+        profileManager.points.text= difficulityScores.score_received.ToString();
+        profileManager.easyStat.Setup("آسان", difficulityScores.max_easy.ToString());
+        profileManager.mediumStat.Setup("متوسط", difficulityScores.max_medium.ToString());
+        profileManager.hardStat.Setup("سخت", difficulityScores.max_hard.ToString());
+        profileManager.difficultyPointsText.text = "ایول تا اینجا " + gameCount.games_count + " دست بازی کردی";
 
-        //TODO : Arash
+        //TODO HighScores figure KAMRAN
     }
 
     private void ProfileBackButtonClicked()

@@ -7,7 +7,9 @@ public class ProfileManager : SingletonBehaviour<ProfileManager>
     [SerializeField] public RTLTextMeshPro globalRank;
     [SerializeField] public RTLTextMeshPro points;
     [SerializeField] public RTLTextMeshPro difficultyPointsText;
-
+    [SerializeField] public StatObject easyStat;
+    [SerializeField] public StatObject mediumStat;
+    [SerializeField] public StatObject hardStat;
     [SerializeField] public RectTransform level1Rect;
     [SerializeField] public RectTransform level2Rect;
     [SerializeField] public RectTransform level3Rect;
