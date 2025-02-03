@@ -976,6 +976,8 @@ MonoBehaviour:
   leaderboardObject: {fileID: 8303894552109650813, guid: b0ecce8d86175ea4184c88f56af7841b, type: 3}
   leaderboardParent: {fileID: 1656809231}
   backBtn: {fileID: 661430899}
+  globalButton: {fileID: 1074589979}
+  classButton: {fileID: 242693709}
 --- !u!4 &1369621767
 Transform:
   m_ObjectHideFlags: 0
