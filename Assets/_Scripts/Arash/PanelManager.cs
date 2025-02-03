@@ -95,7 +95,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
             {
                 usernameCheckImage.gameObject.SetActive(true);
             }
-        },username, password, email, dropdown.value.ToString());
+        },username, password, email, "A");
     }
 
     private async void ConfirmLogin()

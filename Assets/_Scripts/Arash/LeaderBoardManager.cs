@@ -54,12 +54,13 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
 
     async Task SendScores()
     {
+        var difficulty = PlayerPrefs.GetInt(SettingsManager.DIFFICULTY_KEY, 1);
         var res = await APIManager.Instance.SendGameData(null, (error) =>
         {
             //PopupController.Instance.ShowPopup("Connection Error","Error","Ok");
         }
-        ,0
-        ,PlayerPrefs.GetInt("Level1",0)
+        , difficulty
+        , PlayerPrefs.GetInt("Level1",0)
         , PlayerPrefs.GetInt("Level2", 0)
         , PlayerPrefs.GetInt("Level3", 0)
         , PlayerPrefs.GetInt("Level4", 0));

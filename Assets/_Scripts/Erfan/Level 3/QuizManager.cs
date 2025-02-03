@@ -87,9 +87,9 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         List<Equation> equations;
 
+        var difficulty = PlayerPrefs.GetInt(SettingsManager.DIFFICULTY_KEY, 1);
 
-
-        switch (currentLevel)
+        switch (difficulty)
         {
             case 1:
                 equations = equationBank.easyEquations;

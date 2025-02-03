@@ -18,7 +18,7 @@ public class SettingsManager : MonoBehaviour
 
     private const string VOLUME_KEY = "Volume";
     private const string MUTE_KEY = "Mute";
-    private const string DIFFICULTY_KEY = "Difficulty";
+    public static string DIFFICULTY_KEY = "Difficulty";
 
     private void Start()
     {
