@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Scoreboard : MonoBehaviour
 {
     [SerializeField] RTLTextMeshPro scoreText;
-    [SerializeField] RTLTextMeshPro percentage;
+    //[SerializeField] RTLTextMeshPro percentage;
     [SerializeField] Image fillSprite;
     [SerializeField] int level;
     [SerializeField] string nextLevelName;
@@ -24,6 +24,6 @@ public class Scoreboard : MonoBehaviour
             _ => 10,
         };
         fillSprite.fillAmount = (float)score / maxScore;
-        percentage.text = ((score*100)/maxScore).ToString() + " %";
+        //percentage.text = ((score*100)/maxScore).ToString() + " %";
     }
 }
