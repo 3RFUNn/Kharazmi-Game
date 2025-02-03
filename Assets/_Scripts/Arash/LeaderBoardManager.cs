@@ -54,7 +54,7 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
 
     async Task SendScores()
     {
-        var res = await APIManager.Instance.SendGameData(null, () =>
+        var res = await APIManager.Instance.SendGameData(null, (error) =>
         {
             //PopupController.Instance.ShowPopup("Connection Error","Error","Ok");
         }

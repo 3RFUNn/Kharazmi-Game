@@ -51,7 +51,7 @@ public class APIManager : SingletonBehaviour<APIManager>
         Debug.Log(loginResponse);
     }
 #endif
-    public Task<string> SignUp(Action OnSuccess, Action OnFail, string username, string password, string email, string className)
+    public Task<string> SignUp(Action OnSuccess, Action<string> OnFail, string username, string password, string email, string className)
     {
         string url = baseUrl + "/signup";
         var data = new SignUpRequest
@@ -70,7 +70,7 @@ public class APIManager : SingletonBehaviour<APIManager>
         public string token;
         public string msg;
     }
-    public async Task<string> Login(Action OnSuccess, Action OnFail, string username, string password)
+    public async Task<string> Login(Action OnSuccess, Action<string> OnFail, string username, string password)
     {
         string url = baseUrl + "/login";
         var data = new LoginRequest { username = username, password = password };
@@ -99,7 +99,7 @@ public class APIManager : SingletonBehaviour<APIManager>
         return "Login failed!";
     }
 
-    public Task<string> SendGameData(Action OnSuccess, Action OnFail, int gameLevel, int level1, int level2, int level3, int level4)
+    public Task<string> SendGameData(Action OnSuccess, Action<string> OnFail, int gameLevel, int level1, int level2, int level3, int level4)
     {
         string url = baseUrl + "/game";
         var data = new GameRequest
@@ -175,7 +175,7 @@ public class APIManager : SingletonBehaviour<APIManager>
         };
         return SendGetRequest(OnSuccess, OnFail, url, dic);
     }
-    private Task<string> SendPostRequest(Action OnSuccess, Action OnFail, string url, string jsonData, Dictionary<string, string> header = null)
+    private Task<string> SendPostRequest(Action OnSuccess, Action<string> OnFail, string url, string jsonData, Dictionary<string, string> header = null)
     {
         var tcs = new TaskCompletionSource<string>();
         Debug.Log(jsonData);
@@ -188,7 +188,7 @@ public class APIManager : SingletonBehaviour<APIManager>
         StartCoroutine(SendGetRequestCoroutine(OnSuccess, OnFail, url, tcs, header));
         return tcs.Task;
     }
-    private IEnumerator SendPostRequestCoroutine(Action OnSuccess, Action OnFail,string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
+    private IEnumerator SendPostRequestCoroutine(Action OnSuccess, Action<string> OnFail,string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
     {
         using UnityWebRequest request = new UnityWebRequest(url, "POST");
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -220,7 +220,6 @@ public class APIManager : SingletonBehaviour<APIManager>
         }
         else
         {
-            OnFail?.Invoke();
             string tmp = "-";
             if (request.downloadHandler!=null)
             {
@@ -229,6 +228,7 @@ public class APIManager : SingletonBehaviour<APIManager>
             var response = $"Error: {request.responseCode} - {tmp}";
             Debug.Log(response);
             tcs.SetResult(response);
+            OnFail?.Invoke(response);
         }
     }
     private IEnumerator SendGetRequestCoroutine(Action OnSuccess, Action OnFail, string url, TaskCompletionSource<string> tcs, Dictionary<string, string> headers)

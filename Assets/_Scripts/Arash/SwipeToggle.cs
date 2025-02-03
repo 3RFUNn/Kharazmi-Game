@@ -92,9 +92,5 @@ public class SwipeToggle : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             : !toggle.isOn;
 
         toggle.isOn = newValue;
-        if (Application.isMobilePlatform)
-        {
-            Handheld.Vibrate();
-        }
     }
 }

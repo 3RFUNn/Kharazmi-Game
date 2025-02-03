@@ -52,14 +52,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         SignUpConfirmButton.onClick.AddListener(ConfirmSignUp);
         LoginConfirmButton.onClick.AddListener(ConfirmLogin);
         SignUpPasswordField.onValueChanged.AddListener(CheckPassword);
-        SignUpUsernameField.onValueChanged.AddListener(CheckUsername);
         CheckLogin();
-    }
-
-    private void CheckUsername(string arg0)
-    {
-        //check whether username is formatted correctly
-        usernameCheckImage.gameObject.SetActive(true);
     }
 
     private void CheckPassword(string arg0)
@@ -77,7 +70,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
         var result = await APIManager.Instance.Login(() => {
             SceneManager.LoadScene("Menu");
-        }, () =>
+        }, (error) =>
         {
             Debug.LogError("Failed To Use Previous Login");
         }, username, password);
@@ -94,11 +87,15 @@ public class PanelManager : SingletonBehaviour<PanelManager>
             PlayerPrefs.SetString("username", username);
             PlayerPrefs.SetString("password", password);
             SceneManager.LoadScene("Menu");
-        }, () =>
+        }, (error) =>
         {
             SignUpConfirmButton.interactable = true;
             Debug.LogError("Failed To Login");
-        },username, password, email, "A");
+            if (error.Contains("Username already exists!"))
+            {
+                usernameCheckImage.gameObject.SetActive(true);
+            }
+        },username, password, email, dropdown.value.ToString());
     }
 
     private async void ConfirmLogin()
@@ -108,7 +105,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
         var result = await APIManager.Instance.Login(() => {
             SceneManager.LoadScene("Menu");
-        }, () =>
+        }, (error) =>
         {
             Debug.LogError("Failed To Login");
         },username, password);
