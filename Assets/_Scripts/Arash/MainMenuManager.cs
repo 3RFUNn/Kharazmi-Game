@@ -6,6 +6,37 @@ using UnityEngine.UI;
 
 public class MainMenuManager : SingletonBehaviour<MainMenuManager>
 {
+    [System.Serializable]
+    public class HighScores
+    {
+        public int max_level1;
+        public int max_level2;
+        public int max_level3;
+        public int max_level4;
+        public string msg;
+    }
+    [System.Serializable]
+    public class Ranks
+    {
+        public int class_rank;
+        public int global_rank;
+        public string msg;
+    }
+    [System.Serializable]
+    public class DifficulityScores
+    {
+        public int max_easy;
+        public int max_medium;
+        public int max_hard;
+        public int score_received;
+        public string msg;
+    }
+    [System.Serializable]
+    public class GameCount
+    {
+        public int games_count;
+        public string msg;
+    }
     [SerializeField] GameObject MenuPanel;
     [SerializeField] GameObject TutorialPanel;
     [SerializeField] GameObject SettingsPanel;
@@ -30,6 +61,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     [SerializeField] Button ProfileBackButton;
     [SerializeField] ScrollRect ProfileScroll;
     [SerializeField] Image tutorialImage;
+    [SerializeField] ProfileManager profileManager;
     void Start()
     {
         
@@ -53,7 +85,25 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         ProfileBackButton.onClick.AddListener(ProfileBackButtonClicked);
         //TODO Other Button Interactions
         StartButton.onClick.AddListener(StartGameClicked);
+        GetHighScores();
+    }
 
+    private async void GetHighScores()
+    {
+        var res=await APIManager.Instance.GetHighScores(null,null);
+        var hs = JsonUtility.FromJson<HighScores>(res);
+        profileManager.SetSize(1, hs.max_level1 * 10);
+        profileManager.SetSize(2, hs.max_level2 * 100 / 3);
+        profileManager.SetSize(3, hs.max_level3 * 10);
+        profileManager.SetSize(4, hs.max_level4 * 50);
+        var res2= await APIManager.Instance.GetGameCount(null,null);
+        var res4 = await APIManager.Instance.GetMaxDifficulityScores(null, null);
+        var res3 = await APIManager.Instance.GetRanks(null, null);
+        var gameCount = JsonUtility.FromJson<GameCount>(res2);
+        var ranks = JsonUtility.FromJson<Ranks>(res3);
+        var difficulityScores = JsonUtility.FromJson<DifficulityScores>(res4);
+
+        //TODO : Arash
     }
 
     private void ProfileBackButtonClicked()

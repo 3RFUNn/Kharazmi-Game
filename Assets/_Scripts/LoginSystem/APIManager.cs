@@ -131,6 +131,50 @@ public class APIManager : SingletonBehaviour<APIManager>
         };
         return SendGetRequest(OnSuccess, OnFail, url,dic);
     }
+    public Task<string> GetHighScores(Action OnSuccess, Action OnFail)
+    {
+        string url = baseUrl + "/max-game-levels";
+        Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendGetRequest(OnSuccess, OnFail, url, dic);
+    }
+    public Task<string> GetGameCount(Action OnSuccess, Action OnFail)
+    {
+        string url = baseUrl + "/games-count";
+        Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendGetRequest(OnSuccess, OnFail, url, dic);
+    }
+    public Task<string> GetMaxDifficulityScores(Action OnSuccess, Action OnFail)
+    {
+        string url = baseUrl + "/score-received";
+        Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendGetRequest(OnSuccess, OnFail, url, dic);
+    }
+    public Task<string> GetRanks(Action OnSuccess, Action OnFail)
+    {
+        string url = baseUrl + "/get-ranks";
+        Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendGetRequest(OnSuccess, OnFail, url, dic);
+    }
     private Task<string> SendPostRequest(Action OnSuccess, Action OnFail, string url, string jsonData, Dictionary<string, string> header = null)
     {
         var tcs = new TaskCompletionSource<string>();
