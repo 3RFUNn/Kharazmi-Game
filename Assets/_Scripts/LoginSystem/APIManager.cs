@@ -39,6 +39,8 @@ public class APIManager : SingletonBehaviour<APIManager>
     private void Start()
     {
         JwtToken = PlayerPrefs.GetString("jwt_token", "nothing");
+        Debug.Log("jwt token : ");
+        Debug.Log(JwtToken);
         DontDestroyOnLoad(gameObject);
     }
 #if UNITY_EDITOR
@@ -84,6 +86,8 @@ public class APIManager : SingletonBehaviour<APIManager>
                     JwtToken = response.token;
                     PlayerPrefs.SetString("jwt_token", JwtToken);
                     PlayerPrefs.Save();
+                    Debug.Log("jwt token : ");
+                    Debug.Log(JwtToken);
                 }
                 return response.msg;
             }
@@ -107,9 +111,26 @@ public class APIManager : SingletonBehaviour<APIManager>
             level4_score = level4
         };
         var json = JsonUtility.ToJson(data);
-        return SendPostRequest(OnSuccess, OnFail, url, json);
+        Dictionary<string, string> dic = new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendPostRequest(OnSuccess, OnFail, url, json,dic);
     }
 
+    public Task<string> GetLeaderboard(Action OnSuccess, Action OnFail)
+    {
+        string url = baseUrl + "/leaderboard";
+        Dictionary<string,string> dic= new Dictionary<string, string>()
+        {
+            {
+                "Authorization","Bearer "+JwtToken
+            }
+        };
+        return SendGetRequest(OnSuccess, OnFail, url,dic);
+    }
     private Task<string> SendPostRequest(Action OnSuccess, Action OnFail, string url, string jsonData, Dictionary<string, string> header = null)
     {
         var tcs = new TaskCompletionSource<string>();
@@ -117,9 +138,16 @@ public class APIManager : SingletonBehaviour<APIManager>
         StartCoroutine(SendPostRequestCoroutine(OnSuccess, OnFail, url, jsonData, tcs, header));
         return tcs.Task;
     }
+    private Task<string> SendGetRequest(Action OnSuccess, Action OnFail, string url, Dictionary<string, string> header = null)
+    {
+        var tcs = new TaskCompletionSource<string>();
+        StartCoroutine(SendGetRequestCoroutine(OnSuccess, OnFail, url, tcs, header));
+        return tcs.Task;
+    }
     private IEnumerator SendPostRequestCoroutine(Action OnSuccess, Action OnFail,string url, string jsonData, TaskCompletionSource<string> tcs, Dictionary<string,string> headers)
     {
         using UnityWebRequest request = new UnityWebRequest(url, "POST");
+        request.downloadHandler = new DownloadHandlerBuffer();
         // Only attach a body if jsonData is provided
         if (!string.IsNullOrEmpty(jsonData))
         {
@@ -156,7 +184,43 @@ public class APIManager : SingletonBehaviour<APIManager>
             }
             var response = $"Error: {request.responseCode} - {tmp}";
             Debug.Log(response);
-            tcs.SetResult(null);
+            tcs.SetResult(response);
+        }
+    }
+    private IEnumerator SendGetRequestCoroutine(Action OnSuccess, Action OnFail, string url, TaskCompletionSource<string> tcs, Dictionary<string, string> headers)
+    {
+        using UnityWebRequest request = new UnityWebRequest(url, "Get");
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        // Add custom headers if provided
+        if (headers != null)
+        {
+            foreach (var header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value);
+            }
+        }
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            OnSuccess?.Invoke();
+            if (request.downloadHandler != null)
+            {
+                tcs.SetResult(request.downloadHandler.text);
+            }
+        }
+        else
+        {
+            OnFail?.Invoke();
+            string tmp = "-";
+            if (request.downloadHandler != null)
+            {
+                tmp = request.downloadHandler.text;
+            }
+            var response = $"Error: {request.responseCode} - {tmp}";
+            Debug.Log(response);
+            tcs.SetResult(response);
         }
     }
 }

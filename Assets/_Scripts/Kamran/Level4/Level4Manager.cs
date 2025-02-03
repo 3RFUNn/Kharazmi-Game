@@ -19,6 +19,7 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     [SerializeField] RTLTextMeshPro EquationSuffixText;
     [SerializeField] SolvedEquationManager solvedEquationPrefab;
     [SerializeField] Transform solvedEquationParent;
+    [SerializeField] GameObject initPanel;
     public int EquationKeyNumber;
     public int EquationSufNumber;
     int totalSumKey;
@@ -27,6 +28,10 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     bool isFirstEq;
     void Start()
     {
+    }
+    public void Init()
+    {
+        initPanel.SetActive(false);
         isFirstEq = true;
         score = 0;
         totalSumKey = 0;

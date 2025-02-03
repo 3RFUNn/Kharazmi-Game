@@ -66,7 +66,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     private async void ConfirmSignUp()
     {
         var username = SignUpUsernameText.text;
-        var password = SignUpPasswordText.text;
+        var password = SignUpPasswordField.text;
         var email = SignUpEmailText.text;
         if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
         SignUpConfirmButton.interactable = false;
@@ -84,7 +84,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     private async void ConfirmLogin()
     {
         var username = LoginUsernameText.text;
-        var password = LoginPasswordText.text;
+        var password = LoginPasswordField.text;
         if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
         var result = await APIManager.Instance.Login(() => {
             SceneManager.LoadScene("Menu");

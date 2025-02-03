@@ -24,6 +24,6 @@ public class Scoreboard : MonoBehaviour
             _ => 10,
         };
         fillSprite.fillAmount = (float)score / maxScore;
-        percentage.text = (((float)score * 100f)/(float)maxScore).ToString() + "%";
+        percentage.text = ((score*100)/maxScore).ToString() + " %";
     }
 }
