@@ -75,7 +75,7 @@ public class QuizManager : MonoBehaviour
 
         currentLevel = 1;
         correctAnswer = 0;
-        timeRemaining = 80f;
+        timeRemaining = 120+PlayerPrefs.GetInt("Level1",0);
         isQuizActive = true;
         StartCoroutine(LoadNextQuestion());
         StartCoroutine(Timer());

@@ -38,6 +38,7 @@ public class Level5Manager : SingletonBehaviour<Level5Manager>
         }
         if (cnt == Dataholder5.Instance.Levels.Length - 1)
         {
+            score += timerManager.currentTime / 50;
             PlayerPrefs.SetInt("Level4", score);
             SceneManager.LoadScene("Leaderboard");
             return;

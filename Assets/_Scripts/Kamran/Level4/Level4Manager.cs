@@ -43,18 +43,14 @@ public class Level4Manager : SingletonBehaviour<Level4Manager>
     }
     void SetTime()
     {
-        int time = 0;
+        int time = 120;
         if (PlayerPrefs.HasKey("Level2"))
         {
-            time += PlayerPrefs.GetInt("Level2") * 5;
+            time += PlayerPrefs.GetInt("Level2") * 10;
         }
         if (PlayerPrefs.HasKey("Level3"))
         {
-            time += PlayerPrefs.GetInt("Level3") * 10;
-        }
-        if (time == 0)
-        {
-            time = 60;
+            time += PlayerPrefs.GetInt("Level3") * 20;
         }
         timerManager.Init(time);
         timerManager.OnTimerUp += GameOver;
