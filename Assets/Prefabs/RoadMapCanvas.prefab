@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6402440738601073482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -481,6 +481,12 @@ MonoBehaviour:
   MapBackButton: {fileID: 8143786070057475800}
   PanelBackButton: {fileID: 1131277665253294146}
   DescriptionBackButton: {fileID: 322234757423704586}
+  level0sprite: {fileID: 7581177541846638184, guid: f2f8991f1fcbe2946981444c161b9149, type: 3}
+  level1sprite: {fileID: -6790824776949950136, guid: d897e0538814cbb4dac0487ce2471254, type: 3}
+  level2sprite: {fileID: -2484624266621198339, guid: eb7b03539b8512240978aaeae4f9ae2c, type: 3}
+  level3sprite: {fileID: -6355394339530708967, guid: 0ec970552f16a094793654aafdf8204c, type: 3}
+  level4sprite: {fileID: -3133093825555450498, guid: 006b6f1957404c4409fed58de4b9002c, type: 3}
+  mapImage: {fileID: 6515357741621890915}
 --- !u!1 &1895923256480567217
 GameObject:
   m_ObjectHideFlags: 0

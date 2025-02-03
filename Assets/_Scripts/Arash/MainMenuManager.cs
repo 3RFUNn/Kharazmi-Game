@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using RTLTMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -102,8 +102,15 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         var gameCount = JsonUtility.FromJson<GameCount>(res2);
         var ranks = JsonUtility.FromJson<Ranks>(res3);
         var difficulityScores = JsonUtility.FromJson<DifficulityScores>(res4);
+        profileManager.globalRank.text = ranks.global_rank.ToString();
+        profileManager.classRank.text = ranks.class_rank.ToString();
+        profileManager.points.text= difficulityScores.score_received.ToString();
+        profileManager.easyStat.Setup("آسان", difficulityScores.max_easy.ToString());
+        profileManager.mediumStat.Setup("متوسط", difficulityScores.max_medium.ToString());
+        profileManager.hardStat.Setup("سخت", difficulityScores.max_hard.ToString());
+        profileManager.difficultyPointsText.text = "ایول تا اینجا " + gameCount.games_count + " دست بازی کردی";
 
-        //TODO : Arash
+        //TODO HighScores figure KAMRAN
     }
 
     private void ProfileBackButtonClicked()
@@ -152,7 +159,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         TutorialButtonParent.SetActive(false);
         tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
-        TutorialText.text = "";
+        TutorialText.text = "مرحله‌ی سوم: بارش عبارت‌های جبری\r\nآسمان ریاضیات به روی تو باز شده و عبارت‌های جبری مثل بارون میبارن! تو باید با دقت قطرات بارون رو جمع‌آوری کنی و با چیدنشون کنار هم، عبارت‌ جبری خواسته شده رو بسازی. هر عبارت درستی که بسازی، یک نشان خوارزمی می گیری. حواست باشه که باید سریع عمل کنی، چون قطرات بارون به سرعت ناپدید میشن!\r\n";
     }
 
     private void Level2TutorialButtonClicked()
@@ -160,7 +167,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         TutorialButtonParent.SetActive(false);
         tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
-        TutorialText.text = "";
+        TutorialText.text = "مرحله‌ی دوم: نبرد با معادلات\r\nحالا نوبت به حل کردن معادلات جبری رسیده! با حل هر معادله، زمان بیشتری به دست میاری تا در مرحله‌ی بعدی ازش استفاده کنی. هر چه سریع‌تر و دقیق‌تر معادلات رو حل کنی، امتیاز بیشتری کسب می‌کنی. (به ازای هر جواب درست ۱۰ ثانیه دریافت میکنی)";
     }
 
     private void Level1TutorialButtonClicked()
@@ -168,7 +175,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         TutorialButtonParent.SetActive(false);
         tutorialImage.gameObject.SetActive(false);
         TutorialArea.SetActive(true);
-        TutorialText.text = "";
+        TutorialText.text = "مرحله‌ی اول: شکار عبارت های جبری مار\r\nدر این مرحله، یک مار شیطون دنبال عبارت‌های جبری متشابه میگرده که بخوره! تو باید هدایتش کنی تا بیشترین عبارت جبری رو بخوره. هر عبارت جبری که مار بخوره، این بازی زمان بیشتری برای حل مساله های بعدی بهت میده. (به ازای هر عبارت متشابه درست ۵ ثانیه دریافت میکنی)";
     }
 
     private void TutorialBackButtonClicked()
