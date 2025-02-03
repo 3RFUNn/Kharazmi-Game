@@ -23,8 +23,9 @@ public class LeaderBoardManager : SingletonBehaviour<LeaderBoardManager>
         globalButton.onClick.AddListener(GlobalButtonClickedAsync);
         classButton.onClick.AddListener(ClassButtonClickedAsync);
         profileButton.onClick.AddListener(ProfileButtonClicked);
-        await GetGloabalLeaderboard();
         isGlobal = true;
+        await SendScores();
+        GlobalButtonClickedAsync();
     }
 
     private void ProfileButtonClicked()
