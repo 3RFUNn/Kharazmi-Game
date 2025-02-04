@@ -3264,8 +3264,8 @@ MonoBehaviour:
   spawnPaddingFromBot: -1
   spawnPaddingFromEdge: 0.5
   spawnPaddingFromOthers: 1
-  minDelay: 2
-  maxDelay: 3
+  minDelay: 1
+  maxDelay: 2.5
 --- !u!114 &1461510203
 MonoBehaviour:
   m_ObjectHideFlags: 0

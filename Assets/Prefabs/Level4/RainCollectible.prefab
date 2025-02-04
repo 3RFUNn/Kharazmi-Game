@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c92e687f3cc4241aed8ff0fff04d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
   keyText: {fileID: 6326289549680913458}
   shape: {fileID: 4835283224471744016}
 --- !u!58 &3214476158123333928
