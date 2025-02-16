@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6402440738601073482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -476,6 +476,7 @@ MonoBehaviour:
   MapPanel: {fileID: 4775462974994732205}
   RoadMapPanel: {fileID: 6325563941700726194}
   DescriptionPanel: {fileID: 546980011314991108}
+  TutorialPanel: {fileID: 0}
   MapButton: {fileID: 3912256198208291192}
   DescrptionButton: {fileID: 8895499520997799441}
   MapBackButton: {fileID: 8143786070057475800}
@@ -488,6 +489,15 @@ MonoBehaviour:
   level4sprite: {fileID: -3133093825555450498, guid: 006b6f1957404c4409fed58de4b9002c, type: 3}
   mapImage: {fileID: 6515357741621890915}
   descriptionText: {fileID: 5700404154580436381}
+  TutorialButtonParent: {fileID: 0}
+  tutorialImage: {fileID: 0}
+  TutorialArea: {fileID: 0}
+  TutorialText: {fileID: 0}
+  Level1TutorialButton: {fileID: 0}
+  Level2TutorialButton: {fileID: 0}
+  Level3TutorialButton: {fileID: 0}
+  Level4TutorialButton: {fileID: 0}
+  TutorialBackButton: {fileID: 0}
 --- !u!1 &1895923256480567217
 GameObject:
   m_ObjectHideFlags: 0
