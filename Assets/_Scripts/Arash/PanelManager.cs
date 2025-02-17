@@ -35,7 +35,8 @@ public class PanelManager : SingletonBehaviour<PanelManager>
     [SerializeField] Image usernameCheckImage;
     [SerializeField] Image passwordCheckImage;
 
-    [SerializeField] TMP_InputField ClassNameInputField;
+
+    private string classnametext;
     void Start()
     {
         StartPanel.gameObject.SetActive(true);
@@ -81,7 +82,7 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         var username = SignUpUsernameText.text;
         var password = SignUpPasswordField.text;
         var email = SignUpEmailText.text;
-        var className = ClassNameInputField.text;
+        var className = classnametext;
         if (username.Equals(string.Empty) || password.Equals(string.Empty)) return;
         SignUpConfirmButton.interactable = false;
         var result = await APIManager.Instance.SignUp(()=> {
@@ -155,10 +156,23 @@ public class PanelManager : SingletonBehaviour<PanelManager>
         SignUpPasswordField.contentType=TMP_InputField.ContentType.Password;
         SignUpPasswordField.ForceLabelUpdate();
         SignUpPanel.SetActive(true);
-        dropdown.captionText.text = "نام کلاس";
-        //label.text="نام کلاس";
+        SetLabel("نام کلاس");
     }
-
+    public void DropDownValueChanged(string value)
+    {
+        classnametext = value;
+        SetLabel(classnametext);
+        dropdown.Hide();
+        
+    }
+    void SetLabel(string label)
+    {
+        
+        if (Label != null)
+        {
+            Label.text = label; 
+        }
+    }
     private void LoginButtonClicked()
     {
         LoginAndSignUpPanel.SetActive(false);
