@@ -39,7 +39,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
     }
     [SerializeField] GameObject MenuPanel;
     [SerializeField] GameObject TutorialPanel;
-    [SerializeField] GameObject SettingsPanel;
+    [SerializeField] SettingsManager SettingsPanel;
     [SerializeField] GameObject TutorialArea;
     [SerializeField] GameObject TutorialButtonParent;
     [SerializeField] GameObject ProfilePanel;
@@ -87,6 +87,7 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
         //TODO Other Button Interactions
         StartButton.onClick.AddListener(StartGameClicked);
         GetHighScores();
+        SettingsPanel.LoadSettings();
     }
 
     private async void GetHighScores()
@@ -136,13 +137,13 @@ public class MainMenuManager : SingletonBehaviour<MainMenuManager>
 
     private void SettingsBackButtonClicked()
     {
-        SettingsPanel.SetActive(false);
+        SettingsPanel.gameObject.SetActive(false);
         MenuPanel.SetActive(true);
     }
 
     private void SettingsButtonClicked()
     {
-        SettingsPanel.SetActive(true);
+        SettingsPanel.gameObject.SetActive(true);
         MenuPanel.SetActive(false);
     }
 

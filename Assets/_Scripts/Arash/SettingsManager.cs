@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : SingletonBehaviour<SettingsManager>
 {
     [Header("UI References")]
     [SerializeField] private Slider volumeSlider;
@@ -31,7 +31,7 @@ public class SettingsManager : MonoBehaviour
         hardToggle.onValueChanged.AddListener((isOn) => OnDifficultyChanged(3, isOn));
     }
 
-    private void LoadSettings()
+    public void LoadSettings()
     {
         float savedVolume = PlayerPrefs.GetFloat(VOLUME_KEY, defaultVolume);
         volumeSlider.value = savedVolume;

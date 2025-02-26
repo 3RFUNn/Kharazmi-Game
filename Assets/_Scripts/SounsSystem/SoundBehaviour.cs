@@ -51,7 +51,7 @@ namespace SFXSystem.core
 
             var s = availableSources[0]; 
             data.SetData(s);
-            s.PlayOneShot(s.clip, data.volume / 100 /** Preferences.Instance.SoundMultiplier*/);
+            s.PlayOneShot(s.clip, data.volume / 100);
             availableSources.Remove(s);
             workingSources.Add(new PlayingAudio() { source = s, timer = s.clip.length });
         }

@@ -15004,7 +15004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuPanel: {fileID: 316639409}
   TutorialPanel: {fileID: 154356054}
-  SettingsPanel: {fileID: 499778495}
+  SettingsPanel: {fileID: 499778497}
   TutorialArea: {fileID: 1963137290}
   TutorialButtonParent: {fileID: 1531451366}
   ProfilePanel: {fileID: 399482493}
