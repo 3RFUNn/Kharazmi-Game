@@ -14,11 +14,15 @@ public class TimerManager : MonoBehaviour
     {
         RoadMapManager.Instance.onPauseGame += PauseTimer;  
         RoadMapManager.Instance.onResumeGame += ResumeTimer;
+        TutorialManager.Instance.onPauseGame += PauseTimer;
+        TutorialManager.Instance.onResumeGame += ResumeTimer;
     }
     private void OnDisable()
     {
         RoadMapManager.Instance.onPauseGame -= PauseTimer;
         RoadMapManager.Instance.onResumeGame -= ResumeTimer;
+        TutorialManager.Instance.onPauseGame -= PauseTimer;
+        TutorialManager.Instance.onResumeGame -= ResumeTimer;
     }
 
     private void ResumeTimer()

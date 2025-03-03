@@ -105,14 +105,7 @@ public class RoadMapManager : SingletonBehaviour<RoadMapManager>
         onPauseGame?.Invoke();
         RoadMapPanel.SetActive(true);
         gameObject.SetActive(true);
-        if (openType == 1)
-        {
-            MapButtonClicked();
-        }
-        if (openType == 2)
-        {
-            DescriptionButtonClicked();
-        }
+        MapButtonClicked();
     }
     public void CloseRoadMap()
     {
